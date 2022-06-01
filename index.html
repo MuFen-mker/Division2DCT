@@ -11,14 +11,14 @@
 </head>
 
 <body>
-  <h1>全境封锁2伤害计算器</h1>
-  <div>
+  <h1 class="title">全境封锁2伤害计算器</h1>
+  <div class="all">
     <div id="root">
       <input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /><br /><br />
       <input v-model="RedCore" type="text" name="RedCore" placeholder="红核数量" /><br /><br />
       <input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /><br /><br />
     </div>
-    <div id="WeaponTalent">
+    <div id="WeaponTalent" class="WeaponTalent">
       <h2>武器天赋</h2>
       <div>
         <input @click="ChBoomerang" type="checkbox">
@@ -31,7 +31,7 @@
       <div>
         <input @click="ChFightHandToHandWith" type="checkbox">
         <span>短兵相接</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChGoBlind" type="checkbox">
         <span>失明</span>
@@ -43,15 +43,15 @@
       <div>
         <input @click="ChLight" type="checkbox">
         <span>点燃</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChPCFirst" type="checkbox">
         <span>精密计算:前半段</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChPCLast" type="checkbox">
         <span>精密计算:后半段</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChNaked" type="checkbox">
         <span>赤身裸体</span>
@@ -63,7 +63,7 @@
       <div>
         <input @click="ChTTM" type="checkbox">
         <span>排山倒海</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChFistToMeat" type="checkbox">
         <span>拳拳到肉</span>
@@ -75,7 +75,7 @@
       <div>
         <input @click="ChRanger" type="checkbox">
         <span>游骑兵</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChRifleman" type="checkbox">
         <span>步枪手</span>
@@ -87,7 +87,7 @@
       <div>
         <input @click="ChInsanity" type="checkbox">
         <span>精神错乱</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChAsystole" type="checkbox">
         <span>停搏</span>
@@ -106,7 +106,7 @@
       <div>
         <input @click="ChGlassCannon" type="checkbox">
         <span>玻璃大炮</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChGunslinger" type="checkbox">
         <span>枪神</span>
@@ -118,7 +118,7 @@
       <div>
         <input @click="ChOF" type="checkbox">
         <span>抹灭性破坏</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChShelterCover" type="checkbox">
         <span>掩体掩护</span>
@@ -130,7 +130,7 @@
       <div>
         <input @click="ChHeadHunter" type="checkbox">
         <span>猎头者</span>
-      </div>
+      </div><br>
       <div>
         <input @click="ChScout" type="checkbox">
         <span>探子</span>
