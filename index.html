@@ -11,14 +11,15 @@
 </head>
 
 <body>
-  <h1 class="title">全境封锁2伤害计算器</h1>
-  <div class="all">
-    <div id="root" class="first">
+  <h1>全境封锁2伤害计算器</h1>
+  <div>
+    <div id="root">
       <input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /><br /><br />
       <input v-model="RedCore" type="text" name="RedCore" placeholder="红核数量" /><br /><br />
       <input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /><br /><br />
     </div>
-    <div id="WeaponTalent" class="WeaponTalent">
+    <div id="Checkbox">
+    <div>
       <h2>武器天赋</h2>
       <div>
         <input @click="ChBoomerang" type="checkbox">
@@ -31,7 +32,7 @@
       <div>
         <input @click="ChFightHandToHandWith" type="checkbox">
         <span>短兵相接</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChGoBlind" type="checkbox">
         <span>失明</span>
@@ -43,15 +44,15 @@
       <div>
         <input @click="ChLight" type="checkbox">
         <span>点燃</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChPCFirst" type="checkbox">
         <span>精密计算:前半段</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChPCLast" type="checkbox">
         <span>精密计算:后半段</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChNaked" type="checkbox">
         <span>赤身裸体</span>
@@ -63,7 +64,7 @@
       <div>
         <input @click="ChTTM" type="checkbox">
         <span>排山倒海</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChFistToMeat" type="checkbox">
         <span>拳拳到肉</span>
@@ -75,7 +76,7 @@
       <div>
         <input @click="ChRanger" type="checkbox">
         <span>游骑兵</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChRifleman" type="checkbox">
         <span>步枪手</span>
@@ -87,13 +88,13 @@
       <div>
         <input @click="ChInsanity" type="checkbox">
         <span>精神错乱</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChAsystole" type="checkbox">
         <span>停搏</span>
       </div>
     </div>
-    <div id="BreastplateTalent">
+    <div>
       <h2>胸甲天赋</h2>
       <div>
         <input @click="ChFeelTheSame" type="checkbox">
@@ -106,7 +107,7 @@
       <div>
         <input @click="ChGlassCannon" type="checkbox">
         <span>玻璃大炮</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChGunslinger" type="checkbox">
         <span>枪神</span>
@@ -118,7 +119,7 @@
       <div>
         <input @click="ChOF" type="checkbox">
         <span>抹灭性破坏</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChShelterCover" type="checkbox">
         <span>掩体掩护</span>
@@ -130,12 +131,148 @@
       <div>
         <input @click="ChHeadHunter" type="checkbox">
         <span>猎头者</span>
-      </div><br>
+      </div>
       <div>
         <input @click="ChScout" type="checkbox">
         <span>探子</span>
       </div>
     </div>
+    <div>
+      <h2>背包天赋</h2>
+      <div>
+        <input @click="ChCompanion" type="checkbox">
+        <span>同伴</span>
+      </div>
+      <div>
+        <input @click="ChComposure" type="checkbox">
+        <span>泰然自若</span>
+      </div>
+      <div>
+        <input @click="ChConcussion" type="checkbox">
+        <span>震荡</span>
+      </div>
+      <div>
+        <input @click="ChOpportunistic" type="checkbox">
+        <span>投机取巧</span>
+      </div>
+      <div>
+        <input @click="ChUnstoppableForce" type="checkbox">
+        <span>无人能挡的力量</span>
+      </div>
+      <div>
+        <input @click="ChVersatile" type="checkbox">
+        <span>多才多艺</span>
+      </div>
+      <div>
+        <input @click="ChVigilance" type="checkbox">
+        <span>警戒</span>
+      </div>
+      <div>
+        <input @click="ChWicked" type="checkbox">
+        <span>恶人</span>
+      </div>
+    </div>
+    <div>
+      <h2>奇特天赋</h2>
+      <div>
+        <input @click="ChSawyersKneepads" type="checkbox">
+        <span>索耶的护膝</span>
+      </div>
+      <div>
+        <input @click="ChDodgeCityHolster" type="checkbox">
+        <span>道奇城枪手枪套</span>
+      </div>
+      <div>
+        <input @click="ChBigHorn" type="checkbox">
+        <span>大角</span>
+      </div>
+      <div>
+        <input @click="ChChameleon" type="checkbox">
+        <span>变色龙</span>
+      </div>
+      <div>
+        <input @click="ChLadyDeath" type="checkbox">
+        <span>死亡女神</span>
+      </div>
+      <div>
+        <input @click="ChMerciless" type="checkbox">
+        <span>无情/冷酷无情</span>
+      </div>
+      <div>
+        <input @click="ChNemesis" type="checkbox">
+        <span>复仇女神</span>
+      </div>
+      <div>
+        <input @click="ChScorpio" type="checkbox">
+        <span>天蝎座</span>
+      </div>
+    </div>
+    <div>
+      <h2>装备组</h2>
+      <div>
+        <input @click="ChAcesEights" type="checkbox">
+        <span>A、8两对</span>
+      </div>
+      <div>
+        <input @click="ChOngoingDirective" type="checkbox">
+        <span>政令进行时</span>
+      </div>
+      <div>
+        <input @click="ChStrikersBattlegear" type="checkbox">
+        <span>突袭者战斗装备</span>
+      </div>
+      <div>
+        <input @click="ChTipOfTheSpear" type="checkbox">
+        <span>先锋部队</span>
+      </div>
+      <div>
+        <input @click="ChTruePatriot" type="checkbox">
+        <span>真实爱国者</span>
+      </div>
+      <div>
+        <input @click="ChFutureInitiative" type="checkbox">
+        <span>未来主动权</span>
+      </div>
+      <div>
+        <input @click="ChHeartTerminator" type="checkbox">
+        <span>芳心终结者</span>
+      </div>
+    </div>
+    <div>
+      <h2>技能增伤</h2>
+      <div>
+        <input @click="ChScannerPulse" type="checkbox">
+        <span>脉冲--扫描/遥控</span>
+      </div>
+      <div>
+        <input @click="ChAchillesPulse" type="checkbox">
+        <span>脉冲--阿基里斯</span>
+      </div>
+      <div>
+        <input @click="ChFirewallStrikerShield" type="checkbox">
+        <span>突袭者护盾</span>
+      </div>
+    </div>
+    <div>
+      <h2>专长加成</h2>
+      <div>
+        <input @click="ChDemolitionistTacticalLink" type="checkbox">
+        <span>爆破专家--战术链接</span>
+      </div>
+      <div>
+        <input @click="ChFirewallTacticalLink" type="checkbox">
+        <span>烈焰之墙--战术链接</span>
+      </div>
+      <div>
+        <input @click="ChSharpshooterTacticalLink" type="checkbox">
+        <span>精准射手--战术链接</span>
+      </div>
+      <div>
+        <input @click="ChSurvivalistTacticalLink" type="checkbox">
+        <span>生存专家--战术链接</span>
+      </div>
+    </div>
+  </div>
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
