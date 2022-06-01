@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/vue.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/css.css">
+  <title>全境封锁2伤害计算器1.0 By-MuFen</title>
+</head>
+<body>
+  <h1>全境封锁2伤害计算器</h1>
+  <div>
+    <div  id="root"> 
+      <input v-model="arms" type="text" name="arms" placeholder="武器基础白字"/><br/><br/>
+      <input v-model="RedCore" type="text" name="RedCore" placeholder="红核数量"/><br/><br/>
+      <input v-model="WeaponType" type="text"  name="Weapon type" placeholder="武器种类伤害加成(%)"/><br/><br/>
+    </div>    
+    <div id="WeaponTalent">
+        <h2>武器天赋</h2>
+      <div>
+        <input @click="ChBoomerang" type="checkbox">
+        <span>回力镖</span>
+      </div>
+      <div>
+        <input @click="ChBreadbasket" type="checkbox">
+        <span>面包篮</span>
+      </div>
+      <div>
+        <input @click="ChFightHandToHandWith" type="checkbox">
+        <span>短兵相接</span>
+      </div>
+      <div>
+        <input @click="ChGoBlind" type="checkbox">
+        <span>失明</span>
+      </div>
+      <div>
+        <input @click="ChInsane" type="checkbox">
+        <span>疯狂</span>
+      </div>
+      <div>
+        <input @click="ChLight" type="checkbox">
+        <span>点燃</span>
+      </div>
+      <div>
+        <input @click="ChPCFirst" type="checkbox">
+        <span>精密计算:前半段</span>
+      </div>
+      <div>
+        <input @click="ChPCLast" type="checkbox">
+        <span>精密计算:后半段</span>
+      </div>
+      <div>
+        <input @click="ChNaked" type="checkbox">
+        <span>赤身裸体</span>
+      </div>
+      <div>
+        <input @click="ChOS" type="checkbox">
+        <span>乐天派</span>
+      </div>
+      <div>
+        <input @click="ChTTM" type="checkbox">
+        <span>排山倒海</span>
+      </div>
+      <div>
+        <input @click="ChFistToMeat" type="checkbox">
+        <span>拳拳到肉</span>
+      </div>
+      <div>
+        <input @click="ChFullOfEnergy" type="checkbox">
+        <span>充满干劲</span>
+      </div>
+      <div>
+        <input @click="ChRanger" type="checkbox">
+        <span>游骑兵</span>
+      </div>
+      <div>
+        <input @click="ChRifleman" type="checkbox">
+        <span>步枪手</span>
+      </div>
+      <div>
+        <input @click="ChToAbuse" type="checkbox">
+        <span>虐待狂</span>
+      </div>
+      <div>
+        <input @click="ChInsanity" type="checkbox">
+        <span>精神错乱</span>
+      </div>
+      <div>
+        <input @click="ChAsystole" type="checkbox">
+        <span>停搏</span>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
+</html>
