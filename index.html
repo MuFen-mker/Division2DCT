@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,17 @@
   <link rel="stylesheet" href="css/css.css">
   <title>全境封锁2伤害计算器1.0 By-MuFen</title>
 </head>
+
 <body>
   <h1>全境封锁2伤害计算器</h1>
   <div>
-    <div  id="root"> 
-      <input v-model="arms" type="text" name="arms" placeholder="武器基础白字"/><br/><br/>
-      <input v-model="RedCore" type="text" name="RedCore" placeholder="红核数量"/><br/><br/>
-      <input v-model="WeaponType" type="text"  name="Weapon type" placeholder="武器种类伤害加成(%)"/><br/><br/>
-    </div>    
+    <div id="root">
+      <input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /><br /><br />
+      <input v-model="RedCore" type="text" name="RedCore" placeholder="红核数量" /><br /><br />
+      <input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /><br /><br />
+    </div>
     <div id="WeaponTalent">
-        <h2>武器天赋</h2>
+      <h2>武器天赋</h2>
       <div>
         <input @click="ChBoomerang" type="checkbox">
         <span>回力镖</span>
@@ -91,7 +93,51 @@
         <span>停搏</span>
       </div>
     </div>
+    <div id="BreastplateTalent">
+      <h2>胸甲天赋</h2>
+      <div>
+        <input @click="ChFeelTheSame" type="checkbox">
+        <span>感同深受</span>
+      </div>
+      <div>
+        <input @click="ChAbsorbed" type="checkbox">
+        <span>专注</span>
+      </div>
+      <div>
+        <input @click="ChGlassCannon" type="checkbox">
+        <span>玻璃大炮</span>
+      </div>
+      <div>
+        <input @click="ChGunslinger" type="checkbox">
+        <span>枪神</span>
+      </div>
+      <div>
+        <input @click="ChIntimidate" type="checkbox">
+        <span>威吓</span>
+      </div>
+      <div>
+        <input @click="ChOF" type="checkbox">
+        <span>抹灭性破坏</span>
+      </div>
+      <div>
+        <input @click="ChShelterCover" type="checkbox">
+        <span>掩体掩护</span>
+      </div>
+      <div>
+        <input @click="ChSpark" type="checkbox">
+        <span>火花</span>
+      </div>
+      <div>
+        <input @click="ChHeadHunter" type="checkbox">
+        <span>猎头者</span>
+      </div>
+      <div>
+        <input @click="ChScout" type="checkbox">
+        <span>探子</span>
+      </div>
+    </div>
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
+
 </html>
