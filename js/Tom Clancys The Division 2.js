@@ -340,7 +340,7 @@ const Checkbox = new Vue({
       this.MD.SurvivalistTacticalLink = !this.MD.SurvivalistTacticalLink
     },
     ChTechnicianDismantling(){
-
+      this.AmpWd.TechnicianDismantling = !this.AmpWd.TechnicianDismantling
     }
     }
 })
