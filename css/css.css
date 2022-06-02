@@ -8,7 +8,7 @@
 body{
   background-image:url("../imgs/background-imgs.png") ;
   background-size: 100%;
-  background-attachment:fixed;
+  background-attachment:fixed; /* 页面保持不变 */
 }
 .title{
   text-align: center;
