@@ -4,7 +4,10 @@ const root = new Vue({
       arms: '',
       RedCore: '',
       WeaponType: '',
-
+      CHD:'',
+      DTA:'',
+      DTOC:'',
+      DTH:''
     }
   }
 })
@@ -94,7 +97,6 @@ const Checkbox = new Vue({
         Versatile:false,
         GlassCannon:false,
         Intimidate:false,
-        HeadHunter:false,
         Scout:false,
         BigHorn:false,
         LadyDeath:false,
@@ -108,14 +110,10 @@ const Checkbox = new Vue({
         HeartTerminator:false,
         ScannerPulse:false,
         AchillesPulse:false,
-        FirewallStrikerShield:false,
         DemolitionistTacticalLink:false,
-        FirewallTacticalLink:false,
         SurvivalistTacticalLink:false,
         GoBlind:false,
         Light:false,
-        TTM:false,
-        FullOfEnergy:false,
         Ranger:false,
         ToAbuse:false,
         Asystole:false
@@ -125,7 +123,6 @@ const Checkbox = new Vue({
         Versatile:'',
         GlassCannon:'',
         Intimidate:'',
-        HeadHunter:'',
         Scout:'',
         BigHorn:'',
         LadyDeath:'',
@@ -139,18 +136,32 @@ const Checkbox = new Vue({
         HeartTerminator:'',
         ScannerPulse:'',
         AchillesPulse:'',
-        FirewallStrikerShield:'',
         DemolitionistTacticalLink:'',
-        FirewallTacticalLink:'',
         SurvivalistTacticalLink:'',
         GoBlind:'',
         Light:'',
-        TTM:'',
-        FullOfEnergy:'',
         Ranger:'',
         ToAbuse:'',
         Asystole:'',
       },
+
+      // 独立伤
+      AmpWd:{
+        HeadHunter:false,
+        FirewallStrikerShield:false,
+        FirewallTacticalLink:false,
+        TechnicianDismantling:false,
+        TTM:false,
+        FullOfEnergy:false,
+      },
+      AddAmpWd:{
+        HeadHunter:'',
+        FirewallStrikerShield:'',
+        FirewallTacticalLink:'',
+        TechnicianDismantling:'',
+        TTM:'',
+        FullOfEnergy:'',
+      }
     }
   },
   methods: {
@@ -185,13 +196,13 @@ const Checkbox = new Vue({
       this.WDJ.OS = !this.WDJ.OS
     },
     ChTTM(){
-      this.MD.TTM = !this.MD.TTM
+      this.AmpWd.TTM = !this.AmpWd.TTM
     },
     ChFistToMeat(){
       this.WDJ.FistToMeat = !this.WDJ.FistToMeat
     },
     ChFullOfEnergy(){
-      this.MD.FullOfEnergy = !this.MD.FullOfEnergy
+      this.AmpWd.FullOfEnergy = !this.AmpWd.FullOfEnergy
     },
     ChRanger(){
       this.MD.Ranger = !this.MD.Ranger
@@ -233,7 +244,7 @@ const Checkbox = new Vue({
       this.TWD.Spark = !this.TWD.Spark
     },
     ChHeadHunter(){
-      this.MD.HeadHunter = !this.MD.HeadHunter
+      this.AmpWd.HeadHunter = !this.AmpWd.HeadHunter
     },
     ChScout(){
       this.MD.Scout = !this.MD.Scout
@@ -314,19 +325,22 @@ const Checkbox = new Vue({
       this.MD.AchillesPulse = !this.MD.AchillesPulse
     },
     ChFirewallStrikerShield(){
-      this.MD.FirewallStrikerShield = !this.MD.FirewallStrikerShield
+      this.AmpWd.FirewallStrikerShield = !this.AmpWd.FirewallStrikerShield
     },
     ChDemolitionistTacticalLink(){
       this.MD.DemolitionistTacticalLink = !this.MD.DemolitionistTacticalLink
     },
     ChFirewallTacticalLink(){
-      this.MD.FirewallTacticalLink = !this.MD.FirewallTacticalLink
+      this.AmpWd.FirewallTacticalLink = !this.AmpWd.FirewallTacticalLink
     },
     ChSharpshooterTacticalLink(){
       this.HI.SharpshooterTacticalLink = !this.HI.SharpshooterTacticalLink
     },
     ChSurvivalistTacticalLink(){
       this.MD.SurvivalistTacticalLink = !this.MD.SurvivalistTacticalLink
+    },
+    ChTechnicianDismantling(){
+
     }
     }
 })
