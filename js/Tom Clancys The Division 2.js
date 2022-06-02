@@ -7,9 +7,9 @@ const root = new Vue({
       CHD:'',
       DTA:'',
       DTOC:'',
-      DTH:''
+      DTH:'',
     }
-  }
+  },
 })
 
 const Checkbox = new Vue({
@@ -29,16 +29,16 @@ const Checkbox = new Vue({
         Insanity: false
       },
       AddWDJ: {
-        Chameleon: '',
-        DodgeCityHolster: '',
-        Boomerang: '',
-        FightHandToHandWith: '',
-        Insane: '',
-        PCFirst: '',
-        OS: '',
-        FistToMeat: '',
-        Rifleman: '',
-        Insanity: ''
+        Chameleon:1,
+        DodgeCityHolster: 1,
+        Boomerang: 1,
+        FightHandToHandWith: 1,
+        Insane: 1,
+        PCFirst: 1,
+        OS: 1,
+        FistToMeat: 1,
+        Rifleman: 1,
+        Insanity: 1
       },
 
       //爆头伤
@@ -342,8 +342,34 @@ const Checkbox = new Vue({
     ChTechnicianDismantling(){
       this.AmpWd.TechnicianDismantling = !this.AmpWd.TechnicianDismantling
     }
-    }
+    },
 })
-
+const Calculation = new Vue({
+  
+    data(){
+        return{
+          FULLWDJ:0
+        }
+    },
+    methods: {
+      culation(){
+        let WDJARR=[];
+        let AddWDJARR=[];
+        Object.keys(Checkbox.WDJ).forEach((item) => {
+          WDJARR.push(Checkbox.WDJ[item])
+        })
+        Object.keys(Checkbox.AddWDJ).forEach((item) => {
+          AddWDJARR.push(Checkbox.AddWDJ[item])
+        })
+        for (let i = 0; i < WDJARR.length; i++) {
+            if (WDJARR[i] == true) {
+              this.FULLWDJ = this.FULLWDJ + AddWDJARR[i]
+            }
+        }
+        console.log(this.FULLWDJ)
+      }
+    },
+})
+Calculation.$mount('#Calculation')
 Checkbox.$mount('#Checkbox')
 root.$mount('#root')
