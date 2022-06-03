@@ -81,7 +81,7 @@
   .fourthbox h2{
     color:	red;
   }
-  .ffifthbox{
+  .fifthbox{
     font-family: myfont;
   }
   .fifthbox h2{
@@ -106,8 +106,9 @@
     right: 10px;
     top: 88px;
     border: solid 2px black;
-    padding:15px 0px 0px 15px;
+    padding:18px 0px 0px 15px;
     width: 455px;
+    background-color: black;
   }
   .allcompute a{
     font-size: 18px;
@@ -122,8 +123,19 @@
   .allcompute a:hover{
     background-color: LightGrey;
   }
+  .aspacing{
+    height: 30px;
+  }
   .tips{
-    
+    font-size: 18px;
+    float: left;
+    position: fixed;
+    left: 10px;
+    top: 88px;
+    border: solid 2px black;
+    padding:0px 0px 0px 15px;
+    width: 455px;
+    background-color: black;
   }
 }
 @media screen and (max-width: 960px){
