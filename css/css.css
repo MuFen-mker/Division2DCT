@@ -5,115 +5,234 @@
   font-family: myfont;
   src: url(../font/方正粗圆.ttf);
 }
-body{
-  background-image:url("../imgs/background-imgs.png") ;
-  background-size: 100%;
-  background-attachment:fixed; /* 页面保持不变 */
-}
-.title{
-  text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: purple;
-}
-.all{
-  display: block;
-  border: solid 1px black;
-  width: 700px;
-  margin: auto;
-  background-color:rgba(6, 6, 6, 0.468);
-  padding: 40px 80px;
+@media screen and (min-width: 960px){
+  body{
+    background-image:url("../imgs/background-imgs.png") ;
+    background-size: 100%;
+    background-attachment:fixed; /* 页面保持不变 */
+  }
+  .title{
+    text-align: center;
+    color: purple;
+    font-family: myfont;
+  }
+  .all{
+    display: block;
+    border: solid 1px black;
+    width: 700px;
+    margin: auto;
+    background-color:rgba(6, 6, 6, 0.468);
+    padding: 40px 80px;
+    
+  }
+  .first{
+    text-align: center;
+  }
+  .first input{
+    display: block;
+    margin: 5px auto;
+    width: 300px;
+    height: 30px;
+    border-radius: 8px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .first p{
+    display: inline-block;
+  }
+  .Checkbox{
+    margin-top: 40px;
+  }
   
+  .Checkbox div >div{
+    display: inline-block;
+    width:270px;
+    line-height: 50px;
+    padding-left: 67px;
+    font-size: 18px;
+  }
+  .Checkbox div >div>input{
+    width: 28px;
+    height: 21px;
+    vertical-align: middle;
+  }
+  .firstbox{
+    font-family: myfont;
+  }
+  .firstbox h2{
+    color:gold;
+  }
+  .secondbox{
+    font-family: myfont;
+  }
+  .secondbox h2{
+    color:gold;
+  }
+  .thirdbox{
+    font-family: myfont;
+  }
+  .thirdbox h2{
+    color:gold;
+  }
+  .fourthbox{
+    font-family: myfont;
+  }
+  .fourthbox h2{
+    color:	red;
+  }
+  .ffifthbox{
+    font-family: myfont;
+  }
+  .fifthbox h2{
+    color:lightgreen;
+  }
+  .sixthbox{
+    font-family: myfont;
+  }
+  .sixthbox h2{
+    color: LightBLue;
+  }
+  .seventhbox{
+    font-family: myfont;
+  }
+  .seventhbox h2{
+    color:	orange;
+  }
+  .allcompute{
+    font-size: 10px;
+    float: right;
+    position: fixed;
+    right: 10px;
+    top: 88px;
+    border: solid 2px black;
+    padding:15px 0px 0px 15px;
+    width: 455px;
+  }
+  .allcompute a{
+    font-size: 18px;
+    margin-left: 190px;
+    color: black;
+    border-radius: 15px;
+    border: 3px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color:white ;
+  }
+  .allcompute a:hover{
+    background-color: LightGrey;
+  }
+  .tips{
+    
+  }
 }
-.first{
-  text-align: center;
-}
-.first input{
-  display: block;
-  margin: 5px auto;
-  width: 300px;
-  height: 30px;
-  border-radius: 8px;
-  color: black;
-}
-.first p{
-  display: inline-block;
-}
-.Checkbox{
-  margin-top: 40px;
+@media screen and (max-width: 960px){
+  body{
+    background-image:url("../imgs/background-imgs.png") ;
+    background-size: 100%;
+    background-attachment:fixed; /* 页面保持不变 */
+  }
+  .title{
+    text-align: center;
+    color: purple;
+    font-family: myfont;
+  }
+  .all{
+    display: block;
+    border: solid 1px black;
+    width: 220px;
+    margin-left: 0;
+    background-color:rgba(6, 6, 6, 0.468)
+  }
+  .first{
+    text-align: center;
+  }
+  .first input{
+    display: block;
+    margin: 5px auto;
+    width: 120px;
+    height: 20px;
+    border-radius: 8px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .Checkbox{
+    margin-top: 1px;
+  }
+  
+  .Checkbox div >div{
+    line-height: 20px;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  .Checkbox div >div>input{
+    width: 25px;
+    height: 18px;
+    vertical-align: middle;
+  }
+  .firstbox{
+    font-family: myfont;
+  }
+  .firstbox h2{
+    color:gold;
+  }
+  .secondbox{
+    font-family: myfont;
+  }
+  .secondbox h2{
+    color:gold;
+  }
+  .thirdbox{
+    font-family: myfont;
+  }
+  .thirdbox h2{
+    color:gold;
+  }
+  .fourthbox{
+    font-family: myfont;
+  }
+  .fourthbox h2{
+    color:	red;
+  }
+  .ffifthbox{
+    font-family: myfont;
+  }
+  .fifthbox h2{
+    color:lightgreen;
+  }
+  .sixthbox{
+    font-family: myfont;
+  }
+  .sixthbox h2{
+    color: LightBLue;
+  }
+  .seventhbox{
+    font-family: myfont;
+  }
+  .seventhbox h2{
+    color:	orange;
+  }
+  .allcompute{
+    font-size: 5px;
+    float: right;
+    position: fixed;
+    right: 3px;
+    top: 88px;
+    border: solid 2px black;
+    padding:15px 0px 0px 15px;
+    width: 150px;
+  }
+  .allcompute a{
+    font-size: 8px;
+    margin-left: 35px;
+    color: black;
+    border-radius: 15px;
+    border: 3px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color:white ;
+  }
+  .allcompute a:hover{
+    background-color: LightGrey;
+  }
 }
 
-.Checkbox div >div{
-  display: inline-block;
-  width:270px;
-  line-height: 50px;
-  padding-left: 67px;
-  font-size: 18px;
-}
-.Checkbox div >div>input{
-  width: 28px;
-  height: 21px;
-  vertical-align: middle;
-}
-.firstbox{
-  font-family: myfont;
-}
-.firstbox h2{
-  color:	DarkSlateBlue;
-}
-.secondbox{
-  font-family: myfont;
-}
-.secondbox h2{
-  color:dodgerblue;
-}
-.thirdbox{
-  font-family: myfont;
-}
-.thirdbox h2{
-  color:MediumSpringGreen;
-}
-.fourthbox{
-  font-family: myfont;
-}
-.fourthbox h2{
-  color:	Yellow;
-}
-.ffifthbox{
-  font-family: myfont;
-}
-.fifthbox h2{
-  color:DarkOrange;
-}
-.sixthbox{
-  font-family: myfont;
-}
-.sixthbox h2{
-  color: NavajoWhite;
-}
-.seventhbox{
-  font-family: myfont;
-}
-.seventhbox h2{
-  color:	Aqua;
-}
-.allcompute{
-  font-size: 9px;
-  float: right;
-  position: fixed;
-  right: 10px;
-  top: 85px;
-  border: solid 2px black;
-  padding:10px 0px 0px 15px;
-  width: 290px;
-}
-.allcompute button{
-  width: 95px;
-  height: 40px;
-  margin-left: 70px;
-  color: black;
-  border-radius: 15px;
-}
-.allcompute button:hover{
-  background-color: LightGrey;
-  color: black;
-}
