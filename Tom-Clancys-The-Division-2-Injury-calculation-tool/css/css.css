@@ -21,7 +21,7 @@
     border: solid 1px black;
     width: 700px;
     margin: auto;
-    background-color:rgba(6, 6, 6, 0.468);
+    background-color:rgba(6, 6, 6, 0.5);
     padding: 40px 80px;
     
   }
@@ -108,7 +108,7 @@
     border: solid 2px black;
     padding:18px 0px 0px 15px;
     width: 455px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
   }
   .allcompute a{
     font-size: 18px;
@@ -135,7 +135,7 @@
     border: solid 2px black;
     padding:0px 0px 0px 15px;
     width: 455px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 }
 @media screen and (max-width: 960px){

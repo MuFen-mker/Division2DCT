@@ -193,7 +193,7 @@ const Checkbox = new Vue({
         TechnicianDismantling: 1.12,
         TTM: 1.4,
         FullOfEnergy: 1.25,
-        AchillesPulse:0.1
+        AchillesPulse:1
       },
 
       HeadHunter: false,  //猎头
@@ -432,7 +432,7 @@ const Checkbox = new Vue({
       return this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
     AchillesPulseNum(){
-      return this.AddAmpWd.AchillesPulse = 1 + Number(root.HSD)/100
+      return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD)/100)
     }
   }
 })
