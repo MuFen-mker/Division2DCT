@@ -4,6 +4,7 @@ const root = new Vue({
       arms: 0,
       RedCore: 0,
       WeaponType: 0,
+      weaponM: 0,
       CHD: 0,
       DTA: 0,
       DTOC: 0,
@@ -286,10 +287,10 @@ const Checkbox = new Vue({
       this.MD.Versatile = !this.MD.Versatile
     },
     ChVigilance () {
-      this.TWD.Vigilance = !this.WDJ.Vigilance
+      this.TWD.Vigilance = !this.TWD.Vigilance
     },
     ChWicked () {
-      this.TWD.Wicked = !this.WDJ.Wicked
+      this.TWD.Wicked = !this.TWD.Wicked
     },
     ChSawyersKneepads () {
       this.TWD.SawyersKneepads = !this.TWD.SawyersKneepads
@@ -371,6 +372,14 @@ const Calculation = new Vue({
       ASumH:0,
       HSumHB:0,
       ASumHB:0,
+      HSumOC: 0,
+      ASumOC: 0,
+      HSumBOC:0,
+      ASumBOC:0,
+      HSumHOC:0,
+      ASumHOC:0,
+      HSumHBOC:0,
+      ASumHBOC:0,
       Sum:0
     }
   },
@@ -398,6 +407,14 @@ const Calculation = new Vue({
       this.ASumH = 0
       this.HSumHB = 0
       this.ASumHB = 0
+      this.HSumOC = 0
+      this.ASumOC = 0
+      this.HSumBOC = 0
+      this.ASumBOC = 0
+      this.HSumHOC = 0
+      this.ASumHOC = 0
+      this.HSumHBOC = 0
+      this.ASumHBOC = 0
       this.FULLTWD = 0
       this.FULLWDJ = 0
       this.FULLHI = 0
@@ -440,7 +457,7 @@ const Calculation = new Vue({
           this.FULLHI = root.HSD + AddHIARR[i]
         }
       }
-      this.Sum =  root.arms*(1 + (root.RedCore/100 + root.WeaponType/100 + this.FULLWDJ/100))*(1+(this.FULLTWD/100))
+      this.Sum =  root.arms*(1 + (root.RedCore/100 + root.WeaponType/100 + root.weaponM/100 + this.FULLWDJ/100))*(1+(this.FULLTWD/100))
 
 // 计算全部乘算伤害
       Object.keys(Checkbox.MD).forEach((item) => {
@@ -458,15 +475,33 @@ const Calculation = new Vue({
           this.ASum = this.Sum*(1+(root.DTA/100))
           this.HSum = this.Sum*(1+(root.DTH/100))
 
+      // 掩体伤
+          this.ASumOC = this.ASum*(1+(root.DTOC/100))
+          this.HSumOC = this.ASum*(1+(root.DTOC/100))
+
       // 暴击伤害
           this.ASumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTA/100))
           this.HSumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTH/100))
+
+      // 掩体暴击伤
+          this.ASumBOC = this.ASumB*(1+(root.DTOC/100))
+          this.HSumBOC = this.HSumB*(1+(root.DTOC/100))
+
       // 爆头伤害
           this.ASumH = this.Sum*(1+(root.HSD/100))*(1+(root.DTA/100))
           this.HSumH = this.Sum*(1+(root.HSD/100))*(1+(root.DTH/100))
+
+      // 掩体爆头伤
+          this.ASumHOC = this.ASumH*(1+(root.DTOC/100))
+          this.HSumHOC = this.HSumH*(1+(root.DTOC/100))
+
       // 头部暴击
           this.ASumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTA/100))
           this.HSumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTH/100))
+
+      //掩体头部暴击
+          this.ASumHBOC = this.ASumHB*(1+(root.DTOC/100))
+          this.HSumHBOC = this.HSumHB*(1+(root.DTOC/100))
     },
   },
 })
