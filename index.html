@@ -14,17 +14,17 @@
   <h1 class="title">全境封锁2伤害计算器</h1>
   <div class="all">
     <div id="root" class="first">
-      <input v-model="arms" type="text" name="arms" placeholder="武器基础白字" />
-      <input v-model="RedCore" type="text" name="RedCore" placeholder="全武器伤(%)" />
-      <input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" />
-      <input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" />
-      <input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" />
-      <input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" />
-      <input v-model="DTA" type="text" name="DTA" placeholder="装甲伤(%)" />
-      <input v-model="DTOC" type="text" name="DTOC" placeholder="掩体伤(%)" />
+      <p>武器基础白字：<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
+      <p>全武器伤(%)：<input v-model="RedCore" type="text" name="RedCore" placeholder="全武器伤(%)" /></p>
+      <p>武器种类伤害加成(%)：<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
+      <p>爆头伤(%)：<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
+      <p>爆伤(%)：<input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" /></p>
+      <p>生命伤(%)：<input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" /></p>
+      <p>装甲伤(%)：<input v-model="DTA" type="text" name="DTA" placeholder="装甲伤(%)" /></p>
+      <p>掩体伤(%)：<input v-model="DTOC" type="text" name="DTOC" placeholder="掩体伤(%)" /></p>
     </div>
     <div id="Checkbox" class="Checkbox">
-      <div>
+      <div class="firstbox">
         <h2>武器天赋</h2>
         <div>
           <input @click="ChBoomerang" type="checkbox">
@@ -95,7 +95,7 @@
           <span>停搏</span>
         </div>
       </div>
-      <div>
+      <div class="secondbox">
         <h2>胸甲天赋</h2>
         <div>
           <input @click="ChFeelTheSame" type="checkbox">
@@ -142,7 +142,7 @@
           <span>探子</span>
         </div>
       </div>
-      <div>
+      <div class="thirdbox">
         <h2>背包天赋</h2>
         <div>
           <input @click="ChCompanion" type="checkbox">
@@ -189,7 +189,7 @@
           <span>恶人</span>
         </div>
       </div>
-      <div>
+      <div class="fourthbox">
         <h2>奇特天赋</h2>
         <div>
           <input @click="ChSawyersKneepads" type="checkbox">
@@ -220,7 +220,7 @@
           <span>天蝎座</span>
         </div>
       </div>
-      <div>
+      <div class="fifthbox">
         <h2>装备组</h2>
         <div>
           <input @click="ChAcesEights" type="checkbox">
@@ -251,7 +251,7 @@
           <span>芳心终结者(满层)</span>
         </div>
       </div>
-      <div>
+      <div class="sixthbox">
         <h2>技能增伤</h2>
         <div>
           <input @click="ChScannerPulse" type="checkbox">
@@ -262,7 +262,7 @@
           <span>突袭者护盾</span>
         </div>
       </div>
-      <div>
+      <div class="seventhbox">
         <h2>专长加成</h2>
         <div>
           <input @click="ChDemolitionistTacticalLink" type="checkbox">
@@ -287,19 +287,25 @@
       </div>
     </div>
   </div>
-  <div id="Calculation">
+  <div id="Calculation" class="allcompute">
     <button @click="culation">计算</button>
     <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
-    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1><br/>
+    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1><br />
     <h1>对生命值敌人伤害:{{HSum.toFixed(2)}}</h1>
     <h2>暴击:{{HSumB.toFixed(2)}}</h2>
     <h2>爆头:{{HSumH.toFixed(2)}}</h2>
     <h2>头部暴击:{{HSumHB.toFixed(2)}}</h2>
-    <br><br>
+    <h2>对掩体暴击:{{}}</h2>
+    <h2>对掩体爆头:{{}}</h2>
+    <h2>对掩体头部暴击:{{}}</h2>
+    <br>
     <h1>对护甲值敌人伤害:{{ASum.toFixed(2)}}</h1>
     <h2>暴击:{{ASumB.toFixed(2)}}</h2>
     <h2>爆头:{{ASumH.toFixed(2)}}</h2>
     <h2>头部暴击:{{ASumHB.toFixed(2)}}</h2>
+    <h2>对掩体暴击:{{}}</h2>
+    <h2>对掩体爆头:{{}}</h2>
+    <h2>对掩体头部暴击:{{}}</h2>
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>

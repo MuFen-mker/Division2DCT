@@ -18,7 +18,7 @@ body{
 .all{
   display: block;
   border: solid 1px black;
-  width: 800px;
+  width: 700px;
   margin: auto;
   background-color:rgba(6, 6, 6, 0.468);
   padding: 40px 80px;
@@ -35,15 +35,18 @@ body{
   border-radius: 8px;
   color: black;
 }
+.first p{
+  display: inline-block;
+}
 .Checkbox{
   margin-top: 40px;
 }
 
 .Checkbox div >div{
   display: inline-block;
-  width:200px;
+  width:270px;
   line-height: 50px;
-  padding-left: 45px;
+  padding-left: 67px;
   font-size: 18px;
 }
 .Checkbox div >div>input{
@@ -92,4 +95,25 @@ body{
 }
 .seventhbox h2{
   color:	Aqua;
+}
+.allcompute{
+  font-size: 9px;
+  float: right;
+  position: fixed;
+  right: 10px;
+  top: 85px;
+  border: solid 2px black;
+  padding:10px 0px 0px 15px;
+  width: 290px;
+}
+.allcompute button{
+  width: 95px;
+  height: 40px;
+  margin-left: 70px;
+  color: black;
+  border-radius: 15px;
+}
+.allcompute button:hover{
+  background-color: LightGrey;
+  color: black;
 }
