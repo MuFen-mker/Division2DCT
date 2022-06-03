@@ -397,6 +397,9 @@ const Calculation = new Vue({
       let MDARR = [];
       let AddMDARR = [];
 
+      let AmpWdARR = [];
+      let AddAmpWdARR = [];
+
       // 初始化
       this.Sum = 0
       this.HSum = 0
@@ -502,6 +505,42 @@ const Calculation = new Vue({
       //掩体头部暴击
           this.ASumHBOC = this.ASumHB*(1+(root.DTOC/100))
           this.HSumHBOC = this.HSumHB*(1+(root.DTOC/100))
+
+
+      //独立伤选取计算
+      Object.keys(Checkbox.AmpWd).forEach((item) => {
+        AmpWdARR.push(Checkbox.AmpWd[item])
+      })
+      Object.keys(Checkbox.AddAmpWd).forEach((item) => {
+        AddAmpWdARR.push(Checkbox.AddAmpWd[item])
+      })
+      for (let i = 0; i < AmpWdARR.length; i++) {
+        if (AmpWdARR[i] == true) {
+          this.ASum = this.ASum*AddAmpWdARR[i]
+          this.HSum = this.HSum*AddAmpWdARR[i]
+
+          this.ASumB = this.ASumB*AddAmpWdARR[i]
+          this.HSumB = this.HSumB*AddAmpWdARR[i]
+
+          this.ASumH = this.ASumH*AddAmpWdARR[i]
+          this.ASumH = this.HSumH*AddAmpWdARR[i]
+
+          this.ASumHB = this.ASumHB*AddAmpWdARR[i]
+          this.HSumHB = this.HSumHB*AddAmpWdARR[i]
+
+          this.ASumOC = this.ASumOC*AddAmpWdARR[i]
+          this.HSumOC = this.HSumOC*AddAmpWdARR[i]
+
+          this.ASumBOC = this.ASumBOC*AddAmpWdARR[i]
+          this.HSumBOC = this.HSumBOC*AddAmpWdARR[i]
+
+          this.ASumHOC = this.ASumHOC*AddAmpWdARR[i]
+          this.HSumHOC = this.HSumHOC*AddAmpWdARR[i]
+
+          this.ASumHBOC = this.ASumHBOC*AddAmpWdARR[i]
+          this.HSumHBOC = this.HSumHBOC*AddAmpWdARR[i]
+        }
+      }
     },
   },
 })
