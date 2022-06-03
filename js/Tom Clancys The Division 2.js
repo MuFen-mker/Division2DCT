@@ -114,9 +114,7 @@ const Checkbox = new Vue({
         Scorpio: false,
         AcesEights: false,
         OngoingDirective: false,
-        StrikersBattlegear: false,
         TruePatriot: false,
-        HeartTerminator: false,
         ScannerPulse: false,
         DemolitionistTacticalLink: false,
         SurvivalistTacticalLink: false,
@@ -124,7 +122,9 @@ const Checkbox = new Vue({
         Light: false,
         Ranger: false,
         ToAbuse: false,
-        Asystole: false
+        Asystole: false,
+        StrikersBattlegear: false,
+        HeartTerminator: false,
       },
       AddMD: {
         Opportunistic: 1.1,
@@ -140,9 +140,7 @@ const Checkbox = new Vue({
         Scorpio: 1.2,
         AcesEights: 1.3,
         OngoingDirective: 1.2,
-        StrikersBattlegear: Math.pow(1.005, 100),
         TruePatriot: 1.08,
-        HeartTerminator: Math.pow(1.01, 100),
         ScannerPulse: 1.15,
         DemolitionistTacticalLink: 1.05,
         SurvivalistTacticalLink: 1.1,
@@ -151,6 +149,8 @@ const Checkbox = new Vue({
         Ranger: 1.12,
         ToAbuse: 1.2,
         Asystole: 1.15,
+        StrikersBattlegear: Math.pow(1.005, 100),
+        HeartTerminator: Math.pow(1.01, 100),
       },
 
       // 独立伤
@@ -168,7 +168,9 @@ const Checkbox = new Vue({
         TTM: 1.4,
         FullOfEnergy: 1.25,
       },
-      HeadHunter: false  //猎头
+
+      HeadHunter: false,  //猎头
+      HeadHunterAdd :12.5
     }
   },
   methods: {
@@ -380,7 +382,9 @@ const Calculation = new Vue({
       ASumHOC:0,
       HSumHBOC:0,
       ASumHBOC:0,
-      Sum:0
+      Sum:0,
+
+      HeadHunterDs:0
     }
   },
   methods: {
@@ -420,7 +424,8 @@ const Calculation = new Vue({
       this.ASumHBOC = 0
       this.FULLTWD = 0
       this.FULLWDJ = 0
-      this.FULLHI = 0
+      this.FULLHI = root.HSD
+      this.HeadHunterDs = 0
       
 // 计算全部武器伤害
       Object.keys(Checkbox.WDJ).forEach((item) => {
@@ -457,10 +462,10 @@ const Calculation = new Vue({
       })
       for (let i = 0; i < HIARR.length; i++) {
         if (HIARR[i] == true) {
-          this.FULLHI = root.HSD + AddHIARR[i]
+          this.FULLHI = this.FULLHI + AddHIARR[i]
         }
       }
-      this.Sum =  root.arms*(1 + (root.RedCore/100 + root.WeaponType/100 + root.weaponM/100 + this.FULLWDJ/100))*(1+(this.FULLTWD/100))
+      this.Sum =  root.arms*(1 + (root.RedCore/100 + root.WeaponType/100 + root.weaponM/100 + this.FULLWDJ/100))
 
 // 计算全部乘算伤害
       Object.keys(Checkbox.MD).forEach((item) => {
@@ -474,37 +479,42 @@ const Calculation = new Vue({
           this.Sum = this.Sum*AddMDARR[i]
         }
       }
+      // 猎头奖励
+      if (Checkbox.HeadHunter == true) {
+        this.HeadHunterDs = (root.arms*(1 + (root.RedCore/100 + root.WeaponType/100 + root.weaponM/100 + this.FULLWDJ/100))*(1+(this.FULLTWD/100)))*Checkbox.HeadHunterAdd
+      }
+
       // 计算护甲与生命伤害
-          this.ASum = this.Sum*(1+(root.DTA/100))
-          this.HSum = this.Sum*(1+(root.DTH/100))
+          this.ASum = this.Sum*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSum = this.Sum*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 掩体伤
-          this.ASumOC = this.ASum*(1+(root.DTOC/100))
-          this.HSumOC = this.ASum*(1+(root.DTOC/100))
+          this.ASumOC = this.Sum*(1+(root.DTOC/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumOC = this.Sum*(1+(root.DTOC/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 暴击伤害
-          this.ASumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTA/100))
-          this.HSumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTH/100))
+          this.ASumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumB = this.Sum*(1+(root.CHD/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 掩体暴击伤
-          this.ASumBOC = this.ASumB*(1+(root.DTOC/100))
-          this.HSumBOC = this.HSumB*(1+(root.DTOC/100))
+          this.ASumBOC = this.Sum*(1+(root.CHD/100))*(1+(root.DTOC/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumBOC = this.Sum*(1+(root.CHD/100))*(1+(root.DTOC/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 爆头伤害
-          this.ASumH = this.Sum*(1+(root.HSD/100))*(1+(root.DTA/100))
-          this.HSumH = this.Sum*(1+(root.HSD/100))*(1+(root.DTH/100))
+          this.ASumH = this.Sum*(1+(this.FULLHI/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumH = this.Sum*(1+(this.FULLHI/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 掩体爆头伤
-          this.ASumHOC = this.ASumH*(1+(root.DTOC/100))
-          this.HSumHOC = this.HSumH*(1+(root.DTOC/100))
+          this.ASumHOC = this.Sum*(1+(this.FULLHI/100))*(1+(root.DTOC/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumHOC = this.Sum*(1+(this.FULLHI/100))*(1+(root.DTOC/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       // 头部暴击
-          this.ASumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTA/100))
-          this.HSumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTH/100))
+          this.ASumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumHB = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
       //掩体头部暴击
-          this.ASumHBOC = this.ASumHB*(1+(root.DTOC/100))
-          this.HSumHBOC = this.HSumHB*(1+(root.DTOC/100))
+          this.ASumHBOC = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTOC/100))*(1+(root.DTA/100))*(1+(this.FULLTWD/100))
+          this.HSumHBOC = this.Sum*(1+(root.CHD/100 + root.HSD/100))*(1+(root.DTOC/100))*(1+(root.DTH/100))*(1+(this.FULLTWD/100))
 
 
       //独立伤选取计算
@@ -541,6 +551,33 @@ const Calculation = new Vue({
           this.HSumHBOC = this.HSumHBOC*AddAmpWdARR[i]
         }
       }
+
+      
+
+                // 猎头的计算
+                    this.ASum = this.ASum + this.HeadHunterDs
+                    this.HSum = this.HSum + this.HeadHunterDs
+          
+                    this.ASumOC = this.ASumOC + this.HeadHunterDs
+                    this.HSumOC = this.HSumOC + this.HeadHunterDs
+          
+                    this.ASumB = this.ASumB + this.HeadHunterDs
+                    this.HSumB = this.HSumB + this.HeadHunterDs
+          
+                    this.ASumBOC = this.ASumBOC + this.HeadHunterDs
+                    this.HSumBOC = this.HSumBOC + this.HeadHunterDs
+          
+                    this.ASumH = this.ASumH + this.HeadHunterDs
+                    this.HSumH = this.HSumH + this.HeadHunterDs
+          
+                    this.ASumHOC = this.ASumHOC + this.HeadHunterDs
+                    this.HSumHOC = this.HSumHOC + this.HeadHunterDs
+          
+                    this.ASumHB = this.ASumHB + this.HeadHunterDs
+                    this.HSumHB = this.HSumHB + this.HeadHunterDs
+
+                    this.ASumHBOC = this.ASumHBOC + this.HeadHunterDs
+                    this.HSumHBOC = this.HSumHBOC + this.HeadHunterDs
     },
   },
 })
