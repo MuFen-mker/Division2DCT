@@ -16,7 +16,7 @@ window.onload = function () {
             // xiahuapxtofive = 120;
         } else {
             // PE
-            xiahuapxfive = 162;
+            xiahuapxfive = 225;
             // xiahuapxtofive = 40;
             //下滑判定
         }

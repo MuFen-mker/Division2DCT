@@ -22,7 +22,8 @@
     <p>只有在考虑对机械单位时才勾选"技师--拆解"，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
     <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
     <p>追悼长期BUFF指每个已捡起挂饰，短期BUFF指捡起挂饰时</p>
-    <a class="star" target="_blank" href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
+    <a class="star" target="_blank"
+      href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
   </div>
   <div class="all">
     <div id="root" class="first">
@@ -331,29 +332,29 @@
   <div id="Calculation" class="allcompute">
     <a @click="culation" href="#" onclick="return false;">计算</a>
     <div class="aspacing"></div>
-    <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
-    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
-    <h1>猎头者奖励:{{HeadHunterDs.toFixed(2)}}</h1>
+    <h1>全天赋武器伤加成:<br>{{FULLWDJ.toFixed(2)}}</h1>
+    <h1>全天赋总武器伤加成:<br>{{FULLTWD.toFixed(2)}}</h1>
+    <h1>猎头者奖励:<br>{{HeadHunterDs.toFixed(2)}}</h1>
     <br />
     <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
     <div v-if="detailed">
-      <h1>{{HSUMNAME}}:{{HSum.toFixed(2)}}</h1>
+      <h1>{{HSUMNAME}}:<br>{{HSum.toFixed(2)}}</h1>
       <h2>暴击:{{HSumB.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:{{HSumOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:{{HSumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:{{HSumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC.toFixed(2)}}</h2>
       <br>
-      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:{{ASum.toFixed(2)}}</h1>
+      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum.toFixed(2)}}</h1>
       <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:{{ASumOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:{{ASumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:{{ASumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{ASumOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{ASumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{ASumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{ASumHBOC.toFixed(2)}}</h2>
     </div>
     <div v-if="concise">
       <h1>{{HSUMNAME}}:{{HSumOC.toFixed(2)}}</h1>
@@ -361,7 +362,7 @@
       <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
       <br>
-      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:{{ASumOC.toFixed(2)}}</h1>
+      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASumOC.toFixed(2)}}</h1>
       <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
@@ -383,7 +384,7 @@
     </div>
     <div class="endf">
       <p>
-        反馈: <br/> 3550035202@qq.com
+        反馈: <br /> 3550035202@qq.com
       </p>
     </div>
   </div>

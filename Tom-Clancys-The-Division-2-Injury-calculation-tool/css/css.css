@@ -12,7 +12,7 @@ body{
 @media screen and (min-width: 960px){
   body{
     background-image:url("../imgs/background-imgs.png") ;
-    background-size: 100%;
+    background-size: cover;
     background-attachment:fixed; /* 页面保持不变 */
   }
   .title{
@@ -26,10 +26,11 @@ body{
   }
   .all{
     display: block;
-    width: 700px;
-    margin: auto;
+    width: 40%;
+    margin-right: 40%;
+    margin-left:25% ;
     background-color:rgba(6, 6, 6, 0.5);
-    padding: 40px 80px;
+    padding: 5% 5%;
     
   }
   .first{
@@ -108,31 +109,29 @@ body{
     color:	orange;
   }
   .allcompute{
-    font-size: 10px;
+    font-size: 9px;
     float: right;
     position: absolute;
-    right: 10px;
+    right: 3.7%;
     top: 125px;
-    padding:30px 0px 0px 15px;
-    width: 455px;
+    padding:1% 0px 0px 1%;
+    width: 20%;
     background-color: rgba(0, 0, 0, 0.7);
   }
   .allcomputeFive{
-    font-size: 10px;
+    font-size: 9px;
     float: right;
     position: fixed;
-    right: 10px;
+    right: 3.7%;
     top: 0px;
-    padding:30px 0px 0px 15px;
-    width: 455px;
+    padding:1% 0px 0px 1%;
+    width:20%;
     background-color: rgba(0, 0, 0, 0.7);
   }
   .allcompute > p{
-    font-size: 16px;
     font-family: 'myfont';
   }
   .allcomputeFive > p{
-    font-size: 16px;
     font-family: 'myfont';
   }
   .allcompute > p > input{
@@ -149,7 +148,7 @@ body{
   }
   .allcompute a{
     font-size: 25px;
-    margin-left: 190px;
+    margin-left: 28%;
     color: black;
     border-radius: 5px;
     box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
@@ -160,7 +159,7 @@ body{
   }
   .allcomputeFive a{
     font-size: 25px;
-    margin-left: 190px;
+    margin-left: 28%;
     color: black;
     border-radius: 5px;
     box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
@@ -194,7 +193,7 @@ body{
     left: 10px;
     top: 125px;
     padding:0px 15px 15px 15px;
-    width: 455px;
+    width:20%;
     background-color: rgba(0, 0, 0, 0.6);
   }
   .tipsFive{
@@ -205,7 +204,7 @@ body{
     left: 10px;
     top: 0px;
     padding:0px 15px 15px 15px;
-    width: 455px;
+    width: 20%;
     background-color: rgba(0, 0, 0, 0.6);
   }
   .End{
@@ -215,7 +214,7 @@ body{
   }
   .endk{
     display: inline-block;
-    margin: 20px 20px 20px 145px;
+    margin: 20px 20px 20px 4%;
   }
   .endk span{
     font-size: 18px;
@@ -227,31 +226,29 @@ body{
   .endth{
     display: inline-block;
     text-align: right;
-    margin-left: 100px;
   }
   .endth p{
-    margin: 0;
     font-size: 18px;
     font-family: 'myfont';
     color: white;
     display: inline-block;
+    margin: 0px 0px 0px 38px;
   }
   .endf{
     display: inline-block;
-    position: absolute;
-    right: 145px;
   }
   .endf p{
     font-family: 'myfont';
     font-size: 18px;
     display: inline-block;
     color: white;
+    margin: 0px 0px 0px 0px;
   }
 }
 @media screen and (max-width:960px){
   body{
     background-image:url("../imgs/max-960.png") ;
-    background-size: 100%;
+    background-size: cover;
     background-attachment:fixed; /* 页面保持不变 */
   }
   .title{
@@ -265,17 +262,23 @@ body{
     display: block;
     border: solid 1px black;
     width: 220px;
-    margin-left: 0;
-    background-color:rgba(6, 6, 6, 0.468)
+    margin-left: 10%;
+    background-color:rgba(6, 6, 6, 0.468);
+    margin-top: 11px;
   }
   .first{
     text-align: center;
+  }
+  .first p{
+    font-family: myfont;
+    font-size: 6px;
+    vertical-align: middle;
   }
   .first input{
     display: block;
     margin: 5px auto;
     width: 120px;
-    height: 20px;
+    height: 15px;
     border-radius: 8px;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -287,11 +290,10 @@ body{
   .Checkbox div >div{
     line-height: 20px;
     padding-left: 10px;
-    font-size: 12px;
   }
   .Checkbox div >div>input{
     width: 25px;
-    height: 18px;
+    height: 12px;
     vertical-align: middle;
   }
   .firstbox{
@@ -299,69 +301,114 @@ body{
   }
   .firstbox h2{
     color:gold;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .firstbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .secondbox{
     font-family: myfont;
   }
   .secondbox h2{
     color:gold;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .secondbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .thirdbox{
     font-family: myfont;
   }
   .thirdbox h2{
     color:gold;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .thirdbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .fourthbox{
     font-family: myfont;
   }
   .fourthbox h2{
     color:	red;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .fourthbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .ffifthbox{
     font-family: myfont;
   }
   .fifthbox h2{
     color:lightgreen;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .fifthbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .sixthbox{
     font-family: myfont;
   }
   .sixthbox h2{
     color: LightBLue;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .sixthbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .seventhbox{
     font-family: myfont;
   }
   .seventhbox h2{
     color:	orange;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+  }
+  .seventhbox span{
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
   }
   .allcompute{
-    font-size: 6px;
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
     float: right;
     position: absolute;
-    right: 10px;
-    top: 290px;
+    right: 4.7%;
+    top: 247px;
     padding:15px 0px 0px 15px;
     width: 173px;
     background-color: rgba(0, 0, 0, 0.7);
+    margin-left: 25%;
   }
   .allcomputeFive{
-    font-size: 6px;
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
     float: right;
     position: fixed;
-    right: 72px;
-    top: 75px;
+    right: 4.7%;
+    top: 0px;
     padding:28px 0px 0px 15px;
     width: 173px;
     background-color: rgba(0, 0, 0, 0.7);
   }
   .allcompute > p{
-    font-size: 8px;
+    font-size: 2px;
     font-family: 'myfont';
   }
   .allcomputeFive > p{
-    font-size: 16px;
+    font-size: 2px;
     font-family: 'myfont';
   }
   .allcompute > p > input{
@@ -377,23 +424,25 @@ body{
     color: black;
   }
   .allcompute a{
-    font-size: 10px;
-    margin-left: 35px;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+    margin-left: 47px;
     color: black;
     border-radius: 5px;
     box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
-    padding: 10px 30px;
+    padding: 6px 23px;
     text-decoration: none;
     background-color:white ;
     font-family: 'myfont';
   }
   .allcomputeFive a{
-    font-size: 10px;
-    margin-left: 35px;
+    font-size: 6px;
+    -webkit-text-size-adjust:none;
+    margin-left: 47px;
     color: black;
     border-radius: 5px;
     box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
-    padding: 10px 30px;
+    padding: 6px 23px;
     text-decoration: none;
     background-color:white ;
     font-family: 'myfont';
@@ -419,58 +468,55 @@ body{
     font-family: 'myfont';
     font-size: 4px;
     padding:0px 15px 15px 15px;
-    width: 400px;
     background-color: rgba(0, 0, 0, 0.6);
+    margin:auto ;
   }
   .tipsFive{
     font-family: 'myfont';
     font-size: 4px;
     padding:0px 15px 15px 15px;
-    width: 455px;
     background-color: rgba(0, 0, 0, 0.6);
+    margin:auto ;
   }
   .End{
     background-color: rgba(0, 0, 0, 0.6);
-    margin-top: 10px;
+    margin-top: 50px;
     position: relative;
-    height: 125px;
   }
   .endk{
     display: inline-block;
-    margin: 20px 0px 20px 23px;
+    margin: 20px 20px 20px 4%;
   }
   .endk span{
-    font-size: 4px;
+    font-size: 2px;
     color: white;
     font-family: 'myfont';
     display: inline-block;
-    width: 130px;
+    width: 120px;
   }
   .endth{
     display: inline-block;
     text-align: right;
-    margin-left: 21px;
-    margin-top: -10px;
+    margin: 0px 0px 20px 18px;
   }
   .endth p{
     margin: 0;
-    font-size: 4px;
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
     font-family: 'myfont';
     color: white;
     display: inline-block;
   }
   .endf{
     display: inline-block;
-    position: absolute;
-    right: 145px;
   }
   .endf p{
     font-family: 'myfont';
-    font-size: 4px;
+    font-size: 2px;
+    -webkit-text-size-adjust:none;
     display: inline-block;
     color: white;
-    margin-right: -115px;
-    margin-top: -3px;
+    margin: 0px 0px 20px 32px;
   }
 }
 
