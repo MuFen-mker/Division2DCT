@@ -117,7 +117,6 @@ body{
     width: 455px;
     background-color: rgba(0, 0, 0, 0.7);
   }
-
   .allcomputeFive{
     font-size: 10px;
     float: right;
@@ -249,9 +248,9 @@ body{
     color: white;
   }
 }
-@media screen and (max-width: 960px){
+@media screen and (max-width:960px){
   body{
-    background-image:url("../imgs/background-imgs.png") ;
+    background-image:url("../imgs/max-960.png") ;
     background-size: 100%;
     background-attachment:fixed; /* 页面保持不变 */
   }
@@ -259,6 +258,8 @@ body{
     text-align: center;
     color: purple;
     font-family: myfont;
+    height: 18px;
+    font-size: 20px;
   }
   .all{
     display: block;
@@ -334,6 +335,142 @@ body{
   }
   .seventhbox h2{
     color:	orange;
+  }
+  .allcompute{
+    font-size: 6px;
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 290px;
+    padding:15px 0px 0px 15px;
+    width: 173px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .allcomputeFive{
+    font-size: 6px;
+    float: right;
+    position: fixed;
+    right: 72px;
+    top: 75px;
+    padding:28px 0px 0px 15px;
+    width: 173px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .allcompute > p{
+    font-size: 8px;
+    font-family: 'myfont';
+  }
+  .allcomputeFive > p{
+    font-size: 16px;
+    font-family: 'myfont';
+  }
+  .allcompute > p > input{
+    width: 19px;
+    height: 17px;
+    vertical-align: middle;
+    color: black;
+  }
+  .allcomputeFive > p > input{
+    width: 19px;
+    height: 17px;
+    vertical-align: middle;
+    color: black;
+  }
+  .allcompute a{
+    font-size: 10px;
+    margin-left: 35px;
+    color: black;
+    border-radius: 5px;
+    box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
+    padding: 10px 30px;
+    text-decoration: none;
+    background-color:white ;
+    font-family: 'myfont';
+  }
+  .allcomputeFive a{
+    font-size: 10px;
+    margin-left: 35px;
+    color: black;
+    border-radius: 5px;
+    box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
+    padding: 10px 30px;
+    text-decoration: none;
+    background-color:white ;
+    font-family: 'myfont';
+  }
+  .allcompute a:hover{
+    background-color: white;
+    box-shadow:  inset 6px 6px 16px rgb(76 76 76), 2px 2px 10px rgb(172 172 172);
+  }
+  .allcomputeFive a:hover{
+    background-color: white;
+    box-shadow:  inset 6px 6px 16px rgb(76 76 76), 2px 2px 10px rgb(172 172 172);
+  }
+  .aspacing{
+    height: 20px;
+  }
+  .star{
+    text-decoration: none;
+  }
+  .star:hover{
+    color: aqua;
+  }
+  .tips{
+    font-family: 'myfont';
+    font-size: 4px;
+    padding:0px 15px 15px 15px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .tipsFive{
+    font-family: 'myfont';
+    font-size: 4px;
+    padding:0px 15px 15px 15px;
+    width: 455px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .End{
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 10px;
+    position: relative;
+    height: 125px;
+  }
+  .endk{
+    display: inline-block;
+    margin: 20px 0px 20px 23px;
+  }
+  .endk span{
+    font-size: 4px;
+    color: white;
+    font-family: 'myfont';
+    display: inline-block;
+    width: 130px;
+  }
+  .endth{
+    display: inline-block;
+    text-align: right;
+    margin-left: 21px;
+    margin-top: -10px;
+  }
+  .endth p{
+    margin: 0;
+    font-size: 4px;
+    font-family: 'myfont';
+    color: white;
+    display: inline-block;
+  }
+  .endf{
+    display: inline-block;
+    position: absolute;
+    right: 145px;
+  }
+  .endf p{
+    font-family: 'myfont';
+    font-size: 4px;
+    display: inline-block;
+    color: white;
+    margin-right: -115px;
+    margin-top: -3px;
   }
 }
 

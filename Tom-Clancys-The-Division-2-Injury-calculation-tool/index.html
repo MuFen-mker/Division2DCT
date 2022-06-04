@@ -15,6 +15,15 @@
 
 <body>
   <h1 class="title">全境封锁2武器伤害计算器</h1>
+  <div class="tips" id="Tips">
+    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5</p>
+    <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启"显示基础伤害"查看</p>
+    <p>计算结果有些许偏差是正常的</p>
+    <p>只有在考虑对机械单位时才勾选"技师--拆解"，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
+    <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
+    <p>追悼长期BUFF指每个已捡起挂饰，短期BUFF指捡起挂饰时</p>
+    <a class="star" target="_blank" href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
+  </div>
   <div class="all">
     <div id="root" class="first">
       <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
@@ -357,15 +366,6 @@
       <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
     </div>
-  </div>
-  <div class="tips" id="Tips">
-    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5</p>
-    <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启"显示基础伤害"查看</p>
-    <p>计算结果有些许偏差是正常的</p>
-    <p>只有在考虑对机械单位时才勾选"技师--拆解"，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
-    <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
-    <p>追悼长期BUFF指每个已捡起挂饰，短期BUFF指捡起挂饰时</p>
-    <a class="star" target="_blank" href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
   </div>
   <div class="End" id="End">
     <div class="endk">
