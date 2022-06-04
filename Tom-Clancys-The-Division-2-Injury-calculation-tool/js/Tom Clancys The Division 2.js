@@ -26,25 +26,29 @@ const Checkbox = new Vue({
       // 充满干劲层数
       FullOfEnergyC: 0,
       // 游骑兵层数
-      RangerC:0,
+      RangerC: 0,
       // 步枪兵层数
-      RiflemanC:0,
+      RiflemanC: 0,
       // 专注
-      AbsorbedC:0,
+      AbsorbedC: 0,
       // 威吓
-      IntimidateC:0,
+      IntimidateC: 0,
       //抹灭性破坏
-      OFC:0,
+      OFC: 0,
       // 无人能挡的力量层数
-      UnstoppableForceC:0,
+      UnstoppableForceC: 0,
       // 索耶的护膝层数
-      SawyersKneepadsC:0,
+      SawyersKneepadsC: 0,
       // 道奇层数
-      DodgeCityHolsterC:0,
+      DodgeCityHolsterC: 0,
       //突袭层数
       StrikersBattlegearC: 0,
       //芳心终结者层数
       HeartTerminatorC: 0,
+      // 追悼
+      MournC: 0,
+      // 追悼红核
+      MournsC: 0,
 
       // 武器伤
       WDJ: {
@@ -56,7 +60,9 @@ const Checkbox = new Vue({
         OS: false,
         FistToMeat: false,
         Rifleman: false,
-        Insanity: false
+        Insanity: false,
+        Mourn: false,
+        Mourns: false
       },
       AddWDJ: {
         Chameleon: 90,
@@ -67,7 +73,9 @@ const Checkbox = new Vue({
         OS: 15,
         FistToMeat: 40,
         Rifleman: 50,
-        Insanity: 18
+        Insanity: 18,
+        Mourn: 1,
+        Mourns: 5
       },
 
       //爆头伤
@@ -185,7 +193,7 @@ const Checkbox = new Vue({
         TechnicianDismantling: false,
         TTM: false,
         FullOfEnergy: false,
-        AchillesPulse:false
+        AchillesPulse: false
       },
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
@@ -193,7 +201,7 @@ const Checkbox = new Vue({
         TechnicianDismantling: 1.12,
         TTM: 1.4,
         FullOfEnergy: 1.25,
-        AchillesPulse:1
+        AchillesPulse: 1
       },
 
       HeadHunter: false,  //猎头
@@ -201,7 +209,13 @@ const Checkbox = new Vue({
     }
   },
   methods: {
-    ChAchillesPulse(){
+    ChMourns () {
+      this.WDJ.Mourns = !this.WDJ.Mourns
+    },
+    ChMourn () {
+      this.WDJ.Mourn = !this.WDJ.Mourn
+    },
+    ChAchillesPulse () {
       this.AmpWd.AchillesPulse = !this.AmpWd.AchillesPulse
     },
     ChVersatileRF () {
@@ -389,6 +403,12 @@ const Checkbox = new Vue({
     }
   },
   computed: {
+    MournsSum () {
+      return this.AddWDJ.Mourns = 5 * this.MournsC
+    },
+    MournSum () {
+      return this.AddWDJ.Mourn = 1 * this.MournC
+    },
     BreadbasketSum () {
       return this.AddHI.Breadbasket = 35 * this.BreadbasketC
     },
@@ -396,13 +416,13 @@ const Checkbox = new Vue({
       return this.AddWDJ.OS = 3 * this.OSC
     },
     TTMSum () {
-      return this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC)/ 100)
+      return this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC) / 100)
     },
     FullOfEnergySum () {
-      return this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC)/ 100)
+      return this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC) / 100)
     },
     RangerSum () {
-      return this.AddMD.Ranger = 1 + (2 * Number(this.RangerC)/ 100)
+      return this.AddMD.Ranger = 1 + (2 * Number(this.RangerC) / 100)
     },
     RiflemanSum () {
       return this.AddWDJ.Rifleman = 10 * this.RiflemanC
@@ -411,7 +431,7 @@ const Checkbox = new Vue({
       return this.AddTWD.Absorbed = 5 * this.AbsorbedC
     },
     IntimidateSum () {
-      return this.AddMD.Intimidate = 1 + (5 * Number(this.IntimidateC)/ 100)
+      return this.AddMD.Intimidate = Math.pow(1.05, this.IntimidateC)
     },
     OFSum () {
       return this.AddTWD.OF = 1 * this.OFC
@@ -431,8 +451,8 @@ const Checkbox = new Vue({
     HeartTerminatorSum () {
       return this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
-    AchillesPulseNum(){
-      return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD)/100)
+    AchillesPulseNum () {
+      return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
     }
   }
 })
@@ -461,10 +481,30 @@ const Calculation = new Vue({
       ASumHBOC: 0,
       Sum: 0,
 
-      HeadHunterDs: 0
+      CONHSum: 0,
+      CONASum: 0,
+      CONHSumB: 0,
+      CONASumB: 0,
+      CONHSumH: 0,
+      CONASumH: 0,
+      CONHSumHB: 0,
+      CONASumHB: 0,
+
+      HeadHunterDs: 0,
+
+      HSUMNAME: '对生命值目标伤害',
+      TechnicianDismantlingTag: true,
+
+      // 简洁与详细切换
+      concise:true,
+      detailed:false
     }
   },
   methods: {
+    CNV(){
+      this.concise = !this.concise
+      this.detailed = !this.detailed
+    },
     culation () {
       let WDJARR = [];
       let AddWDJARR = [];
@@ -501,8 +541,18 @@ const Calculation = new Vue({
       this.ASumHBOC = 0
       this.FULLTWD = 0
       this.FULLWDJ = 0
+      this.CONHSum = 0
+      this.CONASum = 0
+      this.CONHSumB = 0
+      this.CONASumB = 0
+      this.CONHSumH = 0
+      this.CONASumH = 0
+      this.CONHSumHB = 0
+      this.CONASumHB = 0
       this.FULLHI = root.HSD
       this.HeadHunterDs = 0
+      this.TechnicianDismantlingTag = true
+      this.HSUMNAME = '对生命值目标伤害'
 
       // 计算全部武器伤害
       Object.keys(Checkbox.WDJ).forEach((item) => {
@@ -630,7 +680,6 @@ const Calculation = new Vue({
       }
 
 
-
       // 猎头的计算
       this.ASum = this.ASum + this.HeadHunterDs
       this.HSum = this.HSum + this.HeadHunterDs
@@ -655,6 +704,44 @@ const Calculation = new Vue({
 
       this.ASumHBOC = this.ASumHBOC + this.HeadHunterDs
       this.HSumHBOC = this.HSumHBOC + this.HeadHunterDs
+
+
+      // 判断技师拆解是否开启
+      if (Checkbox.AmpWd.TechnicianDismantling == true) {
+        this.HSUMNAME = '对机械单位伤害'
+        this.TechnicianDismantlingTag = false
+        this.ASum = 0
+        this.HSum = this.HSumOC
+
+        this.ASumOC = 0
+
+        this.ASumB = 0
+        this.HSumB = this.HSumBOC
+
+        this.ASumBOC = 0
+
+        this.ASumH = 0
+        this.HSumH = this.HSumOC
+
+        this.ASumHOC = 0
+        this.HSumHOC = this.HSumOC
+
+        this.ASumHB = 0
+        this.HSumHB = this.HSumBOC
+
+        this.ASumHBOC = 0
+        this.HSumHBOC = this.HSumBOC
+      }
+
+      // 赋值简洁面板
+      this.CONHSum = this.HSumOC
+      this.CONASum = this.ASumOC
+      this.CONHSumB = this.HSumBOC
+      this.CONASumB = this.ASumBOC
+      this.CONHSumH = this.HSumHOC
+      this.CONASumH = this.ASumHOC
+      this.CONHSumHB = this.HSumHBOC
+      this.CONASumHB = this.ASumHBOC
     },
   },
 })

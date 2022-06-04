@@ -6,19 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/vue.js" type="text/javascript"></script>
+  <script src="js/jqueryMin.js" type="text/javascript"></script>
+  <script src="js/Sidebar float.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="icon" href="imgs/Tom Clancys The Division 2.ico">
   <title>全境封锁2伤害计算器1.0 By-MuFen</title>
 </head>
 
 <body>
-  <h1 class="title">全境封锁2伤害计算器</h1>
+  <h1 class="title">全境封锁2武器伤害计算器</h1>
   <div class="all">
     <div id="root" class="first">
       <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
       <p>全武器伤<input v-model="RedCore" type="text" name="RedCore" placeholder="全武器伤(%)" /></p>
       <p>武器种类伤害加成<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
-      <p>武器精通等级<input v-model="weaponM" type="text" name="weaponM" placeholder="武器精通等级"/></p>
+      <p>武器精通等级<input v-model="weaponM" type="text" name="weaponM" placeholder="武器精通等级" /></p>
       <p>爆头伤<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
       <p>爆伤<input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" /></p>
       <p>生命伤<input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" /></p>
@@ -205,7 +207,7 @@
         <h2>奇特天赋</h2>
         <div>
           <input @click="ChSawyersKneepads" type="checkbox">
-          <span>索耶的护膝(满)</span>
+          <span>索耶的护膝</span>
           <input v-if="TWD.SawyersKneepads" v-model="SawyersKneepadsC" type="text" />
         </div>
         <div>
@@ -232,6 +234,16 @@
         <div>
           <input @click="ChScorpio" type="checkbox">
           <span>天蝎座</span>
+        </div>
+        <div>
+          <input @click="ChMourn" type="checkbox">
+          <span>追悼(长期BUFF)</span>
+          <input v-if="WDJ.Mourn" v-model="MournC" type="text" />
+        </div>
+        <div>
+          <input @click="ChMourns" type="checkbox">
+          <span>追悼(短期BUFF,输入红核数)</span>
+          <input v-if="WDJ.Mourns" v-model="MournsC" type="text" />
         </div>
       </div>
       <div class="fifthbox">
@@ -311,29 +323,69 @@
     <a @click="culation" href="#" onclick="return false;">计算</a>
     <div class="aspacing"></div>
     <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
-    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1><br />
-    <h1>对生命值敌人伤害:{{HSum.toFixed(2)}}</h1>
-    <h2>暴击:{{HSumB.toFixed(2)}}</h2>
-    <h2>爆头:{{HSumH.toFixed(2)}}</h2>
-    <h2>头部暴击:{{HSumHB.toFixed(2)}}</h2>
-    <h2>对离开掩体目标伤害:{{HSumOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标暴击:{{HSumBOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标爆头:{{HSumHOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
-    <br>
-    <h1>对护甲值敌人伤害:{{ASum.toFixed(2)}}</h1>
-    <h2>暴击:{{ASumB.toFixed(2)}}</h2>
-    <h2>爆头:{{ASumH.toFixed(2)}}</h2>
-    <h2>头部暴击:{{ASumHB.toFixed(2)}}</h2>
-    <h2>对离开掩体目标伤害:{{ASumOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标暴击:{{ASumBOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标爆头:{{ASumHOC.toFixed(2)}}</h2>
-    <h2>对离开掩体目标头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
+    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
+    <h1>猎头者奖励:{{HeadHunterDs.toFixed(2)}}</h1>
+    <br />
+    <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
+    <div v-if="detailed">
+      <h1>{{HSUMNAME}}:{{HSum.toFixed(2)}}</h1>
+      <h2>暴击:{{HSumB.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:{{HSumOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:{{HSumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:{{HSumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
+      <br>
+      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:{{ASum.toFixed(2)}}</h1>
+      <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:{{ASumOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:{{ASumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:{{ASumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
+    </div>
+    <div v-if="concise">
+      <h1>{{HSUMNAME}}:{{HSumOC.toFixed(2)}}</h1>
+      <h2>暴击:{{HSumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
+      <br>
+      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:{{ASumOC.toFixed(2)}}</h1>
+      <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
+      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
+    </div>
   </div>
-  <div class="tips">
+  <div class="tips" id="Tips">
     <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5</p>
     <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启"显示基础伤害"查看</p>
     <p>计算结果有些许偏差是正常的</p>
+    <p>只有在考虑对机械单位时才勾选"技师--拆解"，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
+    <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
+    <p>追悼长期BUFF指每个已捡起挂饰，短期BUFF指捡起挂饰时</p>
+    <a class="star" target="_blank" href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
+  </div>
+  <div class="End" id="End">
+    <div class="endk">
+      <span>页面设计:MuFen</span>
+      <span>功能实现:MuFen</span>
+      <span>文案设计:MuFen</span>
+      <br />
+      <span>页面样式:mengxindd</span>
+      <span>页面适配:mengxindd</span>
+      <span>素材搜寻:mengxindd</span>
+    </div>
+    <div class="endth">
+      <p>特别感谢:&nbsp; &nbsp;h4xor343 &nbsp; &nbsp; Khperi.-</p><br />
+      <p>Kujo._.Jotaro &nbsp; &nbsp;Reddit</p>
+    </div>
+    <div class="endf">
+      <p>
+        反馈: <br/> 3550035202@qq.com
+      </p>
+    </div>
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
