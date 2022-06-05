@@ -6,15 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/vue.js" type="text/javascript"></script>
-  <script src="js/jqueryMin.js" type="text/javascript"></script>
-  <script src="js/Sidebar float.js" type="text/javascript"></script>
+  <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
   <!-- 强制浏览器缩放比例 -->
   <script src="js/Scale.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="icon" href="imgs/Tom Clancys The Division 2.ico">
+  <script src="js/Sidebar float.js" type="text/javascript"></script>
   <title>全境封锁2伤害计算器1.0 By-MuFen</title>
 </head>
-
 <body>
   <h1 class="title">全境封锁2武器伤害计算器</h1>
   <div class="tips" id="Tips">
@@ -29,6 +28,7 @@
     </a>
     <p style="color: orange;">h4xor343的"开黑啦"服务器ID：90818938</p>
   </div>
+  <div class="bodyGui" id="scllTo">
   <div class="all">
     <div id="root" class="first">
       <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
@@ -376,6 +376,7 @@
     </div>
   </div>
   </div>
+</div>
   <div class="End" id="End">
     <div class="endk">
       <span>页面设计:MuFen</span>
@@ -398,5 +399,4 @@
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
-
 </html>

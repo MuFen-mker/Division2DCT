@@ -128,19 +128,23 @@ body{
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9999;
   }
-  .allcompute > p{
+  .allcompute p{
     font-family: 'myfont';
+    font-size: 18px;
+    vertical-align: middle;
   }
-  .allcomputeFive > p{
+  .allcomputeFive p{
     font-family: 'myfont';
+    font-size: 18px;
+    vertical-align: middle;
   }
-  .allcompute > p > input{
-    width: 19px;
-    height: 17px;
+  .allcompute p > input{
+    width: 18px;
+    height: 18px;
     vertical-align: middle;
     color: black;
   }
-  .allcomputeFive > p > input{
+  .allcomputeFive p > input{
     width: 19px;
     height: 17px;
     vertical-align: middle;
@@ -265,12 +269,11 @@ body{
     font-size: 80px;
   }
   .all{
-    display: block;
+    display: inline-block;
     border: solid 1px rgba(0, 0, 0, 0);
     width: 50%;
     margin-left: 1%;
     background-color:rgba(6, 6, 6, 0.468);
-    margin-top: 11px;
   }
   .first{
     text-align: center;
@@ -389,24 +392,26 @@ body{
     margin-left: 15px;
   }
   .usculation p{
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'myfont';
   }
   .usculation p input{
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     margin-right: 15px;
   }
+  .bodyGui{
+    position: relative;
+    margin-top: 10px;
+  }
   .allcompute{
-    font-size: 20px;
-    -webkit-text-size-adjust:none;
-    float: right;
     position: absolute;
+    top: 0;
     right: 1%;
-    top: 1015px;
-    width: 45%;
+    font-size: 20px;
+    display: inline-block;
     background-color: rgba(0, 0, 0, 0.7);
-    margin-left: 25%;
+    width: 45%;
   }
   .allcomputeFive{
     font-size: 20px;
@@ -512,17 +517,17 @@ body{
     background-color: rgba(0, 0, 0, 0.6);
     margin-top: 50px;
     position: relative;
+    margin: 10px;
   }
   .endk{
     display: inline-block;
-    margin: 20px 20px 20px 3%;
   }
   .endk span{
-    font-size: 20px;
+    font-size: 14px;
     color: white;
     font-family: 'myfont';
     display: inline-block;
-    width: 230px;
+    width: 200px;
   }
   .endth{
     display: inline-block;
@@ -530,7 +535,7 @@ body{
   }
   .endth p{
     margin: 0;
-    font-size: 20px;
+    font-size: 14px;
     -webkit-text-size-adjust:none;
     font-family: 'myfont';
     color: white;
@@ -538,11 +543,10 @@ body{
   }
   .endf{
     float: right;
-    margin-right: 2%;
   }
   .endf p{
     font-family: 'myfont';
-    font-size: 20px;
+    font-size: 14px;
     -webkit-text-size-adjust:none;
     display: inline-block;
     color: white;
