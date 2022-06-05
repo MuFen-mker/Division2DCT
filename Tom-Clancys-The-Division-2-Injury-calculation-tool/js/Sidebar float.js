@@ -11,7 +11,7 @@ window.onload = function () {
         //根据视口宽度调整下滑
         if (shikoufive > 960) {
             // PC
-            xiahuapxfive = 100;
+            xiahuapxfive = 130;
             // xiahuapxtofive = 120;
         } else {
             // PE
