@@ -668,7 +668,7 @@ const Calculation = new Vue({
           this.HSumB = this.HSumB * AddAmpWdARR[i]
 
           this.ASumH = this.ASumH * AddAmpWdARR[i]
-          this.ASumH = this.HSumH * AddAmpWdARR[i]
+          this.HSumH = this.HSumH * AddAmpWdARR[i]
 
           this.ASumHB = this.ASumHB * AddAmpWdARR[i]
           this.HSumHB = this.HSumHB * AddAmpWdARR[i]
@@ -713,6 +713,20 @@ const Calculation = new Vue({
       this.ASumHBOC = this.ASumHBOC + this.HeadHunterDs
       this.HSumHBOC = this.HSumHBOC + this.HeadHunterDs
 
+      // 判断道奇是否开启
+      if (Checkbox.WDJ.DodgeCityHolster == true) {
+        this.ASum = this.ASumH
+        this.HSum = this.HSumH
+  
+        this.ASumOC = this.ASumHOC
+        this.HSumOC = this.HSumHOC
+  
+        this.ASumB = this.ASumHB 
+        this.HSumB = this.HSumHB 
+  
+        this.ASumBOC = this.ASumHBOC 
+        this.HSumBOC = this.HSumHBOC 
+      }
 
       // 判断技师拆解是否开启
       if (Checkbox.AmpWd.TechnicianDismantling == true) {
