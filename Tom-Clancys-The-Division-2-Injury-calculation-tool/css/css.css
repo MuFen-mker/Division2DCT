@@ -9,7 +9,7 @@ body{
   font-family: myfont;
   src: url(../font/方正粗圆.ttf);
 }
-@media screen and (min-width: 960px){
+@media screen and (min-width: 730px){
   body{
     background-image:url("../imgs/background-imgs.png") ;
     background-size: cover;
@@ -31,6 +31,8 @@ body{
     margin-left:25% ;
     background-color:rgba(6, 6, 6, 0.5);
     padding: 5% 5%;
+    border-bottom: 3px solid orange;
+    border-top: 3px solid orange;
     
   }
   .first{
@@ -49,6 +51,12 @@ body{
     display: inline-block;
     font-family: 'myfont';
   }
+  #checkboxinput{
+    color: black;
+    font-family: 'myfont';
+    font-size: 18px;
+    width: 70px;
+  }
   .Checkbox{
     margin-top: 40px;
   }
@@ -59,9 +67,9 @@ body{
     padding-left: 67px;
     font-size: 18px;
   }
-  .Checkbox div >div>input{
-    width: 28px;
-    height: 21px;
+  .Checkbox div div input{
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
     color: black;
   }
@@ -116,6 +124,7 @@ body{
     padding:1% 0px 0px 1%;
     width: 20%;
     background-color: rgba(0, 0, 0, 0.7);
+    border-left: 3px solid orange;
   }
   .allcomputeFive{
     font-size: 9px;
@@ -126,6 +135,7 @@ body{
     padding:1% 0px 0px 1%;
     width:20%;
     background-color: rgba(0, 0, 0, 0.7);
+    border-left: 3px solid orange;
     z-index: 9999;
   }
   .allcompute p{
@@ -199,6 +209,7 @@ body{
     padding:0px 15px 15px 15px;
     width:20%;
     background-color: rgba(0, 0, 0, 0.6);
+    border-right: 3px solid orange;
   }
   .tipsFive{
     font-family: 'myfont';
@@ -210,15 +221,15 @@ body{
     padding:0px 15px 15px 15px;
     width: 20%;
     background-color: rgba(0, 0, 0, 0.6);
+    border-right: 3px solid orange;
   }
   .End{
     background-color: rgba(0, 0, 0, 0.6);
-    margin-top: 50px;
-    width: 74%;
+    width: 915px;
     padding: 0.5%;
     position: relative;
-    left: 0;
-    bottom: 0;
+    margin: 50px auto 0;
+    border-top: 2px solid orange;
   }
   .endk{
     display: inline-block;
@@ -231,18 +242,6 @@ body{
     display: inline-block;
     width: 200px;
   }
-  .endth{
-    display: inline-block;
-    text-align: right;
-    margin-left: 8%;
-  }
-  .endth p{
-    font-size: 18px;
-    font-family: 'myfont';
-    color: white;
-    display: inline-block;
-    margin: 0;
-  }
   .endf{
     display: inline-block;
     position: absolute;
@@ -251,12 +250,13 @@ body{
   .endf p{
     font-family: 'myfont';
     font-size: 18px;
+    text-align: right;
     display: inline-block;
     color: white;
     margin: 0 0 0 0;
   }
 }
-@media screen and (max-width:960px){
+@media screen and (max-width:730px){
   body{
     background-image:url("../imgs/max-960.png") ;
     background-size: cover;
@@ -266,7 +266,7 @@ body{
     text-align: center;
     color: rgb(255, 144, 40);
     font-family: "myfont";
-    font-size: 80px;
+    font-size: 50px;
   }
   .all{
     display: inline-block;
@@ -292,6 +292,12 @@ body{
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+  #checkboxinput{
+    height: 40px;
+    width: 100px;
+    color: black;
+    font-family: 'myfont';
+  }
   .Checkbox{
     margin-top: 1px;
   }
@@ -310,8 +316,8 @@ body{
     padding-left: 10px;
   }
   .Checkbox div >div>input{
-    width: 110px;
-    height: 30px;
+    width: 60px;
+    height: 40px;
     vertical-align: middle;
   }
   .Checkbox div >div>span{
@@ -514,10 +520,7 @@ body{
     margin: 0;
   }
   .End{
-    background-color: rgba(0, 0, 0, 0.6);
-    margin-top: 50px;
-    position: relative;
-    margin: 10px;
+    display: none;
   }
   .endk{
     display: inline-block;
@@ -528,18 +531,6 @@ body{
     font-family: 'myfont';
     display: inline-block;
     width: 200px;
-  }
-  .endth{
-    display: inline-block;
-    text-align: right;
-  }
-  .endth p{
-    margin: 0;
-    font-size: 14px;
-    -webkit-text-size-adjust:none;
-    font-family: 'myfont';
-    color: white;
-    display: inline-block;
   }
   .endf{
     float: right;

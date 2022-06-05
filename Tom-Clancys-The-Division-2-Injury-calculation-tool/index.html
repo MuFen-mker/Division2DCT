@@ -14,10 +14,12 @@
   <script src="js/Sidebar float.js" type="text/javascript"></script>
   <title>全境封锁2伤害计算器1.0 By-MuFen</title>
 </head>
+
 <body>
   <h1 class="title">全境封锁2武器伤害计算器</h1>
   <div class="tips" id="Tips">
-    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5，数值以<span style="color: red;">"角色面板"</span>为准，查看数据时请用<span style="color: red;">"G"</span>切换为当前武器</p>
+    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5，数值以<span style="color: red;">"角色面板"</span>为准，查看数据时请用<span
+        style="color: red;">"G"</span>切换为当前武器</p>
     <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启<span style="color: red;">"显示基础伤害"</span>查看</p>
     <p>计算结果有些许偏差是正常的</p>
     <p>只有在考虑对机械单位时才勾选<span style="color: red;">"技师--拆解"</span>，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
@@ -26,357 +28,357 @@
     <a class="star" target="_blank"
       href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧
     </a>
-    <p style="color: orange;">h4xor343的"开黑啦"服务器ID：90818938</p>
+    <p style="color: orange;">错误反馈:<br>h4xor343的"开黑啦"服务器ID：90818938 <br> 欢迎各位华盛顿特工，此服务器提供专业的八人本基础教学，进阶教学，修车服务!</p>
   </div>
   <div class="bodyGui" id="scllTo">
-  <div class="all">
-    <div id="root" class="first">
-      <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
-      <p>所有武器的伤害加成<input v-model="RedCore" type="text" name="RedCore" placeholder="所有武器的伤害加成(%)" /></p>
-      <p>武器种类伤害加成<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
-      <p>爆头伤害<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
-      <p>爆击伤害<input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" /></p>
-      <p>对生命值伤害<input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" /></p>
-      <p>装甲伤害<input v-model="DTA" type="text" name="DTA" placeholder="装甲伤(%)" /></p>
-      <p>对离开掩体目标伤<input v-model="DTOC" type="text" name="DTOC" placeholder="掩体伤(%)" /></p>
+    <div class="all">
+      <div id="root" class="first">
+        <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
+        <p>所有武器的伤害加成<input v-model="RedCore" type="text" name="RedCore" placeholder="所有武器的伤害加成(%)" /></p>
+        <p>武器种类伤害加成<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
+        <p>爆头伤害<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
+        <p>爆击伤害<input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" /></p>
+        <p>对生命值伤害<input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" /></p>
+        <p>装甲伤害<input v-model="DTA" type="text" name="DTA" placeholder="装甲伤(%)" /></p>
+        <p>对离开掩体目标伤<input v-model="DTOC" type="text" name="DTOC" placeholder="掩体伤(%)" /></p>
+      </div>
+      <div id="Checkbox" class="Checkbox">
+        <div class="firstbox">
+          <h2>武器天赋</h2>
+          <div>
+            <input @click="ChBoomerang" type="checkbox">
+            <span>回力镖</span>
+          </div>
+          <div>
+            <input @click="ChBreadbasket" type="checkbox">
+            <span>面包篮</span>
+            <input id="checkboxinput" v-show="HI.Breadbasket" v-model="BreadbasketC" type="text" />
+          </div>
+          <div>
+            <input @click="ChFightHandToHandWith" type="checkbox">
+            <span>短兵相接</span>
+          </div>
+          <div>
+            <input @click="ChGoBlind" type="checkbox">
+            <span>失明</span>
+          </div>
+          <div>
+            <input @click="ChLight" type="checkbox">
+            <span>点燃</span>
+          </div>
+          <div>
+            <input @click="ChPCFirst" type="checkbox">
+            <span>精密计算:前半段</span>
+          </div>
+          <div>
+            <input @click="ChPCLast" type="checkbox">
+            <span>精密计算:后半段</span>
+          </div>
+          <div>
+            <input @click="ChNaked" type="checkbox">
+            <span>赤身裸体</span>
+          </div>
+          <div>
+            <input @click="ChOS" type="checkbox">
+            <span>乐天派</span>
+            <input id="checkboxinput" v-show="WDJ.OS" v-model="OSC" type="text" />
+          </div>
+          <div>
+            <input @click="ChTTM" type="checkbox">
+            <span>排山倒海</span>
+            <input id="checkboxinput" v-show="AmpWd.TTM" v-model="TTMC" type="text" />
+          </div>
+          <div>
+            <input @click="ChFistToMeat" type="checkbox">
+            <span>拳拳到肉</span>
+          </div>
+          <div>
+            <input @click="ChFullOfEnergy" type="checkbox">
+            <span>充满干劲</span>
+            <input id="checkboxinput" v-show="AmpWd.FullOfEnergy" v-model="FullOfEnergyC" type="text" />
+          </div>
+          <div>
+            <input @click="ChRanger" type="checkbox">
+            <span>游骑兵</span>
+            <input id="checkboxinput" v-show="MD.Ranger" v-model="RangerC" type="text" />
+          </div>
+          <div>
+            <input @click="ChRifleman" type="checkbox">
+            <span>步枪兵</span>
+            <input id="checkboxinput" v-show="WDJ.Rifleman" v-model="RiflemanC" type="text" />
+          </div>
+          <div>
+            <input @click="ChToAbuse" type="checkbox">
+            <span>虐待狂</span>
+          </div>
+          <div>
+            <input @click="ChInsanity" type="checkbox">
+            <span>精神错乱</span>
+          </div>
+          <div>
+            <input @click="ChAsystole" type="checkbox">
+            <span>停搏</span>
+          </div>
+        </div>
+        <div class="secondbox">
+          <h2>胸甲天赋</h2>
+          <div>
+            <input @click="ChFeelTheSame" type="checkbox">
+            <span>感同深受(队友携带且六电)</span>
+          </div>
+          <div>
+            <input @click="ChFeelTheSameY" type="checkbox">
+            <span>感同深受(自身携带且六电)</span>
+          </div>
+          <div>
+            <input @click="ChAbsorbed" type="checkbox">
+            <span>专注</span>
+            <input id="checkboxinput" v-show="TWD.Absorbed" v-model="AbsorbedC" type="text" />
+          </div>
+          <div>
+            <input @click="ChGlassCannon" type="checkbox">
+            <span>玻璃大炮</span>
+          </div>
+          <div>
+            <input @click="ChPGlassCannon" type="checkbox">
+            <span>完美玻璃大炮</span>
+          </div>
+          <div>
+            <input @click="ChGunslinger" type="checkbox">
+            <span>枪神</span>
+          </div>
+          <div>
+            <input @click="ChIntimidate" type="checkbox">
+            <span>威吓</span>
+            <input id="checkboxinput" v-show="MD.Intimidate" v-model="IntimidateC" type="text" />
+          </div>
+          <div>
+            <input @click="ChOF" type="checkbox">
+            <span>抹灭性破坏</span>
+            <input id="checkboxinput" v-show="TWD.OF" v-model="OFC" type="text" />
+          </div>
+          <div>
+            <input @click="ChShelterCover" type="checkbox">
+            <span>掩体掩护</span>
+          </div>
+          <div>
+            <input @click="ChSpark" type="checkbox">
+            <span>火花</span>
+          </div>
+          <div>
+            <input @click="ChHeadHunter" type="checkbox">
+            <span>猎头者(MAX)</span>
+          </div>
+          <div>
+            <input @click="ChScout" type="checkbox">
+            <span>探子</span>
+          </div>
+        </div>
+        <div class="thirdbox">
+          <h2>背包天赋</h2>
+          <div>
+            <input @click="ChCompanion" type="checkbox">
+            <span>同伴</span>
+          </div>
+          <div>
+            <input @click="ChComposure" type="checkbox">
+            <span>泰然自若</span>
+          </div>
+          <div>
+            <input @click="ChConcussion" type="checkbox">
+            <span>震荡</span>
+          </div>
+          <div>
+            <input @click="ChConcussionKill" type="checkbox">
+            <span>震荡(获得击杀后)</span>
+          </div>
+          <div>
+            <input @click="ChOpportunistic" type="checkbox">
+            <span>投机取巧</span>
+          </div>
+          <div>
+            <input @click="ChUnstoppableForce" type="checkbox">
+            <span>无人能挡的力量</span>
+            <input id="checkboxinput" v-show="TWD.UnstoppableForce" v-model="UnstoppableForceC" type="text" />
+          </div>
+          <div>
+            <input @click="ChVersatile" type="checkbox">
+            <span>多才多艺(冲锋枪与霰弹枪)</span>
+          </div>
+          <div>
+            <input @click="ChVersatileRF" type="checkbox">
+            <span>多才多艺(狙击与步枪)</span>
+          </div>
+          <div>
+            <input @click="ChVersatileAR" type="checkbox">
+            <span>多才多艺(突击步枪与机枪)</span>
+          </div>
+          <div>
+            <input @click="ChVigilance" type="checkbox">
+            <span>警戒</span>
+          </div>
+          <div>
+            <input @click="ChWicked" type="checkbox">
+            <span>恶人</span>
+          </div>
+        </div>
+        <div class="fourthbox">
+          <h2>奇特天赋</h2>
+          <div>
+            <input @click="ChSawyersKneepads" type="checkbox">
+            <span>索耶的护膝</span>
+            <input id="checkboxinput" v-show="TWD.SawyersKneepads" v-model="SawyersKneepadsC" type="text" />
+          </div>
+          <div>
+            <input @click="ChDodgeCityHolster" type="checkbox">
+            <span>道奇城枪手枪套</span>
+            <input id="checkboxinput" v-show="WDJ.DodgeCityHolster" v-model="DodgeCityHolsterC" type="text" />
+          </div>
+          <div>
+            <input @click="ChBigHorn" type="checkbox">
+            <span>大角突击步枪(半自动模式)</span>
+          </div>
+          <div>
+            <input @click="ChChameleon" type="checkbox">
+            <span>变色龙(躯体BUFF)</span>
+          </div>
+          <div>
+            <input @click="ChLadyDeath" type="checkbox">
+            <span>死亡女神</span>
+          </div>
+          <div>
+            <input @click="ChMerciless" type="checkbox">
+            <span>无情/冷酷无情</span>
+          </div>
+          <div>
+            <input @click="ChScorpio" type="checkbox">
+            <span>天蝎座</span>
+          </div>
+          <div>
+            <input @click="ChMourn" type="checkbox">
+            <span>追悼(长期BUFF)</span>
+            <input id="checkboxinput" v-show="WDJ.Mourn" v-model="MournC" type="text" />
+          </div>
+          <div>
+            <input @click="ChMourns" type="checkbox">
+            <span>追悼(短期BUFF,输入红核数)</span>
+            <input id="checkboxinput" v-show="WDJ.Mourns" v-model="MournsC" type="text" />
+          </div>
+        </div>
+        <div class="fifthbox">
+          <h2>装备组</h2>
+          <div>
+            <input @click="ChAcesEights" type="checkbox">
+            <span>A、8两对</span>
+          </div>
+          <div>
+            <input @click="ChOngoingDirective" type="checkbox">
+            <span>政令进行时</span>
+          </div>
+          <div>
+            <input @click="ChStrikersBattlegear" type="checkbox">
+            <span>突袭者战斗装备</span>
+            <input id="checkboxinput" v-show="MD.StrikersBattlegear" v-model="StrikersBattlegearC" type="text" />
+          </div>
+          <div>
+            <input @click="ChTipOfTheSpear" type="checkbox">
+            <span>先锋部队</span>
+          </div>
+          <div>
+            <input @click="ChTruePatriot" type="checkbox">
+            <span>真实爱国者</span>
+          </div>
+          <div>
+            <input @click="ChFutureInitiative" type="checkbox">
+            <span>未来主动权(带胸甲)</span>
+          </div>
+          <div>
+            <input @click="ChHeartTerminator" type="checkbox">
+            <span>芳心终结者</span>
+            <input id="checkboxinput" v-show="MD.HeartTerminator" v-model="HeartTerminatorC" type="text" />
+          </div>
+        </div>
+        <div class="sixthbox">
+          <h2>技能增伤</h2>
+          <div>
+            <input @click="ChScannerPulse" type="checkbox">
+            <span>脉冲--扫描/遥控</span>
+          </div>
+          <div>
+            <input @click="ChAchillesPulse" type="checkbox">
+            <span>脉冲--阿基里斯</span>
+          </div>
+          <div>
+            <input @click="ChFirewallStrikerShield" type="checkbox">
+            <span>突袭者护盾(11%)</span>
+          </div>
+        </div>
+        <div class="seventhbox">
+          <h2>专长加成</h2>
+          <div>
+            <input @click="ChDemolitionistTacticalLink" type="checkbox">
+            <span>爆破专家--战术链接</span>
+          </div>
+          <div>
+            <input @click="ChFirewallTacticalLink" type="checkbox">
+            <span>烈焰之墙--战术链接</span>
+          </div>
+          <div>
+            <input @click="ChSharpshooterTacticalLink" type="checkbox">
+            <span>精准射手--战术链接</span>
+          </div>
+          <div>
+            <input @click="ChSurvivalistTacticalLink" type="checkbox">
+            <span>生存专家--战术链接</span>
+          </div>
+          <div>
+            <input @click="ChTechnicianDismantling" type="checkbox">
+            <span>技师--拆解</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="Checkbox" class="Checkbox">
-      <div class="firstbox">
-        <h2>武器天赋</h2>
-        <div>
-          <input @click="ChBoomerang" type="checkbox">
-          <span>回力镖</span>
+    <div id="Calculation" class="allcompute">
+      <a @click="culation" href="#" onclick="return false;">计算</a>
+      <div class="aspacing"></div>
+      <div class="usculation">
+        <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
+        <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
+        <h1>猎头者奖励:<br>{{HeadHunterDs.toFixed(2)}}</h1>
+        <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
+        <br />
+        <div v-if="detailed">
+          <h1>{{HSUMNAME}}:<br>{{HSum.toFixed(2)}}</h1>
+          <h2>暴击:{{HSumB.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC.toFixed(2)}}</h2>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum.toFixed(2)}}</h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{ASumOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{ASumBOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{ASumHOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{ASumHBOC.toFixed(2)}}</h2>
         </div>
-        <div>
-          <input @click="ChBreadbasket" type="checkbox">
-          <span>面包篮</span>
-          <input v-if="HI.Breadbasket" v-model="BreadbasketC" type="text" />
-        </div>
-        <div>
-          <input @click="ChFightHandToHandWith" type="checkbox">
-          <span>短兵相接</span>
-        </div>
-        <div>
-          <input @click="ChGoBlind" type="checkbox">
-          <span>失明</span>
-        </div>
-        <div>
-          <input @click="ChLight" type="checkbox">
-          <span>点燃</span>
-        </div>
-        <div>
-          <input @click="ChPCFirst" type="checkbox">
-          <span>精密计算:前半段</span>
-        </div>
-        <div>
-          <input @click="ChPCLast" type="checkbox">
-          <span>精密计算:后半段</span>
-        </div>
-        <div>
-          <input @click="ChNaked" type="checkbox">
-          <span>赤身裸体</span>
-        </div>
-        <div>
-          <input @click="ChOS" type="checkbox">
-          <span>乐天派</span>
-          <input v-if="WDJ.OS" v-model="OSC" type="text" />
-        </div>
-        <div>
-          <input @click="ChTTM" type="checkbox">
-          <span>排山倒海</span>
-          <input v-if="AmpWd.TTM" v-model="TTMC" type="text" />
-        </div>
-        <div>
-          <input @click="ChFistToMeat" type="checkbox">
-          <span>拳拳到肉</span>
-        </div>
-        <div>
-          <input @click="ChFullOfEnergy" type="checkbox">
-          <span>充满干劲</span>
-          <input v-if="AmpWd.FullOfEnergy" v-model="FullOfEnergyC" type="text" />
-        </div>
-        <div>
-          <input @click="ChRanger" type="checkbox">
-          <span>游骑兵</span>
-          <input v-if="MD.Ranger" v-model="RangerC" type="text" />
-        </div>
-        <div>
-          <input @click="ChRifleman" type="checkbox">
-          <span>步枪兵</span>
-          <input v-if="WDJ.Rifleman" v-model="RiflemanC" type="text" />
-        </div>
-        <div>
-          <input @click="ChToAbuse" type="checkbox">
-          <span>虐待狂</span>
-        </div>
-        <div>
-          <input @click="ChInsanity" type="checkbox">
-          <span>精神错乱</span>
-        </div>
-        <div>
-          <input @click="ChAsystole" type="checkbox">
-          <span>停搏</span>
-        </div>
-      </div>
-      <div class="secondbox">
-        <h2>胸甲天赋</h2>
-        <div>
-          <input @click="ChFeelTheSame" type="checkbox">
-          <span>感同深受(队友携带且六电)</span>
-        </div>
-        <div>
-          <input @click="ChFeelTheSameY" type="checkbox">
-          <span>感同深受(自身携带且六电)</span>
-        </div>
-        <div>
-          <input @click="ChAbsorbed" type="checkbox">
-          <span>专注</span>
-          <input v-if="TWD.Absorbed" v-model="AbsorbedC" type="text" />
-        </div>
-        <div>
-          <input @click="ChGlassCannon" type="checkbox">
-          <span>玻璃大炮</span>
-        </div>
-        <div>
-          <input @click="ChPGlassCannon" type="checkbox">
-          <span>完美玻璃大炮</span>
-        </div>
-        <div>
-          <input @click="ChGunslinger" type="checkbox">
-          <span>枪神</span>
-        </div>
-        <div>
-          <input @click="ChIntimidate" type="checkbox">
-          <span>威吓</span>
-          <input v-if="MD.Intimidate" v-model="IntimidateC" type="text" />
-        </div>
-        <div>
-          <input @click="ChOF" type="checkbox">
-          <span>抹灭性破坏</span>
-          <input v-if="TWD.OF" v-model="OFC" type="text" />
-        </div>
-        <div>
-          <input @click="ChShelterCover" type="checkbox">
-          <span>掩体掩护</span>
-        </div>
-        <div>
-          <input @click="ChSpark" type="checkbox">
-          <span>火花</span>
-        </div>
-        <div>
-          <input @click="ChHeadHunter" type="checkbox">
-          <span>猎头者(MAX)</span>
-        </div>
-        <div>
-          <input @click="ChScout" type="checkbox">
-          <span>探子</span>
-        </div>
-      </div>
-      <div class="thirdbox">
-        <h2>背包天赋</h2>
-        <div>
-          <input @click="ChCompanion" type="checkbox">
-          <span>同伴</span>
-        </div>
-        <div>
-          <input @click="ChComposure" type="checkbox">
-          <span>泰然自若</span>
-        </div>
-        <div>
-          <input @click="ChConcussion" type="checkbox">
-          <span>震荡</span>
-        </div>
-        <div>
-          <input @click="ChConcussionKill" type="checkbox">
-          <span>震荡(获得击杀后)</span>
-        </div>
-        <div>
-          <input @click="ChOpportunistic" type="checkbox">
-          <span>投机取巧</span>
-        </div>
-        <div>
-          <input @click="ChUnstoppableForce" type="checkbox">
-          <span>无人能挡的力量</span>
-          <input v-if="TWD.UnstoppableForce" v-model="UnstoppableForceC" type="text" />
-        </div>
-        <div>
-          <input @click="ChVersatile" type="checkbox">
-          <span>多才多艺(冲锋枪与霰弹枪)</span>
-        </div>
-        <div>
-          <input @click="ChVersatileRF" type="checkbox">
-          <span>多才多艺(狙击与步枪)</span>
-        </div>
-        <div>
-          <input @click="ChVersatileAR" type="checkbox">
-          <span>多才多艺(突击步枪与机枪)</span>
-        </div>
-        <div>
-          <input @click="ChVigilance" type="checkbox">
-          <span>警戒</span>
-        </div>
-        <div>
-          <input @click="ChWicked" type="checkbox">
-          <span>恶人</span>
-        </div>
-      </div>
-      <div class="fourthbox">
-        <h2>奇特天赋</h2>
-        <div>
-          <input @click="ChSawyersKneepads" type="checkbox">
-          <span>索耶的护膝</span>
-          <input v-if="TWD.SawyersKneepads" v-model="SawyersKneepadsC" type="text" />
-        </div>
-        <div>
-          <input @click="ChDodgeCityHolster" type="checkbox">
-          <span>道奇城枪手枪套</span>
-          <input v-if="WDJ.DodgeCityHolster" v-model="DodgeCityHolsterC" type="text" />
-        </div>
-        <div>
-          <input @click="ChBigHorn" type="checkbox">
-          <span>大角突击步枪(半自动模式)</span>
-        </div>
-        <div>
-          <input @click="ChChameleon" type="checkbox">
-          <span>变色龙(躯体BUFF)</span>
-        </div>
-        <div>
-          <input @click="ChLadyDeath" type="checkbox">
-          <span>死亡女神</span>
-        </div>
-        <div>
-          <input @click="ChMerciless" type="checkbox">
-          <span>无情/冷酷无情</span>
-        </div>
-        <div>
-          <input @click="ChScorpio" type="checkbox">
-          <span>天蝎座</span>
-        </div>
-        <div>
-          <input @click="ChMourn" type="checkbox">
-          <span>追悼(长期BUFF)</span>
-          <input v-if="WDJ.Mourn" v-model="MournC" type="text" />
-        </div>
-        <div>
-          <input @click="ChMourns" type="checkbox">
-          <span>追悼(短期BUFF,输入红核数)</span>
-          <input v-if="WDJ.Mourns" v-model="MournsC" type="text" />
-        </div>
-      </div>
-      <div class="fifthbox">
-        <h2>装备组</h2>
-        <div>
-          <input @click="ChAcesEights" type="checkbox">
-          <span>A、8两对</span>
-        </div>
-        <div>
-          <input @click="ChOngoingDirective" type="checkbox">
-          <span>政令进行时</span>
-        </div>
-        <div>
-          <input @click="ChStrikersBattlegear" type="checkbox">
-          <span>突袭者战斗装备</span>
-          <input v-if="MD.StrikersBattlegear" v-model="StrikersBattlegearC" type="text" />
-        </div>
-        <div>
-          <input @click="ChTipOfTheSpear" type="checkbox">
-          <span>先锋部队</span>
-        </div>
-        <div>
-          <input @click="ChTruePatriot" type="checkbox">
-          <span>真实爱国者</span>
-        </div>
-        <div>
-          <input @click="ChFutureInitiative" type="checkbox">
-          <span>未来主动权(带胸甲)</span>
-        </div>
-        <div>
-          <input @click="ChHeartTerminator" type="checkbox">
-          <span>芳心终结者</span>
-          <input v-if="MD.HeartTerminator" v-model="HeartTerminatorC" type="text" />
-        </div>
-      </div>
-      <div class="sixthbox">
-        <h2>技能增伤</h2>
-        <div>
-          <input @click="ChScannerPulse" type="checkbox">
-          <span>脉冲--扫描/遥控</span>
-        </div>
-        <div>
-          <input @click="ChAchillesPulse" type="checkbox">
-          <span>脉冲--阿基里斯</span>
-        </div>
-        <div>
-          <input @click="ChFirewallStrikerShield" type="checkbox">
-          <span>突袭者护盾(11%)</span>
-        </div>
-      </div>
-      <div class="seventhbox">
-        <h2>专长加成</h2>
-        <div>
-          <input @click="ChDemolitionistTacticalLink" type="checkbox">
-          <span>爆破专家--战术链接</span>
-        </div>
-        <div>
-          <input @click="ChFirewallTacticalLink" type="checkbox">
-          <span>烈焰之墙--战术链接</span>
-        </div>
-        <div>
-          <input @click="ChSharpshooterTacticalLink" type="checkbox">
-          <span>精准射手--战术链接</span>
-        </div>
-        <div>
-          <input @click="ChSurvivalistTacticalLink" type="checkbox">
-          <span>生存专家--战术链接</span>
-        </div>
-        <div>
-          <input @click="ChTechnicianDismantling" type="checkbox">
-          <span>技师--拆解</span>
+        <div v-if="concise">
+          <h1>{{HSUMNAME}}:{{HSumOC.toFixed(2)}}</h1>
+          <h2>暴击:{{HSumBOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
+          <br>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASumOC.toFixed(2)}}</h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
         </div>
       </div>
     </div>
   </div>
-  <div id="Calculation" class="allcompute">
-    <a @click="culation" href="#" onclick="return false;">计算</a>
-    <div class="aspacing"></div>
-    <div class="usculation">
-    <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
-    <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
-    <h1>猎头者奖励:<br>{{HeadHunterDs.toFixed(2)}}</h1>
-    <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
-    <br/>
-    <div v-if="detailed">
-      <h1>{{HSUMNAME}}:<br>{{HSum.toFixed(2)}}</h1>
-      <h2>暴击:{{HSumB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC.toFixed(2)}}</h2>
-      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum.toFixed(2)}}</h1>
-      <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{ASumOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{ASumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{ASumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{ASumHBOC.toFixed(2)}}</h2>
-    </div>
-    <div v-if="concise">
-      <h1>{{HSUMNAME}}:{{HSumOC.toFixed(2)}}</h1>
-      <h2>暴击:{{HSumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
-      <br>
-      <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASumOC.toFixed(2)}}</h1>
-      <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
-      <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
-    </div>
-  </div>
-  </div>
-</div>
   <div class="End" id="End">
     <div class="endk">
       <span>页面设计:MuFen</span>
@@ -387,16 +389,11 @@
       <span>页面适配:mengxindd</span>
       <span>素材搜寻:mengxindd</span>
     </div>
-    <div class="endth">
-      <p>特别感谢:&nbsp; &nbsp;h4xor343 &nbsp; &nbsp; Khperi.-</p><br />
-      <p>Kujo._.Jotaro &nbsp; &nbsp;Reddit</p>
-    </div>
     <div class="endf">
-      <p>
-        反馈: <br /> 3550035202@qq.com
-      </p>
+      <p>特别感谢:&nbsp; &nbsp;h4xor343 &nbsp; &nbsp; Khperi.- <br />Kujo._.Jotaro &nbsp; &nbsp;Reddit</p>
     </div>
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
+
 </html>
