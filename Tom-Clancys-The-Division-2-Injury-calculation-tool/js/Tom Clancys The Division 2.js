@@ -456,6 +456,7 @@ const Checkbox = new Vue({
       return this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
     AchillesPulseNum () {
+      console.log("阿基修改了")
       return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
     }
   }
@@ -557,6 +558,9 @@ const Calculation = new Vue({
       this.HeadHunterDs = 0
       this.TechnicianDismantlingTag = true
       this.HSUMNAME = '对生命值目标伤害'
+
+      // 计算阿基里斯
+      Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
 
       // 计算全部武器伤害
       Object.keys(Checkbox.WDJ).forEach((item) => {
