@@ -8,11 +8,10 @@ window.onload = function () {
         // 获取当前视口宽度
         var shikoufive = document.documentElement.clientWidth;
         // var xiahuapxfive = 120;
-        var xiahuapxtofive = 0;
         //根据视口宽度调整下滑
         if (shikoufive > 960) {
             // PC
-            xiahuapxfive = 120;
+            xiahuapxfive = 250;
             // xiahuapxtofive = 120;
         } else {
             // PE
