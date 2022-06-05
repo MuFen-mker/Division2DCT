@@ -139,6 +139,7 @@ const Checkbox = new Vue({
         VersatileRF: false,
         VersatileAR: false,
         GlassCannon: false,
+        PGlassCannon: false,
         Intimidate: false,
         Scout: false,
         BigHorn: false,
@@ -164,7 +165,8 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        GlassCannon: 1.5,
+        GlassCannon: 1.25,
+        PGlassCannon: 1.3,
         Intimidate: 1.35,
         Scout: 1.15,
         BigHorn: 5.5,
@@ -292,6 +294,9 @@ const Checkbox = new Vue({
     },
     ChGlassCannon () {
       this.MD.GlassCannon = !this.MD.GlassCannon
+    },
+    ChPGlassCannon () {
+      this.MD.PGlassCannon = !this.MD.PGlassCannon
     },
     ChGunslinger () {
       this.TWD.Gunslinger = !this.TWD.Gunslinger
