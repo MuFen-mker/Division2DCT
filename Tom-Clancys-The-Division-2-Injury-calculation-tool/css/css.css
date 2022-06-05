@@ -127,6 +127,7 @@ body{
     padding:1% 0px 0px 1%;
     width:20%;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
   }
   .allcompute > p{
     font-family: 'myfont';
@@ -210,11 +211,15 @@ body{
   .End{
     background-color: rgba(0, 0, 0, 0.6);
     margin-top: 50px;
+    width: 74%;
+    padding: 0.5%;
     position: relative;
+    left: 0;
+    bottom: 0;
   }
   .endk{
     display: inline-block;
-    margin: 20px 20px 20px 4%;
+    margin: 0 0 0 1%;
   }
   .endk span{
     font-size: 18px;
@@ -226,23 +231,26 @@ body{
   .endth{
     display: inline-block;
     text-align: right;
+    margin-left: 8%;
   }
   .endth p{
     font-size: 18px;
     font-family: 'myfont';
     color: white;
     display: inline-block;
-    margin: 0px 0px 0px 38px;
+    margin: 0;
   }
   .endf{
     display: inline-block;
+    position: absolute;
+    right: 1%;
   }
   .endf p{
     font-family: 'myfont';
     font-size: 18px;
     display: inline-block;
     color: white;
-    margin: 0px 0px 0px 200px;
+    margin: 0 0 0 0;
   }
 }
 @media screen and (max-width:960px){

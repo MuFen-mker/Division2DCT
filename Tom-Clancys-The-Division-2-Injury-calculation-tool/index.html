@@ -343,6 +343,7 @@
     <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
     <h1>猎头者奖励:<br>{{HeadHunterDs.toFixed(2)}}</h1>
     <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
+    <br/>
     <div v-if="detailed">
       <h1>{{HSUMNAME}}:<br>{{HSum.toFixed(2)}}</h1>
       <h2>暴击:{{HSumB.toFixed(2)}}</h2>
@@ -352,7 +353,6 @@
       <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC.toFixed(2)}}</h2>
-      <br>
       <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum.toFixed(2)}}</h1>
       <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
       <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>

@@ -68,11 +68,10 @@ function loadMain(){
 	
 	systemRatioNew = window.devicePixelRatio;//系统乘浏览器的缩放比
  
-    //因为我的页面是在125%下设计的，所以在页面加载开始前先缩放成125%，然后再缩放成非全屏状态下的110%。如果直接缩放成110%,然后点击全屏后缩放成125%页面也会不成比例，关于这一点我也没搞清楚为什么加载前的zoom缩放会影响页面加载的比例
 	if(systemRatioOld != systemRatioNew || firstFlag){
 		firstFlag = false;
 		systemRatioOld = systemRatioNew;
-		console.log("系统乘浏览器的缩放比:"+systemRatioNew+" 调整前zoom:"+document.body.style.zoom+" 调整后zoom:"+parseFloat((fullScreenRatio/systemRatioNew).toFixed(6)));
+		// console.log("系统乘浏览器的缩放比:"+systemRatioNew+" 调整前zoom:"+document.body.style.zoom+" 调整后zoom:"+parseFloat((fullScreenRatio/systemRatioNew).toFixed(6)));
 		document.body.style.zoom = fullScreenRatio/systemRatioNew;//初次加载或者改变缩放后修改成全屏缩放比
 	}
  
