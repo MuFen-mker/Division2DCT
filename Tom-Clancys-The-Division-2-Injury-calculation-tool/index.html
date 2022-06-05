@@ -16,21 +16,22 @@
 <body>
   <h1 class="title">全境封锁2武器伤害计算器</h1>
   <div class="tips" id="Tips">
-    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5，数值以<span style="color: red;">"角色面板"</span>为准</p>
+    <p>输入框直接输入数值，无需输入百分号，武器精通等级同上，例如5级直接输入数字5，数值以<span style="color: red;">"角色面板"</span>为准，查看数据时请用<span style="color: red;">"G"</span>切换为当前武器</p>
     <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启<span style="color: red;">"显示基础伤害"</span>查看</p>
     <p>计算结果有些许偏差是正常的</p>
     <p>只有在考虑对机械单位时才勾选<span style="color: red;">"技师--拆解"</span>，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
     <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
     <p>追悼长期BUFF指每个已捡起挂饰，短期BUFF指捡起挂饰时</p>
     <a class="star" target="_blank"
-      href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧</a>
+      href="https://github.com/MuFen-mker/Tom-Clancys-The-Division-2-Injury-calculation-tool">*喜欢的话帮忙GitHub点个星星吧
+    </a>
+    <p style="color: orange;">h4xor343的"开黑啦"服务器ID：90818938</p>
   </div>
   <div class="all">
     <div id="root" class="first">
       <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
-      <p>全武器伤<input v-model="RedCore" type="text" name="RedCore" placeholder="全武器伤(%)" /></p>
+      <p>全武器伤<input v-model="RedCore" type="text" name="RedCore" placeholder="所有武器的伤害加成(%)" /></p>
       <p>武器种类伤害加成<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
-      <p>武器精通等级<input v-model="weaponM" type="text" name="weaponM" placeholder="武器精通等级" /></p>
       <p>爆头伤<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
       <p>爆伤<input v-model="CHD" type="text" name="CHD" placeholder="爆伤(%)" /></p>
       <p>生命伤<input v-model="DTH" type="text" name="DTH" placeholder="生命伤(%)" /></p>

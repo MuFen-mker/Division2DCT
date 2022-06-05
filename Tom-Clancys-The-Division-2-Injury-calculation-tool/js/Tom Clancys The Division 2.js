@@ -4,7 +4,6 @@ const root = new Vue({
       arms: 0,
       RedCore: 0,
       WeaponType: 0,
-      weaponM: 0,
       CHD: 0,
       DTA: 0,
       DTOC: 0,
@@ -597,7 +596,7 @@ const Calculation = new Vue({
           this.FULLHI = this.FULLHI + AddHIARR[i]
         }
       }
-      this.Sum = root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + root.weaponM / 100 + this.FULLWDJ / 100))
+      this.Sum = root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100))
 
       // 计算全部乘算伤害
       Object.keys(Checkbox.MD).forEach((item) => {
@@ -613,7 +612,7 @@ const Calculation = new Vue({
       }
       // 猎头奖励
       if (Checkbox.HeadHunter == true) {
-        this.HeadHunterDs = (root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + root.weaponM / 100 + this.FULLWDJ / 100)) * (1 + (this.FULLTWD / 100))) * Checkbox.HeadHunterAdd
+        this.HeadHunterDs = (root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100  + this.FULLWDJ / 100)) * (1 + (this.FULLTWD / 100))) * Checkbox.HeadHunterAdd
       }
 
       // 计算护甲与生命伤害

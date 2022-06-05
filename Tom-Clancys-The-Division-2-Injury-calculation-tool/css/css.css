@@ -242,7 +242,7 @@ body{
     font-size: 18px;
     display: inline-block;
     color: white;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 200px;
   }
 }
 @media screen and (max-width:960px){
