@@ -52,7 +52,6 @@ body{
   .Checkbox{
     margin-top: 40px;
   }
-  
   .Checkbox div >div{
     display: inline-block;
     width:270px;
@@ -261,16 +260,15 @@ body{
   }
   .title{
     text-align: center;
-    color: purple;
-    font-family: myfont;
-    height: 18px;
-    font-size: 20px;
+    color: rgb(255, 144, 40);
+    font-family: "myfont";
+    font-size: 80px;
   }
   .all{
     display: block;
-    border: solid 1px black;
-    width: 220px;
-    margin-left: 10%;
+    border: solid 1px rgba(0, 0, 0, 0);
+    width: 50%;
+    margin-left: 1%;
     background-color:rgba(6, 6, 6, 0.468);
     margin-top: 11px;
   }
@@ -279,14 +277,14 @@ body{
   }
   .first p{
     font-family: myfont;
-    font-size: 6px;
+    font-size: 50px;
     vertical-align: middle;
   }
   .first input{
     display: block;
     margin: 5px auto;
-    width: 120px;
-    height: 15px;
+    width: 80%;
+    height: 35px;
     border-radius: 8px;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -294,14 +292,27 @@ body{
   .Checkbox{
     margin-top: 1px;
   }
-  
+  .Checkbox h2{
+    font-size: 70px;
+    margin: 0 0 0 20px; 
+  }
+  .Checkbox span{
+    font-size: 35px;
+  }
+  .Checkbox div{
+    margin-top: 40px;
+  }
   .Checkbox div >div{
-    line-height: 20px;
+    margin: 10px;
     padding-left: 10px;
   }
   .Checkbox div >div>input{
-    width: 25px;
-    height: 12px;
+    width: 110px;
+    height: 30px;
+    vertical-align: middle;
+  }
+  .Checkbox div >div>span{
+    margin-right: 5px;
     vertical-align: middle;
   }
   .firstbox{
@@ -309,11 +320,9 @@ body{
   }
   .firstbox h2{
     color:gold;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .firstbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .secondbox{
@@ -321,11 +330,9 @@ body{
   }
   .secondbox h2{
     color:gold;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .secondbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .thirdbox{
@@ -333,11 +340,9 @@ body{
   }
   .thirdbox h2{
     color:gold;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .thirdbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .fourthbox{
@@ -345,11 +350,9 @@ body{
   }
   .fourthbox h2{
     color:	red;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .fourthbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .ffifthbox{
@@ -357,11 +360,9 @@ body{
   }
   .fifthbox h2{
     color:lightgreen;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .fifthbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .sixthbox{
@@ -369,11 +370,9 @@ body{
   }
   .sixthbox h2{
     color: LightBLue;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .sixthbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
   .seventhbox{
@@ -381,90 +380,103 @@ body{
   }
   .seventhbox h2{
     color:	orange;
-    font-size: 6px;
     -webkit-text-size-adjust:none;
   }
   .seventhbox span{
-    font-size: 2px;
     -webkit-text-size-adjust:none;
   }
+  .usculation{
+    margin-left: 15px;
+  }
+  .usculation p{
+    font-size: 40px;
+    font-family: 'myfont';
+  }
+  .usculation p input{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+  }
   .allcompute{
-    font-size: 2px;
+    font-size: 20px;
     -webkit-text-size-adjust:none;
     float: right;
     position: absolute;
-    right: 4.7%;
-    top: 247px;
-    padding:15px 0px 0px 15px;
-    width: 173px;
+    right: 1%;
+    top: 1015px;
+    width: 45%;
     background-color: rgba(0, 0, 0, 0.7);
     margin-left: 25%;
   }
   .allcomputeFive{
-    font-size: 2px;
+    font-size: 20px;
     -webkit-text-size-adjust:none;
     float: right;
     position: fixed;
-    right: 4.7%;
+    right: 1%;
     top: 0px;
-    padding:28px 0px 0px 15px;
-    width: 173px;
+    width: 45%;
     background-color: rgba(0, 0, 0, 0.7);
+    margin-left: 25%;
   }
   .allcompute > p{
-    font-size: 2px;
+    font-size: 32px;
     font-family: 'myfont';
+    vertical-align: middle;
   }
   .allcomputeFive > p{
-    font-size: 2px;
+    font-size: 32px;
     font-family: 'myfont';
+    vertical-align: middle;
   }
   .allcompute > p > input{
-    width: 19px;
-    height: 17px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     color: black;
   }
   .allcomputeFive > p > input{
-    width: 19px;
-    height: 17px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     color: black;
   }
   .allcompute a{
-    font-size: 6px;
-    -webkit-text-size-adjust:none;
-    margin-left: 47px;
-    color: black;
-    border-radius: 5px;
-    box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
-    padding: 6px 23px;
-    text-decoration: none;
-    background-color:white ;
+    font-size: 50px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: rgb(255, 166, 0);
+    display: block;
+    width: 100%;
+    color: white;
     font-family: 'myfont';
+    position: relative;
+    left: 0;
+    text-decoration: none;
   }
   .allcomputeFive a{
-    font-size: 6px;
-    -webkit-text-size-adjust:none;
-    margin-left: 47px;
-    color: black;
-    border-radius: 5px;
-    box-shadow: inset -6px -6px 16px rgb(76 76 76), -2px -2px 10px rgb(172 172 172);
-    padding: 6px 23px;
-    text-decoration: none;
-    background-color:white ;
+    font-size: 50px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: rgb(255, 166, 0);
+    display: block;
+    width: 100%;
+    color: white;
     font-family: 'myfont';
+    position: relative;
+    left: 0;
+    text-decoration: none;
   }
   .allcompute a:hover{
-    background-color: white;
-    box-shadow:  inset 6px 6px 16px rgb(76 76 76), 2px 2px 10px rgb(172 172 172);
+    background-color: rgb(231, 150, 0);
   }
   .allcomputeFive a:hover{
-    background-color: white;
-    box-shadow:  inset 6px 6px 16px rgb(76 76 76), 2px 2px 10px rgb(172 172 172);
+    background-color: rgb(231, 150, 0);
   }
   .aspacing{
-    height: 20px;
+    height: 0;
   }
   .star{
     text-decoration: none;
@@ -474,17 +486,27 @@ body{
   }
   .tips{
     font-family: 'myfont';
-    font-size: 4px;
-    padding:0px 15px 15px 15px;
+    font-size: 40px;
+    padding: 10px;
+    line-height: 45px;
     background-color: rgba(0, 0, 0, 0.6);
     margin:auto ;
   }
+  .tips p{
+    color: white;
+    margin: 20px;
+  }
   .tipsFive{
     font-family: 'myfont';
-    font-size: 4px;
-    padding:0px 15px 15px 15px;
+    font-size: 35px;
+    padding: 10px;
+    line-height: 40px;
     background-color: rgba(0, 0, 0, 0.6);
     margin:auto ;
+  }
+  .tipsFive p{
+    color: white;
+    margin: 0;
   }
   .End{
     background-color: rgba(0, 0, 0, 0.6);
@@ -493,38 +515,37 @@ body{
   }
   .endk{
     display: inline-block;
-    margin: 20px 20px 20px 4%;
+    margin: 20px 20px 20px 3%;
   }
   .endk span{
-    font-size: 2px;
+    font-size: 20px;
     color: white;
     font-family: 'myfont';
     display: inline-block;
-    width: 120px;
+    width: 230px;
   }
   .endth{
     display: inline-block;
     text-align: right;
-    margin: 0px 0px 20px 18px;
   }
   .endth p{
     margin: 0;
-    font-size: 2px;
+    font-size: 20px;
     -webkit-text-size-adjust:none;
     font-family: 'myfont';
     color: white;
     display: inline-block;
   }
   .endf{
-    display: inline-block;
+    float: right;
+    margin-right: 2%;
   }
   .endf p{
     font-family: 'myfont';
-    font-size: 2px;
+    font-size: 20px;
     -webkit-text-size-adjust:none;
     display: inline-block;
     color: white;
-    margin: 0px 0px 20px 32px;
   }
 }
 

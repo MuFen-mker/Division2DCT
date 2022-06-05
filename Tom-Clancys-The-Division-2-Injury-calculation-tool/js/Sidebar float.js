@@ -11,22 +11,32 @@ window.onload = function () {
         //根据视口宽度调整下滑
         if (shikoufive > 960) {
             // PC
-            xiahuapxfive = 250;
+            xiahuapxfive = 100;
             // xiahuapxtofive = 120;
         } else {
             // PE
-            xiahuapxfive = 225;
+            xiahuapxfive = 255;
             // xiahuapxtofive = 40;
             //下滑判定
         }
         // 切换样式
-        if (tempfive >= xiahuapxfive) {
-            bodyDH.className = "allcomputeFive";
-            bodyDH2.className = "tipsFive";
+        if (shikoufive > 960) {
+            if (tempfive >= xiahuapxfive) {
+                bodyDH.className = "allcomputeFive";
+                bodyDH2.className = "tipsFive";
+            } else {
+                bodyDH.className = "allcompute";
+                bodyDH2.className = "tips";
+            }
         } else {
-            bodyDH.className = "allcompute";
-            bodyDH2.className = "tips";
+            if (tempfive >= xiahuapxfive) {
+                bodyDH.className = "allcomputeFive";
+            } else {
+                bodyDH.className = "allcompute";
+                bodyDH2.className = "tips";
+            }
         }
+
     }
 }
 
