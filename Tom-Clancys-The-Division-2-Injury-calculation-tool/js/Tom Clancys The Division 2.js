@@ -155,6 +155,7 @@ const Checkbox = new Vue({
       // 乘算伤害
       MD: {
         Opportunistic: false,
+        POpportunistic: false,
         GlassCannon: false,
         PGlassCannon: false,
         Intimidate: false,
@@ -179,6 +180,7 @@ const Checkbox = new Vue({
       },
       AddMD: {
         Opportunistic: 1.1,
+        POpportunistic: 1.15,
         GlassCannon: 1.25,
         PGlassCannon: 1.3,
         Intimidate: 1.35,
@@ -356,6 +358,9 @@ const Checkbox = new Vue({
     },
     ChOpportunistic () {
       this.MD.Opportunistic = !this.MD.Opportunistic
+    },
+    ChPOpportunistic () {
+      this.MD.POpportunistic = !this.MD.POpportunistic
     },
     ChUnstoppableForce () {
       this.TWD.UnstoppableForce = !this.WDJ.UnstoppableForce
