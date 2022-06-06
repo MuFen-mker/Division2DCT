@@ -183,6 +183,7 @@ const Checkbox = new Vue({
         Asystole: false,
         StrikersBattlegear: false,
         HeartTerminator: false,
+        HunterRages: false,
         HunterRage: false
       },
       AddMD: {
@@ -208,6 +209,7 @@ const Checkbox = new Vue({
         Asystole: 1.15,
         StrikersBattlegear: Math.pow(1.005, 100),
         HeartTerminator: Math.pow(1.01, 100),
+        HunterRages: 1.2,
         HunterRage: Math.pow(1.05, 5)
       },
 
@@ -221,7 +223,6 @@ const Checkbox = new Vue({
         Versatile: false,
         VersatileRF: false,
         VersatileAR: false,
-        HunterRages: false,
         Intimidate: false
       },
       AddAmpWd: {
@@ -233,7 +234,6 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        HunterRages: 1.20,
         Intimidate: 1.35
       },
       // 技师拆解
@@ -246,7 +246,7 @@ const Checkbox = new Vue({
   },
   methods: {
     ChHunterRages () {
-      this.AddMD.HunterRages = !this.AddMD.HunterRages
+      this.MD.HunterRages = !this.MD.HunterRages
     },
     ChHunterRage () {
       this.MD.HunterRage = !this.MD.HunterRage
