@@ -1,4 +1,4 @@
-Vue.filter("numberToCurrency",function(value){
+Vue.filter("numberToCurrency", function (value) {
   if (!value) return 0
   // 获取整数部分
   const intPart = Math.trunc(value)
@@ -9,7 +9,7 @@ Vue.filter("numberToCurrency",function(value){
   // 将数值截取为小数部分和整数部分
   const valueArray = value.toString().split('.')
   if (valueArray.length === 2) { // 有小数部分
-    floatPart = valueArray[1].toString().slice(0,2) // 取得小数部分
+    floatPart = valueArray[1].toString().slice(0, 2) // 取得小数部分
     return intPartFormat + '.' + floatPart
   }
   return intPartFormat + floatPart
@@ -28,6 +28,11 @@ const root = new Vue({
       HSD: 0,
     }
   },
+  watch: {
+    HSD() {
+      Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(this.HSD) / 100)
+    }
+  }
 })
 
 const Checkbox = new Vue({
@@ -436,62 +441,55 @@ const Checkbox = new Vue({
       this.TechnicianDismantling = !this.TechnicianDismantling
     }
   },
-  computed: {
-    MournsSum () {
-        return this.AddWDJ.Mourns = 5 * this.MournsC
+  watch: {
+    HeartTerminatorC () {
+      this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
-    MournSum () {
-      return this.AddWDJ.Mourn = 1 * this.MournC
+    MournsC () {
+      this.AddWDJ.Mourns = 5 * this.MournsC
     },
-    BreadbasketSum () {
-      return this.AddHI.Breadbasket = 35 * this.BreadbasketC
+    BreadbasketC () {
+      this.AddHI.Breadbasket = 35 * this.BreadbasketC
     },
-    OSSum () {
-      return this.AddWDJ.OS = 3 * this.OSC
+    OSC () {
+      this.AddWDJ.OS = 3 * this.OSC
     },
-    TTMSum () {
-      return this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC) / 100)
+    TTMC () {
+      this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC) / 100)
     },
-    FullOfEnergySum () {
-      return this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC) / 100)
+    FullOfEnergyC () {
+      this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC) / 100)
     },
-    RangerSum () {
-      return this.AddMD.Ranger = 1 + (2 * Number(this.RangerC) / 100)
+    RangerC () {
+      this.AddMD.Ranger = 1 + (2 * Number(this.RangerC) / 100)
     },
-    RiflemanSum () {
-      return this.AddWDJ.Rifleman = 10 * this.RiflemanC
+    RiflemanC () {
+      this.AddWDJ.Rifleman = 10 * this.RiflemanC
     },
-    AbsorbedSum () {
-      return this.AddTWD.Absorbed = 5 * this.AbsorbedC
+    AbsorbedC () {
+      this.AddTWD.Absorbed = 5 * this.AbsorbedC
     },
-    PAbsorbedSum () {
-      return this.AddTWD.PAbsorbed = 6 * this.PAbsorbedC
+    PAbsorbedC () {
+      this.AddTWD.PAbsorbed = 6 * this.PAbsorbedC
     },
-    IntimidateSum () {
-      return this.AddMD.Intimidate = Math.pow(1.05, this.IntimidateC)
+    IntimidateC () {
+      this.AddMD.Intimidate = Math.pow(1.05, this.IntimidateC)
     },
-    OFSum () {
-      return this.AddTWD.OF = 1 * this.OFC
+    OFC () {
+      this.AddTWD.OF = 1 * this.OFC
     },
-    UnstoppableForceSum () {
-      return this.AddTWD.UnstoppableForce = 5 * this.UnstoppableForceC
+    UnstoppableForceC () {
+      this.AddTWD.UnstoppableForce = 5 * this.UnstoppableForceC
     },
-    SawyersKneepadsSum () {
-      return this.AddTWD.SawyersKneepads = 3 * this.SawyersKneepadsC
+    SawyersKneepadsC () {
+      this.AddTWD.SawyersKneepads = 3 * this.SawyersKneepadsC
     },
-    DodgeCityHolsterSum () {
-      return this.AddWDJ.DodgeCityHolster = 10 * this.DodgeCityHolsterC
+    DodgeCityHolsterC () {
+      this.AddWDJ.DodgeCityHolster = 10 * this.DodgeCityHolsterC
     },
-    StrikersBattlegearSum () {
-      return this.AddMD.StrikersBattlegear = Math.pow(1.005, this.StrikersBattlegearC)
+    StrikersBattlegearC () {
+      this.AddMD.StrikersBattlegear = Math.pow(1.005, this.StrikersBattlegearC)
     },
-    HeartTerminatorSum () {
-      console.log('11111')
-      return this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
-    },
-    AchillesPulseNum () {
-      return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
-    }
   }
 })
 const Calculation = new Vue({
@@ -519,10 +517,10 @@ const Calculation = new Vue({
       ASumHBOC: 0,
       Sum: 0,
 
-      TDL:0,
-      TDLB:0,
-      TDLdq:0,
-      TDLdqB:0,
+      TDL: 0,
+      TDLB: 0,
+      TDLdq: 0,
+      TDLdqB: 0,
 
       CONHSum: 0,
       CONASum: 0,
@@ -539,12 +537,12 @@ const Calculation = new Vue({
       TechnicianDismantlingTag: true,
 
       // 简洁与详细切换
-      concise:true,
-      detailed:false
+      concise: true,
+      detailed: false
     }
   },
   methods: {
-    CNV(){
+    CNV () {
       this.concise = !this.concise
       this.detailed = !this.detailed
     },
@@ -640,8 +638,6 @@ const Calculation = new Vue({
           this.FULLHI = this.FULLHI + AddHIARR[i]
         }
       }
-      this.FULLHI = this.FULLHI + root.HSD
-
       this.Sum = root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100))
 
       // 计算全部乘算伤害
@@ -658,7 +654,7 @@ const Calculation = new Vue({
       }
       // 猎头奖励
       if (Checkbox.HeadHunter == true) {
-        this.HeadHunterDs = (root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100  + this.FULLWDJ / 100)) * (1 + (this.FULLTWD / 100))) * Checkbox.HeadHunterAdd
+        this.HeadHunterDs = (root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100)) * (1 + (this.FULLTWD / 100))) * Checkbox.HeadHunterAdd
       }
 
       // 计算护甲与生命伤害
@@ -767,15 +763,15 @@ const Calculation = new Vue({
       if (Checkbox.WDJ.DodgeCityHolster == true) {
         this.ASum = this.ASumH
         this.HSum = this.HSumH
-  
+
         this.ASumOC = this.ASumHOC
         this.HSumOC = this.HSumHOC
-  
-        this.ASumB = this.ASumHB 
-        this.HSumB = this.HSumHB 
-  
-        this.ASumBOC = this.ASumHBOC 
-        this.HSumBOC = this.HSumHBOC 
+
+        this.ASumB = this.ASumHB
+        this.HSumB = this.HSumHB
+
+        this.ASumBOC = this.ASumHBOC
+        this.HSumBOC = this.HSumHBOC
 
         this.TDL = this.TDLdq
         this.TDLB = this.TDLdqB
