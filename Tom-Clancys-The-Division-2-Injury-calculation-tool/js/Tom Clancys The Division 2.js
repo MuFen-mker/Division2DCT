@@ -208,7 +208,6 @@ const Checkbox = new Vue({
       AmpWd: {
         FirewallStrikerShield: false,
         FirewallTacticalLink: false,
-        TechnicianDismantling: false,
         TTM: false,
         FullOfEnergy: false,
         AchillesPulse: false,
@@ -219,7 +218,6 @@ const Checkbox = new Vue({
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
         FirewallTacticalLink: 1.1,
-        TechnicianDismantling: 1.12,
         TTM: 1.4,
         FullOfEnergy: 1.25,
         AchillesPulse: 1,
@@ -227,6 +225,9 @@ const Checkbox = new Vue({
         VersatileRF: 1.35,
         VersatileAR: 1.1,
       },
+      // 技师拆解
+      TechnicianDismantling: false,
+      TechnicianDismantlingAdd: 1.12,
 
       HeadHunter: false,  //猎头
       HeadHunterAdd: 12.5
@@ -432,12 +433,12 @@ const Checkbox = new Vue({
       this.MD.SurvivalistTacticalLink = !this.MD.SurvivalistTacticalLink
     },
     ChTechnicianDismantling () {
-      this.AmpWd.TechnicianDismantling = !this.AmpWd.TechnicianDismantling
+      this.TechnicianDismantling = !this.TechnicianDismantling
     }
   },
   computed: {
     MournsSum () {
-      return this.AddWDJ.Mourns = 5 * this.MournsC
+        return this.AddWDJ.Mourns = 5 * this.MournsC
     },
     MournSum () {
       return this.AddWDJ.Mourn = 1 * this.MournC
@@ -485,10 +486,10 @@ const Checkbox = new Vue({
       return this.AddMD.StrikersBattlegear = Math.pow(1.005, this.StrikersBattlegearC)
     },
     HeartTerminatorSum () {
+      console.log('11111')
       return this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
     AchillesPulseNum () {
-      console.log("阿基修改了")
       return this.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
     }
   }
@@ -517,6 +518,11 @@ const Calculation = new Vue({
       HSumHBOC: 0,
       ASumHBOC: 0,
       Sum: 0,
+
+      TDL:0,
+      TDLB:0,
+      TDLdq:0,
+      TDLdqB:0,
 
       CONHSum: 0,
       CONASum: 0,
@@ -578,6 +584,8 @@ const Calculation = new Vue({
       this.ASumHBOC = 0
       this.FULLTWD = 0
       this.FULLWDJ = 0
+      this.TDL = 0
+      this.TDLB = 0
       this.CONHSum = 0
       this.CONASum = 0
       this.CONHSumB = 0
@@ -632,6 +640,8 @@ const Calculation = new Vue({
           this.FULLHI = this.FULLHI + AddHIARR[i]
         }
       }
+      this.FULLHI = this.FULLHI + root.HSD
+
       this.Sum = root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100))
 
       // 计算全部乘算伤害
@@ -676,13 +686,22 @@ const Calculation = new Vue({
       this.HSumHOC = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
 
       // 头部暴击
-      this.ASumHB = this.Sum * (1 + (root.CHD / 100 + root.HSD / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumHB = this.Sum * (1 + (root.CHD / 100 + root.HSD / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumHB = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
+      this.HSumHB = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
 
       //掩体头部暴击
-      this.ASumHBOC = this.Sum * (1 + (root.CHD / 100 + root.HSD / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumHBOC = this.Sum * (1 + (root.CHD / 100 + root.HSD / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumHBOC = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
+      this.HSumHBOC = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
 
+      // 判断技师拆解是否开启
+      if (Checkbox.TechnicianDismantling == true) {
+        this.HSUMNAME = '对机械单位伤害'
+        this.TechnicianDismantlingTag = false
+        this.TDL = this.Sum * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
+        this.TDLB = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
+        this.TDLdq = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
+        this.TDLdqB = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
+      }
 
       //独立伤选取计算
       Object.keys(Checkbox.AmpWd).forEach((item) => {
@@ -718,7 +737,6 @@ const Calculation = new Vue({
           this.HSumHBOC = this.HSumHBOC * AddAmpWdARR[i]
         }
       }
-
 
       // 猎头的计算
       this.ASum = this.ASum + this.HeadHunterDs
@@ -758,33 +776,9 @@ const Calculation = new Vue({
   
         this.ASumBOC = this.ASumHBOC 
         this.HSumBOC = this.HSumHBOC 
-      }
 
-      // 判断技师拆解是否开启
-      if (Checkbox.AmpWd.TechnicianDismantling == true) {
-        this.HSUMNAME = '对机械单位伤害'
-        this.TechnicianDismantlingTag = false
-        this.ASum = 0
-        this.HSum = this.HSumOC
-
-        this.ASumOC = 0
-
-        this.ASumB = 0
-        this.HSumB = this.HSumBOC
-
-        this.ASumBOC = 0
-
-        this.ASumH = 0
-        this.HSumH = this.HSumOC
-
-        this.ASumHOC = 0
-        this.HSumHOC = this.HSumOC
-
-        this.ASumHB = 0
-        this.HSumHB = this.HSumBOC
-
-        this.ASumHBOC = 0
-        this.HSumHBOC = this.HSumBOC
+        this.TDL = this.TDLdq
+        this.TDLB = this.TDLdqB
       }
 
       // 赋值简洁面板
