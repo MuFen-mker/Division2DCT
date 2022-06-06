@@ -234,7 +234,7 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        Intimidate: 1.35
+        Intimidate: Math.pow(1.05,7)
       },
       // 技师拆解
       TechnicianDismantling: false,
