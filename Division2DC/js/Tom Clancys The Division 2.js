@@ -68,6 +68,8 @@ const Checkbox = new Vue({
       StrikersBattlegearC: 100,
       //芳心终结者层数
       HeartTerminatorC: 100,
+      // 猎人怒火层数
+      HunterRageC:5,
       // 追悼
       MournC: 30,
       // 追悼红核
@@ -85,7 +87,7 @@ const Checkbox = new Vue({
         Rifleman: false,
         Insanity: false,
         Mourn: false,
-        Mourns: false
+        Mourns: false,
       },
       AddWDJ: {
         Chameleon: 90,
@@ -98,7 +100,7 @@ const Checkbox = new Vue({
         Rifleman: 50,
         Insanity: 18,
         Mourn: 1,
-        Mourns: 5
+        Mourns: 5,
       },
 
       //爆头伤
@@ -133,7 +135,8 @@ const Checkbox = new Vue({
         SawyersKneepads: false,
         TipOfTheSpear: false,
         FutureInitiative: false,
-        PCLast: false
+        PCLast: false,
+        HunterRage:false
       },
       AddTWD: {
         Companion: 15,
@@ -154,7 +157,8 @@ const Checkbox = new Vue({
         SawyersKneepads: 30,
         TipOfTheSpear: 20,
         FutureInitiative: 25,
-        PCLast: 30
+        PCLast: 30,
+        HunterRage:25
       },
 
       // 乘算伤害
@@ -163,7 +167,6 @@ const Checkbox = new Vue({
         POpportunistic: false,
         GlassCannon: false,
         PGlassCannon: false,
-        Intimidate: false,
         Scout: false,
         BigHorn: false,
         LadyDeath: false,
@@ -188,7 +191,6 @@ const Checkbox = new Vue({
         POpportunistic: 1.15,
         GlassCannon: 1.25,
         PGlassCannon: 1.3,
-        Intimidate: 1.35,
         Scout: 1.15,
         BigHorn: 5.5,
         LadyDeath: 1.75,
@@ -219,6 +221,8 @@ const Checkbox = new Vue({
         Versatile: false,
         VersatileRF: false,
         VersatileAR: false,
+        HunterRages:false,
+        Intimidate: false
       },
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
@@ -229,6 +233,8 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
+        HunterRages:1.20,
+        Intimidate: 1.35
       },
       // 技师拆解
       TechnicianDismantling: false,
@@ -239,6 +245,12 @@ const Checkbox = new Vue({
     }
   },
   methods: {
+    ChHunterRages () {
+      this.AmpWd.HunterRages = !this.AmpWd.HunterRages
+    },
+    ChHunterRage () {
+      this.TWD.HunterRage = !this.TWD.HunterRage
+    },
     ChMourns () {
       this.WDJ.Mourns = !this.WDJ.Mourns
     },
@@ -336,7 +348,7 @@ const Checkbox = new Vue({
       this.TWD.Gunslinger = !this.TWD.Gunslinger
     },
     ChIntimidate () {
-      this.MD.Intimidate = !this.MD.Intimidate
+      this.AmpWd.Intimidate = !this.AmpWd.Intimidate
     },
     ChOF () {
       this.TWD.OF = !this.TWD.OF
@@ -442,6 +454,9 @@ const Checkbox = new Vue({
     }
   },
   watch: {
+    HunterRageC () {
+      this.AddTWD.HunterRage = 5 * Number(this.HunterRageC)
+    },
     HeartTerminatorC () {
       this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
@@ -473,7 +488,7 @@ const Checkbox = new Vue({
       this.AddTWD.PAbsorbed = 6 * this.PAbsorbedC
     },
     IntimidateC () {
-      this.AddMD.Intimidate = Math.pow(1.05, this.IntimidateC)
+      this.AddAmpWd.Intimidate = Math.pow(1.05, this.IntimidateC)
     },
     OFC () {
       this.AddTWD.OF = 1 * this.OFC
@@ -584,6 +599,8 @@ const Calculation = new Vue({
       this.FULLWDJ = 0
       this.TDL = 0
       this.TDLB = 0
+      this.TDLdq = 0,
+      this.TDLdqB = 0,
       this.CONHSum = 0
       this.CONASum = 0
       this.CONHSumB = 0

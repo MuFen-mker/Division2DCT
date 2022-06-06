@@ -155,7 +155,7 @@
           <div>
             <input @click="ChIntimidate" type="checkbox">
             <span>威吓</span>
-            <input id="checkboxinput" v-show="MD.Intimidate" v-model="IntimidateC" type="text" />
+            <input id="checkboxinput" v-show="AmpWd.Intimidate" v-model="IntimidateC" type="text" />
           </div>
           <div>
             <input @click="ChOF" type="checkbox">
@@ -305,6 +305,15 @@
             <input @click="ChHeartTerminator" type="checkbox">
             <span>芳心终结者</span>
             <input id="checkboxinput" v-show="MD.HeartTerminator" v-model="HeartTerminatorC" type="text" />
+          </div>
+          <div>
+            <input @click="ChHunterRage" type="checkbox">
+            <span>猎人怒火(层数)</span>
+            <input id="checkboxinput" v-show="TWD.HunterRage" v-model="HunterRageC" type="text" />
+          </div>
+          <div>
+            <input @click="ChHunterRages" type="checkbox">
+            <span>猎人怒火(15米内)</span>
           </div>
         </div>
         <div class="sixthbox">
