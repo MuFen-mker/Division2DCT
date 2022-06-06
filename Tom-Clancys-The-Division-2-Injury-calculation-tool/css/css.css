@@ -334,7 +334,7 @@ body{
     font-family: 'myfont';
   }
   .firstbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .firstbox h2{
     color:gold;
@@ -344,7 +344,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .secondbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .secondbox h2{
     color:gold;
@@ -354,7 +354,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .thirdbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .thirdbox h2{
     color:gold;
@@ -364,7 +364,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .fourthbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .fourthbox h2{
     color:	red;
@@ -374,7 +374,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .ffifthbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .fifthbox h2{
     color:lightgreen;
@@ -384,7 +384,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .sixthbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .sixthbox h2{
     color: LightBLue;
@@ -394,7 +394,7 @@ body{
     -webkit-text-size-adjust:none;
   }
   .seventhbox{
-    font-family: myfont;
+    font-family: 'myfont';
   }
   .seventhbox h2{
     color:	orange;
