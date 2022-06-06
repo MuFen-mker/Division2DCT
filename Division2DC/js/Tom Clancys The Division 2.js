@@ -29,7 +29,7 @@ const root = new Vue({
     }
   },
   watch: {
-    HSD() {
+    HSD () {
       Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(this.HSD) / 100)
     }
   }
@@ -69,7 +69,7 @@ const Checkbox = new Vue({
       //芳心终结者层数
       HeartTerminatorC: 100,
       // 猎人怒火层数
-      HunterRageC:5,
+      HunterRageC: 5,
       // 追悼
       MournC: 30,
       // 追悼红核
@@ -136,7 +136,6 @@ const Checkbox = new Vue({
         TipOfTheSpear: false,
         FutureInitiative: false,
         PCLast: false,
-        HunterRage:false
       },
       AddTWD: {
         Companion: 15,
@@ -158,7 +157,6 @@ const Checkbox = new Vue({
         TipOfTheSpear: 20,
         FutureInitiative: 25,
         PCLast: 30,
-        HunterRage:25
       },
 
       // 乘算伤害
@@ -185,6 +183,7 @@ const Checkbox = new Vue({
         Asystole: false,
         StrikersBattlegear: false,
         HeartTerminator: false,
+        HunterRage: false
       },
       AddMD: {
         Opportunistic: 1.1,
@@ -209,6 +208,7 @@ const Checkbox = new Vue({
         Asystole: 1.15,
         StrikersBattlegear: Math.pow(1.005, 100),
         HeartTerminator: Math.pow(1.01, 100),
+        HunterRage: Math.pow(1.05, 5)
       },
 
       // 独立伤
@@ -221,7 +221,7 @@ const Checkbox = new Vue({
         Versatile: false,
         VersatileRF: false,
         VersatileAR: false,
-        HunterRages:false,
+        HunterRages: false,
         Intimidate: false
       },
       AddAmpWd: {
@@ -233,7 +233,7 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        HunterRages:1.20,
+        HunterRages: 1.20,
         Intimidate: 1.35
       },
       // 技师拆解
@@ -246,10 +246,10 @@ const Checkbox = new Vue({
   },
   methods: {
     ChHunterRages () {
-      this.AmpWd.HunterRages = !this.AmpWd.HunterRages
+      this.AddMD.HunterRages = !this.AddMD.HunterRages
     },
     ChHunterRage () {
-      this.TWD.HunterRage = !this.TWD.HunterRage
+      this.MD.HunterRage = !this.MD.HunterRage
     },
     ChMourns () {
       this.WDJ.Mourns = !this.WDJ.Mourns
@@ -455,7 +455,7 @@ const Checkbox = new Vue({
   },
   watch: {
     HunterRageC () {
-      this.AddTWD.HunterRage = 5 * Number(this.HunterRageC)
+      this.AddMD.HunterRage = Math.pow(1.05, this.HunterRageC)
     },
     HeartTerminatorC () {
       this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
@@ -600,8 +600,8 @@ const Calculation = new Vue({
       this.TDL = 0
       this.TDLB = 0
       this.TDLdq = 0,
-      this.TDLdqB = 0,
-      this.CONHSum = 0
+        this.TDLdqB = 0,
+        this.CONHSum = 0
       this.CONASum = 0
       this.CONHSumB = 0
       this.CONASumB = 0
