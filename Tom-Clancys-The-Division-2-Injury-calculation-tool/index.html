@@ -342,39 +342,39 @@
       <a @click="culation" href="#" onclick="return false;">计算</a>
       <div class="aspacing"></div>
       <div class="usculation">
-        <h1>全天赋武器伤加成:{{FULLWDJ.toFixed(2)}}</h1>
-        <h1>全天赋总武器伤加成:{{FULLTWD.toFixed(2)}}</h1>
-        <h1>猎头者奖励:<br>{{HeadHunterDs.toFixed(2)}}</h1>
+        <h1>全天赋武器伤加成:{{FULLWDJ | numberToCurrency}}</h1>
+        <h1>全天赋总武器伤加成:{{FULLTWD | numberToCurrency}}</h1>
+        <h1>猎头者奖励:<br>{{HeadHunterDs | numberToCurrency}}</h1>
         <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
         <br />
         <div v-if="detailed">
-          <h1>{{HSUMNAME}}:<br>{{HSum.toFixed(2)}}</h1>
-          <h2>暴击:{{HSumB.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC.toFixed(2)}}</h2>
-          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum.toFixed(2)}}</h1>
-          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{ASumOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{ASumBOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{ASumHOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{ASumHBOC.toFixed(2)}}</h2>
+          <h1>{{HSUMNAME}}:<br>{{HSum | numberToCurrency}}</h1>
+          <h2>暴击:{{HSumB | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumH | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHB | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{HSumBOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{HSumHOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{HSumHBOC | numberToCurrency}}</h2>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASum | numberToCurrency}}</h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumB | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumH | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHB | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{ASumOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br>{{ASumBOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br>{{ASumHOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br>{{ASumHBOC | numberToCurrency}}</h2>
         </div>
         <div v-if="concise">
-          <h1>{{HSUMNAME}}:{{HSumOC.toFixed(2)}}</h1>
-          <h2>暴击:{{HSumBOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC.toFixed(2)}}</h2>
+          <h1>{{HSUMNAME}}:{{HSumOC | numberToCurrency}}</h1>
+          <h2>暴击:{{HSumBOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{HSumHOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{HSumHBOC | numberToCurrency}}</h2>
           <br>
-          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASumOC.toFixed(2)}}</h1>
-          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC.toFixed(2)}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC.toFixed(2)}}</h2>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br>{{ASumOC | numberToCurrency}}</h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:{{ASumBOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:{{ASumHOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:{{ASumHBOC | numberToCurrency}}</h2>
         </div>
       </div>
     </div>
@@ -395,5 +395,4 @@
   </div>
 </body>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
-
 </html>
