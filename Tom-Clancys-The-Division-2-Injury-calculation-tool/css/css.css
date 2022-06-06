@@ -7,7 +7,8 @@ body{
 }
 @font-face {
   font-family: myfont;
-  src: url(../font/方正粗圆.ttf);
+  src: url(../font/方正粗圆.ttf),
+  url(../font/方正粗圆.eot);
 }
 @media screen and (min-width: 730px){
   body{
@@ -330,6 +331,7 @@ body{
   .Checkbox div >div>span{
     margin-right: 5px;
     vertical-align: middle;
+    font-family: 'myfont';
   }
   .firstbox{
     font-family: myfont;
