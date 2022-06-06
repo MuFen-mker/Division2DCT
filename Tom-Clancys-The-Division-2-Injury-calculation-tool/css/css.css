@@ -39,11 +39,12 @@ body{
     text-align: center;
   }
   .first input{
+    font-size: 18px;
     display: block;
     margin: 5px auto;
     width: 300px;
     height: 30px;
-    border-radius: 8px;
+    border-radius: 10px;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
@@ -52,6 +53,8 @@ body{
     font-family: 'myfont';
   }
   #checkboxinput{
+    text-align: center;
+    border-radius: 10px;
     color: black;
     font-size: 18px;
     width: 70px;
@@ -295,6 +298,9 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   #checkboxinput{
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
     height: 40px;
     width: 100px;
     color: black;

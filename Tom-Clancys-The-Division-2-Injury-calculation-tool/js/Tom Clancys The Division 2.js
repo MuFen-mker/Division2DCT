@@ -34,37 +34,37 @@ const Checkbox = new Vue({
   data () {
     return {
       // 面包篮层数
-      BreadbasketC: 0,
+      BreadbasketC: 3,
       // 乐天派层数
-      OSC: 0,
+      OSC: 10,
       // 排山倒海层数
-      TTMC: 0,
+      TTMC: 4,
       // 充满干劲层数
-      FullOfEnergyC: 0,
+      FullOfEnergyC: 25,
       // 游骑兵层数
-      RangerC: 0,
+      RangerC: 1,
       // 步枪兵层数
-      RiflemanC: 0,
+      RiflemanC: 5,
       // 专注
-      AbsorbedC: 0,
+      AbsorbedC: 10,
       // 威吓
-      IntimidateC: 0,
+      IntimidateC: 7,
       //抹灭性破坏
-      OFC: 0,
+      OFC: 25,
       // 无人能挡的力量层数
-      UnstoppableForceC: 0,
+      UnstoppableForceC: 5,
       // 索耶的护膝层数
-      SawyersKneepadsC: 0,
+      SawyersKneepadsC: 10,
       // 道奇层数
-      DodgeCityHolsterC: 0,
+      DodgeCityHolsterC: 100,
       //突袭层数
-      StrikersBattlegearC: 0,
+      StrikersBattlegearC: 100,
       //芳心终结者层数
-      HeartTerminatorC: 0,
+      HeartTerminatorC: 100,
       // 追悼
-      MournC: 0,
+      MournC: 30,
       // 追悼红核
-      MournsC: 0,
+      MournsC: 6,
 
       // 武器伤
       WDJ: {
