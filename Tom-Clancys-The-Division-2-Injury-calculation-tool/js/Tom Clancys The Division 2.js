@@ -47,6 +47,8 @@ const Checkbox = new Vue({
       RiflemanC: 5,
       // 专注
       AbsorbedC: 10,
+      // 专注
+      PAbsorbedC: 10,
       // 威吓
       IntimidateC: 7,
       //抹灭性破坏
@@ -118,6 +120,7 @@ const Checkbox = new Vue({
         FeelTheSame: false,
         FeelTheSameY: false,
         Absorbed: false,
+        PAbsorbed: false,
         Gunslinger: false,
         OF: false,
         ShelterCover: false,
@@ -138,6 +141,7 @@ const Checkbox = new Vue({
         FeelTheSame: 15,
         FeelTheSameY: 7,
         Absorbed: 50,
+        PAbsorbed: 60,
         Gunslinger: 20,
         OF: 25,
         ShelterCover: 12,
@@ -151,9 +155,6 @@ const Checkbox = new Vue({
       // 乘算伤害
       MD: {
         Opportunistic: false,
-        Versatile: false,
-        VersatileRF: false,
-        VersatileAR: false,
         GlassCannon: false,
         PGlassCannon: false,
         Intimidate: false,
@@ -178,9 +179,6 @@ const Checkbox = new Vue({
       },
       AddMD: {
         Opportunistic: 1.1,
-        Versatile: 1.35,
-        VersatileRF: 1.35,
-        VersatileAR: 1.1,
         GlassCannon: 1.25,
         PGlassCannon: 1.3,
         Intimidate: 1.35,
@@ -211,7 +209,10 @@ const Checkbox = new Vue({
         TechnicianDismantling: false,
         TTM: false,
         FullOfEnergy: false,
-        AchillesPulse: false
+        AchillesPulse: false,
+        Versatile: false,
+        VersatileRF: false,
+        VersatileAR: false,
       },
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
@@ -219,7 +220,10 @@ const Checkbox = new Vue({
         TechnicianDismantling: 1.12,
         TTM: 1.4,
         FullOfEnergy: 1.25,
-        AchillesPulse: 1
+        AchillesPulse: 1,
+        Versatile: 1.35,
+        VersatileRF: 1.35,
+        VersatileAR: 1.1,
       },
 
       HeadHunter: false,  //猎头
@@ -236,11 +240,14 @@ const Checkbox = new Vue({
     ChAchillesPulse () {
       this.AmpWd.AchillesPulse = !this.AmpWd.AchillesPulse
     },
+    ChVersatile () {
+      this.AmpWd.Versatile = !this.AmpWd.Versatile
+    },
     ChVersatileRF () {
-      this.MD.VersatileRF = !this.MD.VersatileRF
+      this.AmpWd.VersatileRF = !this.AmpWd.VersatileRF
     },
     ChVersatileAR () {
-      this.MD.VersatileAR = !this.MD.VersatileAR
+      this.AmpWd.VersatileAR = !this.AmpWd.VersatileAR
     },
     ChFeelTheSameY () {
       this.TWD.FeelTheSameY = !this.TWD.FeelTheSameY
@@ -308,6 +315,9 @@ const Checkbox = new Vue({
     ChAbsorbed () {
       this.TWD.Absorbed = !this.TWD.Absorbed
     },
+    ChPAbsorbed () {
+      this.TWD.PAbsorbed = !this.TWD.PAbsorbed
+    },
     ChGlassCannon () {
       this.MD.GlassCannon = !this.MD.GlassCannon
     },
@@ -349,9 +359,6 @@ const Checkbox = new Vue({
     },
     ChUnstoppableForce () {
       this.TWD.UnstoppableForce = !this.WDJ.UnstoppableForce
-    },
-    ChVersatile () {
-      this.MD.Versatile = !this.MD.Versatile
     },
     ChVigilance () {
       this.TWD.Vigilance = !this.TWD.Vigilance
@@ -450,6 +457,9 @@ const Checkbox = new Vue({
     },
     AbsorbedSum () {
       return this.AddTWD.Absorbed = 5 * this.AbsorbedC
+    },
+    PAbsorbedSum () {
+      return this.AddTWD.PAbsorbed = 6 * this.PAbsorbedC
     },
     IntimidateSum () {
       return this.AddMD.Intimidate = Math.pow(1.05, this.IntimidateC)
