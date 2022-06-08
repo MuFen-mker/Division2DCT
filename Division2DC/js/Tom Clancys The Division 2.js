@@ -62,6 +62,7 @@ const Checkbox = new Vue({
       PAbsorbedC: 10,
       // 威吓
       IntimidateC: 7,
+      PIntimidateC: 8,
       //抹灭性破坏
       OFC: 25,
       // 无人能挡的力量层数
@@ -192,6 +193,7 @@ const Checkbox = new Vue({
         GlassCannon: false,
         PGlassCannon: false,
         Scout: false,
+        PScout: false,
         BigHorn: false,
         LadyDeath: false,
         Merciless: false,
@@ -222,6 +224,7 @@ const Checkbox = new Vue({
         GlassCannon: 1.25,
         PGlassCannon: 1.3,
         Scout: 1.15,
+        PScout: 1.2,
         BigHorn: 5.5,
         LadyDeath: 1.75,
         Merciless: 6,
@@ -259,7 +262,8 @@ const Checkbox = new Vue({
         Versatile: false,
         VersatileRF: false,
         VersatileAR: false,
-        Intimidate: false
+        Intimidate: false,
+        PIntimidate: false
       },
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
@@ -272,7 +276,8 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        Intimidate: Math.pow(1.05, 7)
+        Intimidate: Math.pow(1.05, 7),
+        PIntimidate: Math.pow(1.05, 8)
       },
       // 技师拆解
       TechnicianDismantling: false,
@@ -509,6 +514,9 @@ const Checkbox = new Vue({
     ChIntimidate () {
       this.AmpWd.Intimidate = !this.AmpWd.Intimidate
     },
+    ChPIntimidate () {
+      this.AmpWd.PIntimidate = !this.AmpWd.PIntimidate
+    },
     ChOF () {
       this.TWD.OF = !this.TWD.OF
     },
@@ -523,6 +531,9 @@ const Checkbox = new Vue({
     },
     ChScout () {
       this.MD.Scout = !this.MD.Scout
+    },
+    ChPScout () {
+      this.MD.PScout = !this.MD.PScout
     },
     ChCompanion () {
       this.TWD.Companion = !this.TWD.Companion
@@ -666,6 +677,9 @@ const Checkbox = new Vue({
     },
     IntimidateC () {
       this.AddAmpWd.Intimidate = Math.pow(1.05, this.IntimidateC)
+    },
+    PIntimidateC () {
+      this.AddAmpWd.PIntimidate = Math.pow(1.05, this.PIntimidateC)
     },
     OFC () {
       this.AddTWD.OF = 1 * this.OFC

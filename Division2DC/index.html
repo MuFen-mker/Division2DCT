@@ -250,17 +250,8 @@
             <input id="checkboxinput" v-show="TWD.Absorbed" v-model="AbsorbedC" type="text" />
           </div>
           <div>
-            <input @click="ChPAbsorbed" type="checkbox">
-            <span>完美专注</span>
-            <input id="checkboxinput" v-show="TWD.PAbsorbed" v-model="PAbsorbedC" type="text" />
-          </div>
-          <div>
             <input @click="ChGlassCannon" type="checkbox">
             <span>玻璃大炮</span>
-          </div>
-          <div>
-            <input @click="ChPGlassCannon" type="checkbox">
-            <span>完美玻璃大炮</span>
           </div>
           <div>
             <input @click="ChGunslinger" type="checkbox">
@@ -292,6 +283,28 @@
             <input @click="ChScout" type="checkbox">
             <span>探子</span>
           </div>
+
+          
+          <h2>具名完美天赋</h2>
+
+          <div>
+            <input @click="ChPAbsorbed" type="checkbox">
+            <span>完美专注</span>
+            <input id="checkboxinput" v-show="TWD.PAbsorbed" v-model="PAbsorbedC" type="text" />
+          </div>
+          <div>
+            <input @click="ChPGlassCannon" type="checkbox">
+            <span>完美玻璃大炮</span>
+          </div>
+          <div>
+            <input @click="ChPScout" type="checkbox">
+            <span>完美探子</span>
+          </div>
+          <div>
+            <input @click="ChPIntimidate" type="checkbox">
+            <span>完美威吓</span>
+            <input id="checkboxinput" v-show="AmpWd.PIntimidate" v-model="PIntimidateC" type="text" />
+          </div>
         </div>
         <div v-show="BBT.TalentTypeA" class="thirdbox">
           <!-- 背包天赋 -->
@@ -314,10 +327,6 @@
           <div>
             <input @click="ChOpportunistic" type="checkbox">
             <span>投机取巧</span>
-          </div>
-          <div>
-            <input @click="ChPOpportunistic" type="checkbox">
-            <span>完美投机取巧</span>
           </div>
           <div>
             <input @click="ChUnstoppableForce" type="checkbox">
@@ -344,6 +353,14 @@
             <input @click="ChWicked" type="checkbox">
             <span>恶人</span>
           </div>
+
+          <h2>具名完美天赋</h2>
+
+          <div>
+            <input @click="ChPOpportunistic" type="checkbox">
+            <span>完美投机取巧</span>
+          </div>
+
         </div>
         <div v-show="QTT.TalentTypeA" class="fourthbox">
           <!-- 奇特天赋 -->
