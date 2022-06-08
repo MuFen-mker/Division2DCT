@@ -1,7 +1,8 @@
 $(function(){
-	
-	loadMain();//加载主方法
-		
+	var shikou = document.documentElement.clientWidth;
+	if (shikou>730) {
+		loadMain();//加载主方法
+	}
 });
  
 setInterval("loadMain()",300000); //每5分钟刷新一次;

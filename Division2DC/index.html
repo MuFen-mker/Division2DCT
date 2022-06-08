@@ -11,10 +11,8 @@
   <script src="js/Scale.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="icon" href="imgs/Tom Clancys The Division 2.ico">
-  <script src="js/Sidebar float.js" type="text/javascript"></script>
-  <title>全境封锁2伤害计算器1.0 By-MuFen</title>
+  <title>全境封锁2伤害计算器2.0 By-MuFen</title>
 </head>
-
 <body>
   <h1 class="title">全境封锁2武器伤害计算器</h1>
   <div class="tips" id="Tips">
@@ -28,9 +26,50 @@
     <a class="star" target="_blank"
       href="https://github.com/MuFen-mker/Division2DCT">*喜欢的话帮忙GitHub点个星星吧
     </a>
-    <p style="color: orange;">错误反馈:<br>h4xor343的"开黑啦"服务器ID：90818938 <br> 欢迎各位华盛顿特工，此服务器提供专业的八人本基础教学，进阶教学，修车服务!</p>
+    <p style="color: orange;">错误反馈<br>h4xor343的"开黑啦"服务器ID：90818938 <br> 欢迎各位华盛顿特工，此服务器提供专业的八人本基础教学，进阶教学，修车服务!</p>
   </div>
   <div class="bodyGui" id="scllTo">
+    <div id="Calculation" class="allcompute">
+      <a @click="culation" href="#" onclick="return false;">计算</a>
+      <div class="aspacing"></div>
+      <div class="usculation">
+        <h1>全天赋武器伤加成:{{FULLWDJ | numberToCurrency}}</h1>
+        <h1>全天赋总武器伤加成:{{FULLTWD | numberToCurrency}}</h1>
+        <h1>猎头者奖励:{{HeadHunterDs | numberToCurrency}}</h1>
+        <button v-if="concise" class="allcomputebutton" @click="CNV">显示详细计算结果</button>
+        <button v-if="detailed" class="allcomputebuttons" @click="CNV">显示详细计算结果</button>
+        <div v-if="detailed">
+          <h1>{{HSUMNAME}}:&nbsp;{{HSum | numberToCurrency}}</h1>
+          <h2>暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{HSumB | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:&nbsp;<span style="color: red;">{{HSumH | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{HSumHB | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:&nbsp;{{HSumOC | numberToCurrency}}</h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{HSumBOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:&nbsp;<span style="color: red;">{{HSumHOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{HSumHBOC | numberToCurrency}}</span></h2>
+          <br/>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:&nbsp;<span style="color: rgb(13, 146, 255);">{{ASum | numberToCurrency}}</span></h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{ASumB | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:&nbsp;<span style="color: red;">{{ASumH | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{ASumHB | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:&nbsp;<span style="color: rgb(13, 146, 255);">{{ASumOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{ASumBOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:&nbsp;<span style="color: red;">{{ASumHOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{ASumHBOC | numberToCurrency}}</span></h2>
+        </div>
+        <div v-if="concise">
+          <h1>{{HSUMNAME}}:&nbsp;{{HSumOC | numberToCurrency}}</h1>
+          <h2>暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{HSumBOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:&nbsp;<span style="color: red;">{{HSumHOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:&nbsp;<span style="color: rgb(231, 112, 0);">{{HSumHBOC | numberToCurrency}}</span></h2>
+          <br>
+          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:&nbsp;<span style="color: rgb(13, 146, 255);">{{ASumOC | numberToCurrency}}</span></h1>
+          <h2 v-if="TechnicianDismantlingTag">暴击:&nbsp;<span style="color: rgb(255, 84, 5);">{{ASumBOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">爆头:&nbsp;<span style="color: red;">{{ASumHOC | numberToCurrency}}</span></h2>
+          <h2 v-if="TechnicianDismantlingTag">头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{ASumHBOC | numberToCurrency}}</span></h2>
+        </div>
+      </div>
+    </div>
     <div class="all">
       <div id="root" class="first">
         <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
@@ -43,8 +82,11 @@
         <p>对离开掩体目标伤<input v-model="DTOC" type="text" name="DTOC" placeholder="掩体伤(%)" /></p>
       </div>
       <div id="Checkbox" class="Checkbox">
-        <div class="firstbox">
-          <h2>武器天赋</h2>
+        <div id="TalentType" class="TalentType">
+          <a :class="WQT" @click="WQTF">武器天赋</a><a :class="XJT" @click="XJTF">胸甲天赋</a><a :class="BBT" @click="BBTF">背包天赋</a><a :class="QTT" @click="QTTF">奇特天赋</a><a :class="ZBZ" @click="ZBZF">装备组</a><a :class="JNS" @click="JNSF">技能增伤</a><a :class="ZCS" @click="ZCSF">专长加成</a>
+        </div>
+        <div v-show="WQT.TalentTypeA" class="firstbox">
+          <!-- 武器天赋 -->
           <div>
             <input @click="ChBoomerang" type="checkbox">
             <span>回力镖</span>
@@ -120,8 +162,8 @@
             <span>停搏</span>
           </div>
         </div>
-        <div class="secondbox">
-          <h2>胸甲天赋</h2>
+        <div v-show="XJT.TalentTypeA" class="secondbox">
+          <!-- 胸甲天赋 -->
           <div>
             <input @click="ChFeelTheSame" type="checkbox">
             <span>感同深受(队友携带且六电)</span>
@@ -179,8 +221,8 @@
             <span>探子</span>
           </div>
         </div>
-        <div class="thirdbox">
-          <h2>背包天赋</h2>
+        <div v-show="BBT.TalentTypeA" class="thirdbox">
+          <!-- 背包天赋 -->
           <div>
             <input @click="ChCompanion" type="checkbox">
             <span>同伴</span>
@@ -231,8 +273,8 @@
             <span>恶人</span>
           </div>
         </div>
-        <div class="fourthbox">
-          <h2>奇特天赋</h2>
+        <div v-show="QTT.TalentTypeA" class="fourthbox">
+          <!-- 奇特天赋 -->
           <div>
             <input @click="ChSawyersKneepads" type="checkbox">
             <span>索耶的护膝</span>
@@ -274,8 +316,8 @@
             <input id="checkboxinput" v-show="WDJ.Mourns" v-model="MournsC" type="text" />
           </div>
         </div>
-        <div class="fifthbox">
-          <h2>装备组</h2>
+        <div v-show="ZBZ.TalentTypeA" class="fifthbox">
+          <!-- 装备组 -->
           <div>
             <input @click="ChAcesEights" type="checkbox">
             <span>A、8两对</span>
@@ -316,8 +358,8 @@
             <span>猎人怒火(15米内)</span>
           </div>
         </div>
-        <div class="sixthbox">
-          <h2>技能增伤</h2>
+        <div v-show="JNS.TalentTypeA" class="sixthbox">
+          <!-- 技能增伤 -->
           <div>
             <input @click="ChScannerPulse" type="checkbox">
             <span>脉冲--扫描/遥控</span>
@@ -331,8 +373,8 @@
             <span>突袭者护盾(11%)</span>
           </div>
         </div>
-        <div class="seventhbox">
-          <h2>专长加成</h2>
+        <div v-show="ZCS.TalentTypeA" class="seventhbox">
+          <!-- 专长加成 -->
           <div>
             <input @click="ChDemolitionistTacticalLink" type="checkbox">
             <span>爆破专家--战术链接</span>
@@ -353,46 +395,6 @@
             <input @click="ChTechnicianDismantling" type="checkbox">
             <span>技师--拆解</span>
           </div>
-        </div>
-      </div>
-    </div>
-    <div id="Calculation" class="allcompute">
-      <a @click="culation" href="#" onclick="return false;">计算</a>
-      <div class="aspacing"></div>
-      <div class="usculation">
-        <h1>全天赋武器伤加成:{{FULLWDJ | numberToCurrency}}</h1>
-        <h1>全天赋总武器伤加成:{{FULLTWD | numberToCurrency}}</h1>
-        <h1>猎头者奖励:<br>{{HeadHunterDs | numberToCurrency}}</h1>
-        <p><input @click="CNV" type="checkbox">显示详细计算结果</p>
-        <br />
-        <div v-if="detailed">
-          <h1>{{HSUMNAME}}:<br>{{HSum | numberToCurrency}}</h1>
-          <h2>暴击:<span style="color: rgb(255, 84, 5);">{{HSumB | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:<span style="color: red;">{{HSumH | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:<span style="color: orange;">{{HSumHB | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br>{{HSumOC | numberToCurrency}}</h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br><span style="color: rgb(255, 84, 5);">{{HSumBOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br><span style="color: red;">{{HSumHOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br><span style="color: orange;">{{HSumHBOC | numberToCurrency}}</span></h2>
-          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<br><span style="color: rgb(13, 146, 255);">{{ASum | numberToCurrency}}</span></h1>
-          <h2 v-if="TechnicianDismantlingTag">暴击:<span style="color: rgb(255, 84, 5);">{{ASumB | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:<span style="color: red;">{{ASumH | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:<span style="color: orange;">{{ASumHB | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标伤害:<br><span style="color: rgb(13, 146, 255);">{{ASumOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标暴击:<br><span style="color: rgb(255, 84, 5);">{{ASumBOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标爆头:<br><span style="color: red;">{{ASumHOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">对离开掩体目标头部暴击:<br><span style="color: orange;">{{ASumHBOC | numberToCurrency}}</span></h2>
-        </div>
-        <div v-if="concise">
-          <h1>{{HSUMNAME}}:{{HSumOC | numberToCurrency}}</h1>
-          <h2>暴击:<span style="color: rgb(255, 84, 5);">{{HSumBOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:<span style="color: red;">{{HSumHOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:<span style="color: orange;">{{HSumHBOC | numberToCurrency}}</span></h2>
-          <br>
-          <h1 v-if="TechnicianDismantlingTag">对护甲值目标伤害:<span style="color: rgb(13, 146, 255);">{{ASumOC | numberToCurrency}}</span></h1>
-          <h2 v-if="TechnicianDismantlingTag">暴击:<span style="color: rgb(255, 84, 5);">{{ASumBOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">爆头:<span style="color: red;">{{ASumHOC | numberToCurrency}}</span></h2>
-          <h2 v-if="TechnicianDismantlingTag">头部暴击:<span style="color: orange;">{{ASumHBOC | numberToCurrency}}</span></h2>
         </div>
       </div>
     </div>

@@ -234,17 +234,90 @@ const Checkbox = new Vue({
         Versatile: 1.35,
         VersatileRF: 1.35,
         VersatileAR: 1.1,
-        Intimidate: Math.pow(1.05,7)
+        Intimidate: Math.pow(1.05, 7)
       },
       // 技师拆解
       TechnicianDismantling: false,
       TechnicianDismantlingAdd: 1.12,
 
       HeadHunter: false,  //猎头
-      HeadHunterAdd: 12.5
+      HeadHunterAdd: 12.5,
+
+      // 天赋选中切换
+      WQT: { TalentTypeA: true },
+      XJT: { TalentTypeA: false },
+      BBT: { TalentTypeA: false },
+      QTT: { TalentTypeA: false },
+      ZBZ: { TalentTypeA: false },
+      JNS: { TalentTypeA: false },
+      ZCS: { TalentTypeA: false }
     }
   },
   methods: {
+    ZCSF() {
+      this.ZCS.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    JNSF() {
+      this.JNS.TalentTypeA = true
+      this.ZCS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    QTTF() {
+      this.QTT.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.ZCS.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    ZBZF() {
+      this.ZBZ.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.ZCS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    BBTF() {
+      this.BBT.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.ZCS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    XJTF() {
+      this.XJT.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.ZCS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.WQT.TalentTypeA = false
+    },
+    WQTF() {
+      this.WQT.TalentTypeA = true
+      this.JNS.TalentTypeA = false
+      this.ZCS.TalentTypeA = false
+      this.QTT.TalentTypeA = false
+      this.ZBZ.TalentTypeA = false
+      this.BBT.TalentTypeA = false
+      this.XJT.TalentTypeA = false
+    },
+
     ChHunterRages () {
       this.MD.HunterRages = !this.MD.HunterRages
     },
