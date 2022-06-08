@@ -84,6 +84,15 @@
   .Checkbox{
     margin-top: 40px;
   }
+  .Checkbox h2{
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(255, 166, 0, 0.05);
+    border-left: 10px solid rgba(255, 166, 0, 1);
+    border-right: 10px solid rgba(255, 166, 0, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .Checkbox div >div{
     display: inline-block;
     width:270px;
@@ -352,6 +361,16 @@
   }
   .Checkbox{
     margin-top: 40px;
+  }
+  .Checkbox h2{
+    font-size: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(255, 166, 0, 0.05);
+    border-left: 10px solid rgba(255, 166, 0, 1);
+    border-right: 10px solid rgba(255, 166, 0, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .Checkbox div >div{
     display: inline-block;

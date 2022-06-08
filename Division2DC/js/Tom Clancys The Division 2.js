@@ -40,6 +40,8 @@ const Checkbox = new Vue({
     return {
       // 面包篮层数
       BreadbasketC: 3,
+      // 完美面包篮层数
+      PBreadbasketC: 2,
       // 乐天派层数
       OSC: 10,
       // 排山倒海层数
@@ -80,39 +82,49 @@ const Checkbox = new Vue({
         Chameleon: false,
         DodgeCityHolster: false,
         Boomerang: false,
+        PBoomerang: false,
         FightHandToHandWith: false,
+        PFightHandToHandWith: false,
         PCFirst: false,
+        PPCFirst: false,
         OS: false,
         FistToMeat: false,
         Rifleman: false,
         Insanity: false,
         Mourn: false,
         Mourns: false,
+        InSync:false
       },
       AddWDJ: {
         Chameleon: 90,
         DodgeCityHolster: 1000,
         Boomerang: 40,
+        PBoomerang: 50,
         FightHandToHandWith: 30,
+        PFightHandToHandWith: 38,
         PCFirst: -30,
+        PPCFirst: -27,
         OS: 15,
         FistToMeat: 40,
         Rifleman: 50,
         Insanity: 18,
-        Mourn: 1,
-        Mourns: 5,
+        Mourn: 30,
+        Mourns: 30,
+        InSync:30
       },
 
       //爆头伤
       HI: {
         SharpshooterTacticalLink: false,
         Breadbasket: false,
-        Naked: false
+        PBreadbasket: false,
+        Naked: false,
       },
       AddHI: {
         SharpshooterTacticalLink: 10,
         Breadbasket: 105,
-        Naked: 50
+        PBreadbasket: 100,
+        Naked: 50,
       },
 
       // 总武器伤
@@ -136,6 +148,7 @@ const Checkbox = new Vue({
         TipOfTheSpear: false,
         FutureInitiative: false,
         PCLast: false,
+        PPCLast: false,
       },
       AddTWD: {
         Companion: 15,
@@ -157,6 +170,7 @@ const Checkbox = new Vue({
         TipOfTheSpear: 20,
         FutureInitiative: 25,
         PCLast: 30,
+        PPCLast: 33,
       },
 
       // 乘算伤害
@@ -178,6 +192,7 @@ const Checkbox = new Vue({
         SurvivalistTacticalLink: false,
         GoBlind: false,
         Light: false,
+        PLight: false,
         Ranger: false,
         ToAbuse: false,
         Asystole: false,
@@ -204,6 +219,7 @@ const Checkbox = new Vue({
         SurvivalistTacticalLink: 1.1,
         GoBlind: 1.2,
         Light: 1.2,
+        PLight: 1.25,
         Ranger: 1.12,
         ToAbuse: 1.2,
         Asystole: 1.15,
@@ -324,6 +340,9 @@ const Checkbox = new Vue({
     ChHunterRage () {
       this.MD.HunterRage = !this.MD.HunterRage
     },
+    ChInSync(){
+      this.WDJ.InSync = !this.WDJ.InSync
+    },
     ChMourns () {
       this.WDJ.Mourns = !this.WDJ.Mourns
     },
@@ -351,11 +370,20 @@ const Checkbox = new Vue({
     ChBoomerang () {
       this.WDJ.Boomerang = !this.WDJ.Boomerang
     },
+    ChPBoomerang () {
+      this.WDJ.PBoomerang = !this.WDJ.PBoomerang
+    },
     ChBreadbasket () {
       this.HI.Breadbasket = !this.HI.Breadbasket
     },
+    ChPBreadbasket () {
+      this.HI.PBreadbasket = !this.HI.PBreadbasket
+    },
     ChFightHandToHandWith () {
       this.WDJ.FightHandToHandWith = !this.WDJ.FightHandToHandWith
+    },
+    ChPFightHandToHandWith () {
+      this.WDJ.PFightHandToHandWith = !this.WDJ.PFightHandToHandWith
     },
     ChGoBlind () {
       this.MD.GoBlind = !this.MD.GoBlind
@@ -366,11 +394,20 @@ const Checkbox = new Vue({
     ChLight () {
       this.MD.Light = !this.MD.Light
     },
+    ChPLight () {
+      this.MD.PLight = !this.MD.PLight
+    },
     ChPCFirst () {
       this.WDJ.PCFirst = !this.WDJ.PCFirst
     },
+    ChPPCFirst () {
+      this.WDJ.PPCFirst = !this.WDJ.PPCFirst
+    },
     ChPCLast () {
       this.TWD.PCLast = !this.TWD.PCLast
+    },
+    ChPPCLast () {
+      this.TWD.PPCLast = !this.TWD.PPCLast
     },
     ChNaked () {
       this.HI.Naked = !this.HI.Naked
@@ -533,11 +570,17 @@ const Checkbox = new Vue({
     HeartTerminatorC () {
       this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
     },
+    MournC () {
+      this.AddWDJ.Mourn = 1 * this.MournC
+    },
     MournsC () {
       this.AddWDJ.Mourns = 5 * this.MournsC
     },
     BreadbasketC () {
       this.AddHI.Breadbasket = 35 * this.BreadbasketC
+    },
+    PBreadbasketC () {
+      this.AddHI.PBreadbasket = 50 * this.PBreadbasketC
     },
     OSC () {
       this.AddWDJ.OS = 3 * this.OSC

@@ -161,6 +161,38 @@
             <input @click="ChAsystole" type="checkbox">
             <span>停搏</span>
           </div>
+          <div>
+            <input @click="ChInSync" type="checkbox">
+            <span>同步伤害(最大增益)</span>
+          </div>
+
+          <h2>具名完美天赋</h2>
+
+          <div>
+            <input @click="ChPBoomerang" type="checkbox">
+            <span>完美回力镖</span>
+          </div>
+          <div>
+            <input @click="ChPBreadbasket" type="checkbox">
+            <span>完美面包篮</span>
+            <input id="checkboxinput" v-show="HI.PBreadbasket" v-model="PBreadbasketC" type="text" />
+          </div>
+          <div>
+            <input @click="ChPLight" type="checkbox">
+            <span>完美点燃</span>
+          </div>
+          <div>
+            <input @click="ChPPCFirst" type="checkbox">
+            <span>完美精密计算:前半段</span>
+          </div>
+          <div>
+            <input @click="ChPPCLast" type="checkbox">
+            <span>完美精密计算:后半段</span>
+          </div>
+          <div>
+            <input @click="ChPFightHandToHandWith" type="checkbox">
+            <span>完美短兵相接</span>
+          </div>
         </div>
         <div v-show="XJT.TalentTypeA" class="secondbox">
           <!-- 胸甲天赋 -->
