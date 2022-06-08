@@ -44,14 +44,18 @@ const Checkbox = new Vue({
       PBreadbasketC: 2,
       // 乐天派层数
       OSC: 10,
+      POSC: 10,
       // 排山倒海层数
       TTMC: 4,
+      PTTMC: 4,
       // 充满干劲层数
       FullOfEnergyC: 25,
+      PFullOfEnergyC: 5,
       // 游骑兵层数
       RangerC: 1,
       // 步枪兵层数
       RiflemanC: 5,
+      PRiflemanC: 6,
       // 专注
       AbsorbedC: 10,
       // 专注
@@ -88,12 +92,16 @@ const Checkbox = new Vue({
         PCFirst: false,
         PPCFirst: false,
         OS: false,
+        POS: false,
         FistToMeat: false,
         Rifleman: false,
+        PRifleman: false,
         Insanity: false,
+        PInsanity: false,
         Mourn: false,
         Mourns: false,
-        InSync:false
+        InSync:false,
+        PInSync:false
       },
       AddWDJ: {
         Chameleon: 90,
@@ -104,13 +112,17 @@ const Checkbox = new Vue({
         PFightHandToHandWith: 38,
         PCFirst: -30,
         PPCFirst: -27,
-        OS: 15,
+        OS: 30,
+        POS: 40,
         FistToMeat: 40,
         Rifleman: 50,
+        PRifleman: 66,
         Insanity: 18,
+        PInsanity: 22,
         Mourn: 30,
         Mourns: 30,
-        InSync:30
+        InSync:30,
+        PInSync:40
       },
 
       //爆头伤
@@ -191,11 +203,14 @@ const Checkbox = new Vue({
         DemolitionistTacticalLink: false,
         SurvivalistTacticalLink: false,
         GoBlind: false,
+        PGoBlind: false,
         Light: false,
         PLight: false,
         Ranger: false,
         ToAbuse: false,
+        PToAbuse: false,
         Asystole: false,
+        PAsystole: false,
         StrikersBattlegear: false,
         HeartTerminator: false,
         HunterRages: false,
@@ -218,11 +233,14 @@ const Checkbox = new Vue({
         DemolitionistTacticalLink: 1.05,
         SurvivalistTacticalLink: 1.1,
         GoBlind: 1.2,
+        PGoBlind: 1.25,
         Light: 1.2,
         PLight: 1.25,
         Ranger: 1.12,
         ToAbuse: 1.2,
+        PToAbuse: 1.25,
         Asystole: 1.15,
+        PAsystole: 1.2,
         StrikersBattlegear: Math.pow(1.005, 100),
         HeartTerminator: Math.pow(1.01, 100),
         HunterRages: 1.2,
@@ -234,7 +252,9 @@ const Checkbox = new Vue({
         FirewallStrikerShield: false,
         FirewallTacticalLink: false,
         TTM: false,
+        PTTM: false,
         FullOfEnergy: false,
+        PFullOfEnergy: false,
         AchillesPulse: false,
         Versatile: false,
         VersatileRF: false,
@@ -245,7 +265,9 @@ const Checkbox = new Vue({
         FirewallStrikerShield: 1.11,
         FirewallTacticalLink: 1.1,
         TTM: 1.4,
+        PTTM: 1.48,
         FullOfEnergy: 1.25,
+        PFullOfEnergy: 1.25,
         AchillesPulse: 1,
         Versatile: 1.35,
         VersatileRF: 1.35,
@@ -343,6 +365,9 @@ const Checkbox = new Vue({
     ChInSync(){
       this.WDJ.InSync = !this.WDJ.InSync
     },
+    ChPInSync(){
+      this.WDJ.PInSync = !this.WDJ.PInSync
+    },
     ChMourns () {
       this.WDJ.Mourns = !this.WDJ.Mourns
     },
@@ -388,6 +413,9 @@ const Checkbox = new Vue({
     ChGoBlind () {
       this.MD.GoBlind = !this.MD.GoBlind
     },
+    ChPGoBlind () {
+      this.MD.PGoBlind = !this.MD.PGoBlind
+    },
     ChInsane () {
       this.WDJ.Insane = !this.WDJ.Insane
     },
@@ -415,8 +443,14 @@ const Checkbox = new Vue({
     ChOS () {
       this.WDJ.OS = !this.WDJ.OS
     },
+    ChPOS () {
+      this.WDJ.POS = !this.WDJ.POS
+    },
     ChTTM () {
       this.AmpWd.TTM = !this.AmpWd.TTM
+    },
+    ChPTTM () {
+      this.AmpWd.PTTM = !this.AmpWd.PTTM
     },
     ChFistToMeat () {
       this.WDJ.FistToMeat = !this.WDJ.FistToMeat
@@ -424,20 +458,35 @@ const Checkbox = new Vue({
     ChFullOfEnergy () {
       this.AmpWd.FullOfEnergy = !this.AmpWd.FullOfEnergy
     },
+    ChPFullOfEnergy () {
+      this.AmpWd.PFullOfEnergy = !this.AmpWd.PFullOfEnergy
+    },
     ChRanger () {
       this.MD.Ranger = !this.MD.Ranger
     },
     ChRifleman () {
       this.WDJ.Rifleman = !this.WDJ.Rifleman
     },
+    ChPRifleman () {
+      this.WDJ.PRifleman = !this.WDJ.PRifleman
+    },
     ChToAbuse () {
       this.MD.ToAbuse = !this.MD.ToAbuse
+    },
+    ChPToAbuse () {
+      this.MD.PToAbuse = !this.MD.PToAbuse
     },
     ChInsanity () {
       this.WDJ.Insanity = !this.WDJ.Insanity
     },
+    ChPInsanity () {
+      this.WDJ.PInsanity = !this.WDJ.PInsanity
+    },
     ChAsystole () {
       this.MD.Asystole = !this.MD.Asystole
+    },
+    ChPAsystole () {
+      this.MD.PAsystole = !this.MD.PAsystole
     },
     ChFeelTheSame () {
       this.TWD.FeelTheSame = !this.TWD.FeelTheSame
@@ -585,17 +634,29 @@ const Checkbox = new Vue({
     OSC () {
       this.AddWDJ.OS = 3 * this.OSC
     },
+    POSC () {
+      this.AddWDJ.POS = 4 * this.POSC
+    },
     TTMC () {
       this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC) / 100)
     },
+    PTTMC () {
+      this.AddAmpWd.PTTM = 1 + (12 * Number(this.PTTMC) / 100)
+    },
     FullOfEnergyC () {
       this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC) / 100)
+    },
+    PFullOfEnergyC () {
+      this.AddAmpWd.PFullOfEnergy = 1 + (5 * Number(this.PFullOfEnergyC) / 100)
     },
     RangerC () {
       this.AddMD.Ranger = 1 + (2 * Number(this.RangerC) / 100)
     },
     RiflemanC () {
       this.AddWDJ.Rifleman = 10 * this.RiflemanC
+    },
+    PRiflemanC () {
+      this.AddWDJ.PRifleman = 11 * this.PRiflemanC
     },
     AbsorbedC () {
       this.AddTWD.Absorbed = 5 * this.AbsorbedC

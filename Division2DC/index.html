@@ -193,6 +193,46 @@
             <input @click="ChPFightHandToHandWith" type="checkbox">
             <span>完美短兵相接</span>
           </div>
+          <div>
+            <input @click="ChPOS" type="checkbox">
+            <span>完美乐天派</span>
+            <input id="checkboxinput" v-show="WDJ.POS" v-model="POSC" type="text" />
+          </div>
+          <div>
+            <input @click="ChPInSync" type="checkbox">
+            <span>完美同步伤害(最大增益)</span>
+          </div>
+          <div>
+            <input @click="ChPAsystole" type="checkbox">
+            <span>完美停搏</span>
+          </div>
+          <div>
+            <input @click="ChPInsanity" type="checkbox">
+            <span>完美精神错乱</span>
+          </div>
+          <div>
+            <input @click="ChPToAbuse" type="checkbox">
+            <span>完美虐待狂</span>
+          </div>
+          <div>
+            <input @click="ChPTTM" type="checkbox">
+            <span>完美排山倒海</span>
+            <input id="checkboxinput" v-show="AmpWd.PTTM" v-model="PTTMC" type="text" />
+          </div>
+          <div>
+            <input @click="ChPGoBlind" type="checkbox">
+            <span>完美失明</span>
+          </div>
+          <div>
+            <input @click="ChPRifleman" type="checkbox">
+            <span>完美步枪兵</span>
+            <input id="checkboxinput" v-show="WDJ.PRifleman" v-model="PRiflemanC" type="text" />
+          </div>
+          <div>
+            <input @click="ChPFullOfEnergy" type="checkbox">
+            <span>完美充满干劲</span>
+            <input id="checkboxinput" v-show="AmpWd.PFullOfEnergy" v-model="PFullOfEnergyC" type="text" />
+          </div>
         </div>
         <div v-show="XJT.TalentTypeA" class="secondbox">
           <!-- 胸甲天赋 -->
