@@ -473,7 +473,7 @@ const Checkbox = new Vue({
         Asystole: 1.15,
         PAsystole: 1.2,
         StrikersBattlegear: Math.pow(1.005, 100),
-        HeartTerminator: Math.pow(1.01, 100),
+        HeartTerminator: 2,
         HunterRages: 1.2,
         HunterRage: Math.pow(1.05, 5)
       },
@@ -856,7 +856,7 @@ const Checkbox = new Vue({
       this.AddMD.HunterRage = Math.pow(1.05, this.HunterRageC)
     },
     HeartTerminatorC () {
-      this.AddMD.HeartTerminator = Math.pow(1.01, this.HeartTerminatorC)
+      this.AddMD.HeartTerminator = 1 + (1 * Number(this.HeartTerminatorC)/100)
     },
     MournC () {
       this.AddWDJ.Mourn = 1 * this.MournC
