@@ -6,7 +6,9 @@
 @font-face {
   font-family: myfont;
   src: url(../font/方正粗圆.ttf),
-  url(../font/方正粗圆.eot);
+  url(../font/方正粗圆.eot),
+  url(../font/方正粗圆.woff),
+  url(../font/方正粗圆.svg);
 }
 @media screen and (min-width: 730px){
   *{
