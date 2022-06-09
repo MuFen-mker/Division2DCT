@@ -10,7 +10,21 @@
   <!-- 强制浏览器缩放比例 -->
   <script src="js/Scale.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css/element.css">
   <link rel="icon" href="imgs/Tom Clancys The Division 2.ico">
+  <style>
+    .el-input__inner{
+      margin: 0;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .el-input{
+      width: 100%;
+    }
+    .el-autocomplete{
+      width: 100%;
+    }
+  </style>
   <title>全境封锁2伤害计算器2.0 By-MuFen</title>
 </head>
 <body>
@@ -18,7 +32,7 @@
   <div class="tips" id="Tips">
     <p>输入框直接输入数值，无需输入百分号，数值以<span style="color: red;">"角色面板"</span>为准，查看数据时请用<span style="color: red;">"G"</span>切换为当前武器
     </p>
-    <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启<span style="color: red;">"显示基础伤害"</span>查看</p>
+    <p>武器基础白字是无任何增伤，武器原本的伤害。请在游戏中开启<span style="color: red;">"显示基础伤害"</span>查看,或直接在输入框输入<span style="color: red;">完整武器名</span>查找</p>
     <p>计算结果有些许偏差是正常的</p>
     <p>只有在考虑对机械单位时才勾选<span style="color: red;">"技师--拆解"</span>，机械单位并不吃装甲伤，也不会进掩体，所以隐藏多数计算结果只显示已计算生命值/掩体伤的非暴击害/暴击伤害</p>
     <p>叠层天赋以某个条件增伤时输入框输入对应的层数即可(例如专注每秒增伤，乐天派每减少10%为一层)</p>
@@ -72,7 +86,19 @@
     </div>
     <div class="all">
       <div id="root" class="first">
-        <p>武器基础白字<input v-model="arms" type="text" name="arms" placeholder="武器基础白字" /></p>
+        <p>武器基础白字<br/>
+        <el-autocomplete
+        popper-class="my-autocomplete"
+        v-model="arms"
+        :fetch-suggestions="querySearch"
+        :trigger-on-focus="false"
+        placeholder="可输入武器名">
+        <template slot-scope="{ item }">
+          <span style="font-size: 15px;">{{ item.WeaponName }}</span>
+          <div class="WeaponValue" style="font-size: 10px;">{{ item.value }}</div>
+        </template>
+        </el-autocomplete>
+      </p>
         <p>所有武器的伤害加成<input v-model="RedCore" type="text" name="RedCore" placeholder="所有武器的伤害加成(%)" /></p>
         <p>武器种类伤害加成<input v-model="WeaponType" type="text" name="Weapon type" placeholder="武器种类伤害加成(%)" /></p>
         <p>爆头伤害<input v-model="HSD" type="text" name="HSD" placeholder="爆头伤(%)" /></p>
@@ -503,5 +529,6 @@
     </div>
   </div>
 </body>
+<script src="js/element.js" type="text/javascript"></script>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
 </html>

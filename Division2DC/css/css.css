@@ -12,6 +12,9 @@
   *{
     color: black;/*全局字体颜色*/
   }
+  .WeaponValue{
+    padding-bottom: 10px;
+  }
   body{
     background-color: rgb(240, 240, 240);
   }
