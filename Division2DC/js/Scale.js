@@ -5,7 +5,7 @@ $(function(){
 	}
 });
  
-setInterval("loadMain()",300000); //每5分钟刷新一次;
+// setInterval("loadMain()",300000); //每5分钟刷新一次;
  
 var firstFlag = true;//初次加载
 var isFullScreen = 0;//是否全屏：0否，1是
