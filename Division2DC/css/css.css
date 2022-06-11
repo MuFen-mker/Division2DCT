@@ -1,26 +1,33 @@
-*{
-  color: white;/*全局字体颜色*/
+* {
+  color: white;
+  /*全局字体颜色*/
   margin: 0;
   padding: 0;
 }
+
 @font-face {
   font-family: myfont;
   src: url(../font/方正粗圆.ttf),
-  url(../font/方正粗圆.eot),
-  url(../font/方正粗圆.woff),
-  url(../font/方正粗圆.svg);
+    url(../font/方正粗圆.eot),
+    url(../font/方正粗圆.woff),
+    url(../font/方正粗圆.svg);
 }
-@media screen and (min-width: 730px){
-  *{
-    color: black;/*全局字体颜色*/
+
+@media screen and (min-width: 730px) {
+  * {
+    color: black;
+    /*全局字体颜色*/
   }
-  .WeaponValue{
+
+  .WeaponValue {
     padding-bottom: 10px;
   }
-  body{
+
+  body {
     background-color: rgb(240, 240, 240);
   }
-  .title{
+
+  .title {
     text-align: center;
     color: rgb(255, 144, 40);
     font-family: myfont;
@@ -28,18 +35,20 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
-  .bodyGui{
+
+  .bodyGui {
     margin-bottom: 60px;
     margin-top: 30px;
     position: relative;
     vertical-align: top;
   }
-  .all{
+
+  .all {
     border-right: 3px solid orange;
     border-radius: 0 5px 5px 0;
     display: inline-block;
     width: 55%;
-    background-color:rgba(255, 166, 0, 0.05);
+    background-color: rgba(255, 166, 0, 0.05);
     padding: 1%;
     border-bottom: 3px solid orange;
     border-top: 3px solid orange;
@@ -47,15 +56,18 @@
     position: relative;
     right: 37.5%;
   }
-  .first{
+
+  .first {
     text-align: center;
     font-size: 0;
   }
-  .first p{
+
+  .first p {
     font-size: 18px;
     margin-top: 10px;
   }
-  .first input{
+
+  .first input {
     margin-top: 5px;
     border-bottom: 1px solid rgba(255, 166, 0, 1);
     border-top: 0px;
@@ -69,11 +81,13 @@
     color: black;
     outline: none;
   }
-  .first p{
+
+  .first p {
     display: inline-block;
     font-family: 'myfont';
   }
-  #checkboxinput{
+
+  #checkboxinput {
     background-color: rgba(255, 166, 0, 0.05);
     text-align: center;
     border-radius: 2px;
@@ -86,10 +100,12 @@
     width: 70px;
     outline: none;
   }
-  .Checkbox{
+
+  .Checkbox {
     margin-top: 40px;
   }
-  .Checkbox h2{
+
+  .Checkbox h2 {
     box-sizing: border-box;
     text-align: center;
     background: rgba(255, 166, 0, 0.05);
@@ -98,36 +114,41 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .Checkbox div >div{
+
+  .Checkbox div>div {
     display: inline-block;
-    width:270px;
+    width: 270px;
     line-height: 50px;
     padding-left: 67px;
     font-size: 18px;
   }
-  .Checkbox div div input{
+
+  .Checkbox div div input {
     width: 20px;
     height: 20px;
     vertical-align: middle;
     color: black;
   }
-  .TalentType{
+
+  .TalentType {
     text-align: center;
     margin-bottom: 10px;
   }
-  .TalentType a{
+
+  .TalentType a {
     border-left: 1px solid rgba(255, 166, 0, 1);
     border-right: 1px solid rgba(255, 166, 0, 1);
     font-family: 'myfont';
     display: inline-block;
     font-size: 20px;
     width: 14%;
-    background-color:rgba(255, 166, 0, 0.1);
+    background-color: rgba(255, 166, 0, 0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     user-select: none;
   }
-  .TalentTypeA{
+
+  .TalentTypeA {
     border-left: 1px solid rgba(255, 166, 0, 1);
     border-right: 1px solid rgba(255, 166, 0, 1);
     border-bottom: 5px solid rgba(255, 166, 0, 1);
@@ -135,40 +156,49 @@
     display: inline-block;
     font-size: 20px;
     width: 14%;
-    background-color:rgba(255, 166, 0, 0.1);
+    background-color: rgba(255, 166, 0, 0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     user-select: none;
-  }    
-  .TalentType a:hover{
+  }
+
+  .TalentType a:hover {
     background-color: rgba(0, 0, 0, 0);
   }
-  .firstbox{
+
+  .firstbox {
     font-family: 'myfont';
   }
-  .secondbox{
+
+  .secondbox {
     font-family: 'myfont';
   }
-  .thirdbox{
+
+  .thirdbox {
     font-family: 'myfont';
   }
-  .fourthbox{
+
+  .fourthbox {
     font-family: 'myfont';
   }
-  .fifthbox{
+
+  .fifthbox {
     font-family: 'myfont';
   }
-  .sixthbox{
+
+  .sixthbox {
     font-family: 'myfont';
   }
-  .seventhbox{
+
+  .seventhbox {
     font-family: 'myfont';
   }
-  .allcompute{
+
+  .allcompute {
     font-size: 11px;
     position: relative;
     left: 62.7%;
-    padding:0 1% 1%;
+    padding: 0 1% 1%;
     width: 35%;
     background-color: rgba(255, 166, 0, 0.05);
     border-left: 3px solid orange;
@@ -177,7 +207,8 @@
     border-radius: 5px 0 0 5px;
     display: inline-block;
   }
-  .allcomputebutton{
+
+  .allcomputebutton {
     border-radius: 0 5px 5px 0;
     border-left: 5px solid grey;
     background: rgba(255, 166, 0, 0.05);
@@ -188,7 +219,8 @@
     font-size: 18px;
     vertical-align: top;
   }
-  .allcomputebuttons{
+
+  .allcomputebuttons {
     border-radius: 0 5px 5px 0;
     border-left: 5px solid rgb(153, 255, 0);
     background: rgba(255, 166, 0, 0.05);
@@ -198,14 +230,15 @@
     font-family: 'myfont';
     font-size: 18px;
   }
-  .allcompute a{
+
+  .allcompute > a{
     display: block;
     width: 98.6%;
     text-align: center;
     padding: 5px;
     text-decoration: none;
     font-size: 30px;
-    background-color:rgba(255, 166, 0, 0.05) ;
+    background-color: rgba(255, 166, 0, 0.05);
     font-family: 'myfont';
     position: absolute;
     left: 0;
@@ -213,44 +246,37 @@
     border-radius: 5px 0 0 0;
     border-top: 3px solid orange;
   }
-  .allcomputeFive a{
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-    font-size: 30px;
-    background-color:white ;
-    font-family: 'myfont';
-    position: absolute;
-    left: 0;
-    border-bottom: 5px solid black;
-    border-radius: 5px 0 0 0;
-  }
-  .allcompute a:hover{
+
+
+  .allcompute > a:hover {
     color: black;
-    border-bottom:5px solid rgb(231, 150, 0);
+    border-bottom: 5px solid rgb(231, 150, 0);
     background-color: rgba(255, 166, 0, 0.2);
   }
-  .allcomputeFive a:hover{
+
+  .allcomputeFive a:hover {
     color: rgb(255, 255, 255);
-    border-bottom:5px solid white;
+    border-bottom: 5px solid white;
     background-color: rgb(0, 0, 0);
   }
-  .aspacing{
+
+  .aspacing {
     height: 50px;
   }
-  .star{
+
+  .star {
     text-decoration: none;
     color: black;
   }
-  .star:hover{
+
+  .star:hover {
     color: rgb(0, 196, 196);
   }
-  .tips{
+
+  .tips {
     font-family: 'myfont';
     font-size: 18px;
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     border-bottom: 5px solid orange;
     border-top: 5px solid orange;
@@ -259,33 +285,39 @@
     text-align: center;
     background-color: rgba(255, 166, 0, 0.05);
   }
-  .tips p{
+
+  .tips p {
     color: black;
   }
-  .End{
+
+  .End {
     background-color: rgba(255, 166, 0, 0.05);
     padding: 0.5%;
     position: relative;
     margin: 50px auto 0;
     border-top: 2px solid orange;
   }
-  .endk{
+
+  .endk {
     display: inline-block;
     margin: 0 0 0 1%;
   }
-  .endk span{
+
+  .endk span {
     font-size: 18px;
     color: black;
     font-family: 'myfont';
     display: inline-block;
     width: 200px;
   }
-  .endf{
+
+  .endf {
     display: inline-block;
     position: absolute;
     right: 1%;
   }
-  .endf p{
+
+  .endf p {
     font-family: 'myfont';
     font-size: 18px;
     text-align: right;
@@ -293,15 +325,23 @@
     color: black;
     margin: 0 0 0 0;
   }
-}
-@media screen and (max-width:730px){
-  *{
-    color: black;/*全局字体颜色*/
+
+  .floatCal {
+    display: none;
   }
-  body{
+}
+
+@media screen and (max-width:730px) {
+  * {
+    color: black;
+    /*全局字体颜色*/
+  }
+
+  body {
     background-color: rgb(240, 240, 240);
   }
-  .title{
+
+  .title {
     text-align: center;
     color: rgb(255, 144, 40);
     font-family: myfont;
@@ -309,30 +349,35 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
-  .bodyGui{
+
+  .bodyGui {
     margin-bottom: 200px;
     margin-top: 20px;
     position: relative;
   }
-  .all{
+
+  .all {
     box-sizing: border-box;
     border: 3px solid orange;
     border-radius: 5px;
     display: inline-block;
     width: 100%;
-    background-color:rgba(255, 166, 0, 0.05);
+    background-color: rgba(255, 166, 0, 0.05);
     padding: 1%;
   }
-  .first{
+
+  .first {
     text-align: center;
     font-size: 0;
   }
-  .first p{
+
+  .first p {
     font-size: 18px;
     margin-top: 10px;
     width: 45%;
   }
-  .first input{
+
+  .first input {
     width: 100%;
     margin-top: 5px;
     border-bottom: 1px solid rgba(255, 166, 0, 1);
@@ -347,11 +392,13 @@
     color: black;
     outline: none;
   }
-  .first p{
+
+  .first p {
     display: inline-block;
     font-family: 'myfont';
   }
-  #checkboxinput{
+
+  #checkboxinput {
     background-color: rgba(255, 166, 0, 0.05);
     text-align: center;
     border-radius: 2px;
@@ -364,10 +411,12 @@
     width: 70px;
     outline: none;
   }
-  .Checkbox{
+
+  .Checkbox {
     margin-top: 40px;
   }
-  .Checkbox h2{
+
+  .Checkbox h2 {
     font-size: 25px;
     box-sizing: border-box;
     text-align: center;
@@ -377,33 +426,37 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .Checkbox div >div{
+
+  .Checkbox div>div {
     display: inline-block;
     line-height: 50px;
     padding-left: 5%;
     font-size: 18px;
   }
-  .Checkbox div div input{
+
+  .Checkbox div div input {
     width: 20px;
     height: 20px;
     vertical-align: middle;
     color: black;
   }
-  .TalentType{
+
+  .TalentType {
     text-align: center;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     width: 100%;
   }
-  .TalentType a{
+
+  .TalentType a {
     text-align: center;
     border-left: 1px solid rgba(255, 166, 0, 1);
     border-right: 1px solid rgba(255, 166, 0, 1);
     font-family: 'myfont';
     font-size: 20px;
     width: 11%;
-    background-color:rgba(255, 166, 0, 0.1);
+    background-color: rgba(255, 166, 0, 0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     user-select: none;
@@ -414,7 +467,8 @@
     writing-mode: tb-rl;
     height: 20%;
   }
-  .TalentTypeA{
+
+  .TalentTypeA {
     text-align: center;
     border-left: 1px solid rgba(255, 166, 0, 1);
     border-right: 1px solid rgba(255, 166, 0, 1);
@@ -422,7 +476,7 @@
     font-family: 'myfont';
     font-size: 20px;
     width: 11%;
-    background-color:rgba(255, 166, 0, 0.1);
+    background-color: rgba(255, 166, 0, 0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     user-select: none;
@@ -433,35 +487,44 @@
     writing-mode: tb-rl;
     height: 20%;
     height: 20%;
-  }    
-  .TalentType a:hover{
+  }
+
+  .TalentType a:hover {
     background-color: rgba(0, 0, 0, 0);
   }
-  .firstbox{
+
+  .firstbox {
     font-family: 'myfont';
     display: inline-block;
   }
-  .secondbox{
+
+  .secondbox {
     font-family: 'myfont';
   }
-  .thirdbox{
+
+  .thirdbox {
     font-family: 'myfont';
   }
-  .fourthbox{
+
+  .fourthbox {
     font-family: 'myfont';
   }
-  .fifthbox{
+
+  .fifthbox {
     font-family: 'myfont';
   }
-  .sixthbox{
+
+  .sixthbox {
     font-family: 'myfont';
   }
-  .seventhbox{
+
+  .seventhbox {
     font-family: 'myfont';
   }
-  .allcompute{
+
+  .allcompute {
     font-size: 11px;
-    padding:0 1% 1%;
+    padding: 0 1% 1%;
     width: 100%;
     background-color: rgba(255, 166, 0, 0.05);
     border-left: 3px solid orange;
@@ -472,7 +535,8 @@
     box-sizing: border-box;
     margin-bottom: 20px;
   }
-  .allcomputebutton{
+
+  .allcomputebutton {
     border-radius: 0 5px 5px 0;
     border-left: 5px solid grey;
     background: rgba(255, 166, 0, 0.05);
@@ -482,7 +546,8 @@
     font-family: 'myfont';
     font-size: 18px;
   }
-  .allcomputebuttons{
+
+  .allcomputebuttons {
     border-radius: 0 5px 5px 0;
     border-left: 5px solid rgb(153, 255, 0);
     background: rgba(255, 166, 0, 0.05);
@@ -492,14 +557,15 @@
     font-family: 'myfont';
     font-size: 18px;
   }
-  .allcompute a{
+
+  .allcompute > a{
     display: block;
     width: 97.4%;
     text-align: center;
     padding: 5px;
     text-decoration: none;
     font-size: 30px;
-    background-color:rgba(255, 166, 0, 0.05) ;
+    background-color: rgba(255, 166, 0, 0.05);
     font-family: 'myfont';
     position: absolute;
     left: 0;
@@ -507,25 +573,30 @@
     border-radius: 5px 0 0 0;
     border-top: 3px solid orange;
   }
-  .allcompute a:hover{
+
+  .allcompute > a:hover {
     color: black;
-    border-bottom:5px solid rgb(231, 150, 0);
+    border-bottom: 5px solid rgb(231, 150, 0);
     background-color: rgba(255, 166, 0, 0.2);
   }
-  .aspacing{
+
+  .aspacing {
     height: 50px;
   }
-  .star{
+
+  .star {
     text-decoration: none;
     color: black;
   }
-  .star:hover{
+
+  .star:hover {
     color: rgb(0, 196, 196);
   }
-  .tips{
+
+  .tips {
     font-family: 'myfont';
     font-size: 18px;
-    width:100%;
+    width: 100%;
     margin: 0 auto;
     border-bottom: 5px solid orange;
     border-top: 5px solid orange;
@@ -534,29 +605,35 @@
     text-align: center;
     background-color: rgba(255, 166, 0, 0.05);
   }
-  .tips p{
+
+  .tips p {
     color: black;
   }
-  .End{
+
+  .End {
     display: none;
   }
-  .endk{
+
+  .endk {
     display: inline-block;
     margin: 0 0 0 1%;
   }
-  .endk span{
+
+  .endk span {
     font-size: 18px;
     color: black;
     font-family: 'myfont';
     display: inline-block;
     width: 200px;
   }
-  .endf{
+
+  .endf {
     display: inline-block;
     position: absolute;
     right: 1%;
   }
-  .endf p{
+
+  .endf p {
     font-family: 'myfont';
     font-size: 18px;
     text-align: right;
@@ -564,5 +641,56 @@
     color: black;
     margin: 0 0 0 0;
   }
-}
 
+  .floatCal {
+    background-color: rgb(242 232 216);
+    text-align: center;
+    border: 1px solid rgb(255 166 0);
+    width: 55px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px 0 0 4px;
+    position: fixed;
+    bottom: 25%;
+    right: -14%;
+    opacity: 0;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+  }
+
+  .floatCal a span {
+    font-family: 'myfont';
+    font-size: 20px;
+  }
+
+  .floatCal a {
+    z-index: 999;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  /* 下面这是动画 */
+  @keyframes ButtonAnit1 {
+    0% {
+      opacity: 0;
+      right: -14%;
+    }
+
+    100% {
+      opacity: 1;
+      right: 2%;
+    }
+  }
+
+  @keyframes ButtonAnit2 {
+    0% {
+      opacity: 1;
+      right: 2%;
+    }
+
+    100% {
+      opacity: 0;
+      right: -14%;
+    }
+  }
+}

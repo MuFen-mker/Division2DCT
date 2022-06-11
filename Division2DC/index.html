@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/vue.js" type="text/javascript"></script>
   <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
-  <!-- 强制浏览器缩放比例 -->
-  <script src="js/Scale.js" type="text/javascript"></script>
   <script src="js/element.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/element.css">
@@ -45,7 +43,7 @@
   </div>
   <div class="bodyGui" id="scllTo">
     <div id="Calculation" class="allcompute">
-      <a @click="culation" href="#" onclick="return false;">计算</a>
+      <a id="CulationButton" @click="culation" href="#" onclick="return false;">计算</a>
       <div class="aspacing"></div>
       <div class="usculation">
         <h1>全天赋武器伤加成:{{FULLWDJ | numberToCurrency}}</h1>
@@ -83,6 +81,11 @@
           <h2 v-if="TechnicianDismantlingTag">爆头:&nbsp;<span style="color: red;">{{ASumHOC | numberToCurrency}}</span></h2>
           <h2 v-if="TechnicianDismantlingTag">头部暴击:&nbsp;<span style="color: rgb(228, 122, 0);">{{ASumHBOC | numberToCurrency}}</span></h2>
         </div>
+      </div>
+      <div id="floatCal" class="floatCal">
+        <a @click="culation" href="#CulationButton">
+        <span>计算</span>
+      </a>
       </div>
     </div>
     <div class="all">
@@ -530,5 +533,8 @@
     </div>
   </div>
 </body>
+<!-- 强制浏览器缩放比例 -->
+<script src="js/Scale.js" type="text/javascript" async></script>
+<script src="js/floatCalOnscrol.js" type="text/javascript"></script>
 <script src="js/Tom Clancys The Division 2.js" type="text/javascript"></script>
 </html>
