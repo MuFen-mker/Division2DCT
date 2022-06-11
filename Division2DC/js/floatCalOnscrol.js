@@ -1,13 +1,23 @@
+var ButtonAnit2if = 0;
+var floatCalDisplay;
+var allComputeButtonOffsetToTop;
+var windowsWidth;
+var temp;
 document.onscroll = function(){
-  var floatCalDisplay = document.getElementById('floatCal');
-  var allComputeButtonOffsetToTop = $('#CulationButton').offset().top;
-  var windowsWidth = document.documentElement.clientWidth;
-  var temp = document.documentElement.scrollTop;
+  floatCalDisplay = document.getElementById('floatCal');
+  allComputeButtonOffsetToTop = $('#CulationButton').offset().top;
+  windowsWidth = document.documentElement.clientWidth;
+  temp = document.documentElement.scrollTop;
+  console.log(ButtonAnit2if);
   if (windowsWidth <= 730) {
       if (temp > allComputeButtonOffsetToTop) {
         floatCalDisplay.style['animation-name'] = 'ButtonAnit1';
+        ButtonAnit2if = 1;
       } else {
-        floatCalDisplay.style['animation-name'] = 'ButtonAnit2';
+        if (ButtonAnit2if == 1) {
+          ButtonAnit2if = 0;
+          floatCalDisplay.style['animation-name'] = 'ButtonAnit2';
+        }
       } 
   }
 }
