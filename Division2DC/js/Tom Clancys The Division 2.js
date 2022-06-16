@@ -1,22 +1,25 @@
-Vue.filter("numberToCurrency", function (value) {
+Vue.filter('numberToCurrency', function (value) {
   if (!value) return 0
   // 获取整数部分
   const intPart = Math.trunc(value)
   // 整数部分处理，增加,
-  const intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+  const intPartFormat = intPart
+    .toString()
+    .replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
   // 预定义小数部分
   let floatPart = ''
   // 将数值截取为小数部分和整数部分
   const valueArray = value.toString().split('.')
-  if (valueArray.length === 2) { // 有小数部分
+  if (valueArray.length === 2) {
+    // 有小数部分
     floatPart = valueArray[1].toString().slice(0, 2) // 取得小数部分
     return intPartFormat + '.' + floatPart
   }
   return intPartFormat + floatPart
-});
+})
 
 const root = new Vue({
-  data () {
+  data() {
     return {
       arms: 0,
       RedCore: 0,
@@ -33,238 +36,244 @@ const root = new Vue({
   },
   methods: {
     querySearch(queryString, cb) {
-      var restaurants = this.restaurants;
-      var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+      var restaurants = this.restaurants
+      var results = queryString
+        ? restaurants.filter(this.createFilter(queryString))
+        : restaurants
       // 调用 callback 返回建议列表的数据
-      cb(results);
+      cb(results)
     },
     createFilter(queryString) {
       return (restaurant) => {
-        return (restaurant.WeaponName.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-      };
+        return (
+          restaurant.WeaponName.toLowerCase().indexOf(
+            queryString.toLowerCase()
+          ) === 0
+        )
+      }
     },
     loadAll() {
       return [
-        { "value": "342247", "WeaponName": "1886" },
-        { "value": "92613.5", "WeaponName": "ACR SS" },
-        { "value": "100135.5", "WeaponName": "LVOA-C" },
-        { "value": "75219", "WeaponName": "M16A2" },
-        { "value": "156079.5", "WeaponName": "M1A CQB" },
-        { "value": "104836.5", "WeaponName": "Resolute MK47" },
-        { "value": "97784.5", "WeaponName": "SIG 716" },
-        { "value": "99665", "WeaponName": "SIG 716 CQB" },
-        { "value": "105777", "WeaponName": "UIC15 MOD2" },
-        { "value": "98255", "WeaponName": "USC .45ACP" },
-        { "value": "116119.5", "WeaponName": "军规 MK17" },
-        { "value": "84621.5", "WeaponName": "冷酷无情" },
-        { "value": "205442", "WeaponName": "十三一打" },
-        { "value": "104836.5", "WeaponName": "和谐" },
-        { "value": "329084", "WeaponName": "响尾蛇" },
-        { "value": "97784.5", "WeaponName": "城镇 MDR" },
-        { "value": "84621.5", "WeaponName": "无情" },
-        { "value": "116119.5", "WeaponName": "永恒凝视" },
-        { "value": "100135.5", "WeaponName": "涌动" },
-        { "value": "141036", "WeaponName": "特战 M1A" },
-        { "value": "205442", "WeaponName": "经典 M1A" },
-        { "value": "342247", "WeaponName": "维吉尼亚州人" },
-        { "value": "99665", "WeaponName": "艺术家工具" },
-        { "value": "116119.5", "WeaponName": "警用 MK17" },
-        { "value": "103896.5", "WeaponName": "轻型 M4" },
-        { "value": "122231", "WeaponName": "饥饿之人" },
-        { "value": "53123.5", "WeaponName": "ACR" },
-        { "value": "53123.5", "WeaponName": "ACR-E" },
-        { "value": "62055.5", "WeaponName": "AK-M" },
-        { "value": "51243", "WeaponName": "AUG A3-CQC" },
-        { "value": "41370.5", "WeaponName": "CTAR-21" },
-        { "value": "45131.5", "WeaponName": "F2000" },
-        { "value": "56884.5", "WeaponName": "FAL" },
-        { "value": "56884.5", "WeaponName": "FAL SA-58" },
-        { "value": "56884.5", "WeaponName": "FAL SA-58 Para" },
-        { "value": "44191", "WeaponName": "FAMAS 2010" },
-        { "value": "48892", "WeaponName": "G36 C" },
-        { "value": "55004", "WeaponName": "MK16" },
-        { "value": "51713", "WeaponName": "PDR" },
-        { "value": "50772.5", "WeaponName": "SIG 556" },
-        { "value": "58765", "WeaponName": "TKB-408" },
-        { "value": "47012", "WeaponName": "七号卡宾枪" },
-        { "value": "60645", "WeaponName": "兴奋狂躁" },
-        { "value": "48892", "WeaponName": "军用 G36" },
-        { "value": "60645", "WeaponName": "军规 AK-M" },
-        { "value": "47952", "WeaponName": "军规 P416" },
-        { "value": "41370.5", "WeaponName": "劈柴者" },
-        { "value": "48892", "WeaponName": "加强版 G36" },
-        { "value": "39960", "WeaponName": "变色龙" },
-        { "value": "51243", "WeaponName": "大角突击步枪" },
-        { "value": "47952", "WeaponName": "定制 P416 G3" },
-        { "value": "58765", "WeaponName": "废王者" },
-        { "value": "55004", "WeaponName": "战术 MK16" },
-        { "value": "45131.5", "WeaponName": "护盾破坏者" },
-        { "value": "50772.5", "WeaponName": "机械动物" },
-        { "value": "51713", "WeaponName": "测试对象" },
-        { "value": "44191", "WeaponName": "燃烧殆尽" },
-        { "value": "55004", "WeaponName": "特战 MK16" },
-        { "value": "47952", "WeaponName": "狂野狼人" },
-        { "value": "51713", "WeaponName": "电容突击" },
-        { "value": "44191", "WeaponName": "纵火狂" },
-        { "value": "47952", "WeaponName": "荣耀迷惑" },
-        { "value": "47952", "WeaponName": "蜜獾" },
-        { "value": "44191", "WeaponName": "警用 M4" },
-        { "value": "51243", "WeaponName": "隐形之手" },
-        { "value": "51713", "WeaponName": "驯鹰人" },
-        { "value": "60645", "WeaponName": "黑市 AK-M" },
-        { "value": "399602", "WeaponName": "Ekim 长棍" },
-        { "value": "146677", "WeaponName": "G28" },
-        { "value": "376096", "WeaponName": "M700 战术" },
-        { "value": "376096", "WeaponName": "M700 碳纤维板" },
-        { "value": "399602", "WeaponName": "Model 700" },
-        { "value": "357291", "WeaponName": "SR-1" },
-        { "value": "338956.5", "WeaponName": "SRS A1" },
-        { "value": "159840.5", "WeaponName": "伞兵 SVD" },
-        { "value": "940240", "WeaponName": "复仇女神" },
-        { "value": "376096", "WeaponName": "定制 M44" },
-        { "value": "159840.5", "WeaponName": "库存 SVD" },
-        { "value": "159840.5", "WeaponName": "恐惧宣告" },
-        { "value": "324382.5", "WeaponName": "战术 .308" },
-        { "value": "324382.5", "WeaponName": "手术刀" },
-        { "value": "357291", "WeaponName": "指定打击" },
-        { "value": "338956.5", "WeaponName": "潜行 SRS" },
-        { "value": "143856.5", "WeaponName": "特战 MK20 SSR" },
-        { "value": "416056", "WeaponName": "猎枪 M44" },
-        { "value": "423108", "WeaponName": "白色死神" },
-        { "value": "159840.5", "WeaponName": "突击队" },
-        { "value": "423108", "WeaponName": "经典 M44 卡宾枪" },
-        { "value": "338956.5", "WeaponName": "螳螂" },
-        { "value": "338956.5", "WeaponName": "针刺" },
-        { "value": "357291", "WeaponName": "阿德蕾斯提雅" },
-        { "value": "143856.5", "WeaponName": "黑暗" },
-        { "value": "169240", "WeaponName": "ACS-12" },
-        { "value": "594228", "WeaponName": "KSG 霰弹枪" },
-        { "value": "695776", "WeaponName": "M870 高速" },
-        { "value": "364812", "WeaponName": "SASG-12" },
-        { "value": "451312", "WeaponName": "SIX12" },
-        { "value": "646884", "WeaponName": "SPAS-12" },
-        { "value": "440032", "WeaponName": "Super 90" },
-        { "value": "695776", "WeaponName": "军规 M870" },
-        { "value": "620555", "WeaponName": "双短管霰弹枪" },
-        { "value": "620556", "WeaponName": "双管猎枪" },
-        { "value": "620556", "WeaponName": "双管霰弹枪" },
-        { "value": "620555", "WeaponName": "后备猎枪" },
-        { "value": "451312", "WeaponName": "天蝎座" },
-        { "value": "695776", "WeaponName": "定制 M870 MCS" },
-        { "value": "695776", "WeaponName": "库耶列布希" },
-        { "value": "364812", "WeaponName": "战术 SASG-12K" },
-        { "value": "440032", "WeaponName": "战术 Super 90 SBS" },
-        { "value": "440032", "WeaponName": "打手" },
-        { "value": "451312", "WeaponName": "拖把" },
-        { "value": "169240", "WeaponName": "摇滚" },
-        { "value": "646884", "WeaponName": "摇篮曲" },
-        { "value": "364812", "WeaponName": "海啸" },
-        { "value": "440032", "WeaponName": "海陆 Super 90" },
-        { "value": "646884", "WeaponName": "美梦" },
-        { "value": "594228", "WeaponName": "送别" },
-        { "value": "364812", "WeaponName": "黑市 SASG-12 S" },
-        { "value": "57824.5", "WeaponName": "AUG A3 Para XS" },
-        { "value": "50302.5", "WeaponName": "CMMG Banshee	" },
-        { "value": "70518", "WeaponName": "M1928" },
-        { "value": "51713", "WeaponName": "MP5 ST" },
-        { "value": "51713", "WeaponName": "MP5-N" },
-        { "value": "51713", "WeaponName": "MP5A2" },
-        { "value": "47952", "WeaponName": "MP7" },
-        { "value": "48892", "WeaponName": "P90" },
-        { "value": "59705", "WeaponName": "PP-19" },
-        { "value": "53123.5	", "WeaponName": "SIG MPX" },
-        { "value": "65816.5", "WeaponName": "UMP45" },
-        { "value": "40430", "WeaponName": "Vector SBR .45 ACP" },
-        { "value": "37139", "WeaponName": "Vectot SBR 9mm" },
-        { "value": "47952", "WeaponName": "交换链" },
-        { "value": "53123.5", "WeaponName": "公寓" },
-        { "value": "59705", "WeaponName": "冰冷关系" },
-        { "value": "57824.5", "WeaponName": "加强版 AUG A3P" },
-        { "value": "59705", "WeaponName": "加强版 PP-19" },
-        { "value": "53123.5", "WeaponName": "安全距离" },
-        { "value": "50302.5", "WeaponName": "怨恨" },
-        { "value": "57824.5", "WeaponName": "战术 AUG A3P" },
-        { "value": "65816.5", "WeaponName": "战术 UMP-45" },
-        { "value": "42310.5", "WeaponName": "战术 Vector SBR 9mm	" },
-        { "value": "51713", "WeaponName": "改装 SMG-9" },
-        { "value": "49832.5", "WeaponName": "改装 SMG-9 A2" },
-        { "value": "40430", "WeaponName": "暗冬行动" },
-        { "value": "41370.5", "WeaponName": "死亡女神" },
-        { "value": "55474", "WeaponName": "汤米" },
-        { "value": "48892", "WeaponName": "艾米琳的护卫" },
-        { "value": "66757", "WeaponName": "警用 T821" },
-        { "value": "65816.5", "WeaponName": "警用 UMP-45" },
-        { "value": "42780.5", "WeaponName": "话匣子" },
-        { "value": "53123.5", "WeaponName": "逆火" },
-        { "value": "84621.5", "WeaponName": "雪橇弑手" },
-        { "value": "66757", "WeaponName": "黑市 T821" },
-        { "value": "39960", "WeaponName": "GR9" },
-        { "value": "37609.5", "WeaponName": "IWI NEGEV" },
-        { "value": "56414", "WeaponName": "M249 B" },
-        { "value": "44661", "WeaponName": "MG5" },
-        { "value": "59705", "WeaponName": "军规 L86 LSW" },
-        { "value": "61115.5", "WeaponName": "军规 M60 E4" },
-        { "value": "56414", "WeaponName": "军规 MK46" },
-        { "value": "55474", "WeaponName": "军规 RPK-74 M" },
-        { "value": "61115.5", "WeaponName": "好时光" },
-        { "value": "59705", "WeaponName": "定制 L86 A2" },
-        { "value": "55474", "WeaponName": "崭新牢靠" },
-        { "value": "56414", "WeaponName": "战术 M249 Para" },
-        { "value": "39960", "WeaponName": "挑战" },
-        { "value": "44661", "WeaponName": "斯莱普尼尔" },
-        { "value": "47952", "WeaponName": "斯通纳轻突击机枪" },
-        { "value": "47952", "WeaponName": "无声怒吼" },
-        { "value": "37609.5", "WeaponName": "枪弹王者" },
-        { "value": "47143.5", "WeaponName": "步兵 MG5" },
-        { "value": "37609.5", "WeaponName": "残暴屠杀" },
-        { "value": "56414", "WeaponName": "毒刺" },
-        { "value": "59705", "WeaponName": "白板" },
-        { "value": "63466", "WeaponName": "经典 M60" },
-        { "value": "55474", "WeaponName": "经典 RPK-74" },
-        { "value": "56414", "WeaponName": "蓝屏" },
-        { "value": "61115.5	", "WeaponName": "黑市 M60 E6" },
-        { "value": "55474", "WeaponName": "黑市 RPK-74 E" },
-        { "value": "56414", "WeaponName": "黑色星期五" },
-        { "value": "47012", "WeaponName": "鼠疫" },
-        { "value": "190398.5", "WeaponName": "586 麦格农" },
-        { "value": "32908", "WeaponName": "93R" },
-        { "value": "220956", "WeaponName": "D50" },
-        { "value": "109067.5", "WeaponName": "KARD-45" },
-        { "value": "101075.5", "WeaponName": "M1911" },
-        { "value": "98725", "WeaponName": "M45A1" },
-        { "value": "79920", "WeaponName": "Px4 Storm Type F" },
-        { "value": "79920", "WeaponName": "Px4 Storm Type T" },
-        { "value": "76629.5", "WeaponName": "X-45" },
-        { "value": "76629.5", "WeaponName": "X-45 战术" },
-        { "value": "109067.5", "WeaponName": "Kard 定制 TDI" },
-        { "value": "79920", "WeaponName": "军官的 M9 A1" },
-        { "value": "81800.5", "WeaponName": "军规 M9" },
-        { "value": "79920", "WeaponName": "定制 PF45" },
-        { "value": "98725", "WeaponName": "战术 M1911" },
-        { "value": "98725", "WeaponName": "特殊莫桑比克" },
-        { "value": "169243", "WeaponName": "犀牛左轮手枪" },
-        { "value": "282072", "WeaponName": "王子左轮手枪" },
-        { "value": "170183", "WeaponName": "短枪管犀牛" },
-        { "value": "82741", "WeaponName": "第一波 PF45" },
-        { "value": "235060", "WeaponName": "自由" },
-        { "value": "190398.5", "WeaponName": "警用 686 麦格农" },
-        { "value": "190398.5", "WeaponName": "轨道" },
-        { "value": "79920", "WeaponName": "避雷针" },
-      ];
+        { value: '342247', WeaponName: '1886' },
+        { value: '92613.5', WeaponName: 'ACR SS' },
+        { value: '100135.5', WeaponName: 'LVOA-C' },
+        { value: '75219', WeaponName: 'M16A2' },
+        { value: '156079.5', WeaponName: 'M1A CQB' },
+        { value: '104836.5', WeaponName: 'Resolute MK47' },
+        { value: '97784.5', WeaponName: 'SIG 716' },
+        { value: '99665', WeaponName: 'SIG 716 CQB' },
+        { value: '105777', WeaponName: 'UIC15 MOD2' },
+        { value: '98255', WeaponName: 'USC .45ACP' },
+        { value: '116119.5', WeaponName: '军规 MK17' },
+        { value: '84621.5', WeaponName: '冷酷无情' },
+        { value: '205442', WeaponName: '十三一打' },
+        { value: '104836.5', WeaponName: '和谐' },
+        { value: '329084', WeaponName: '响尾蛇' },
+        { value: '97784.5', WeaponName: '城镇 MDR' },
+        { value: '84621.5', WeaponName: '无情' },
+        { value: '116119.5', WeaponName: '永恒凝视' },
+        { value: '100135.5', WeaponName: '涌动' },
+        { value: '141036', WeaponName: '特战 M1A' },
+        { value: '205442', WeaponName: '经典 M1A' },
+        { value: '342247', WeaponName: '维吉尼亚州人' },
+        { value: '99665', WeaponName: '艺术家工具' },
+        { value: '116119.5', WeaponName: '警用 MK17' },
+        { value: '103896.5', WeaponName: '轻型 M4' },
+        { value: '122231', WeaponName: '饥饿之人' },
+        { value: '53123.5', WeaponName: 'ACR' },
+        { value: '53123.5', WeaponName: 'ACR-E' },
+        { value: '62055.5', WeaponName: 'AK-M' },
+        { value: '51243', WeaponName: 'AUG A3-CQC' },
+        { value: '41370.5', WeaponName: 'CTAR-21' },
+        { value: '45131.5', WeaponName: 'F2000' },
+        { value: '56884.5', WeaponName: 'FAL' },
+        { value: '56884.5', WeaponName: 'FAL SA-58' },
+        { value: '56884.5', WeaponName: 'FAL SA-58 Para' },
+        { value: '44191', WeaponName: 'FAMAS 2010' },
+        { value: '48892', WeaponName: 'G36 C' },
+        { value: '55004', WeaponName: 'MK16' },
+        { value: '51713', WeaponName: 'PDR' },
+        { value: '50772.5', WeaponName: 'SIG 556' },
+        { value: '58765', WeaponName: 'TKB-408' },
+        { value: '47012', WeaponName: '七号卡宾枪' },
+        { value: '60645', WeaponName: '兴奋狂躁' },
+        { value: '48892', WeaponName: '军用 G36' },
+        { value: '60645', WeaponName: '军规 AK-M' },
+        { value: '47952', WeaponName: '军规 P416' },
+        { value: '41370.5', WeaponName: '劈柴者' },
+        { value: '48892', WeaponName: '加强版 G36' },
+        { value: '39960', WeaponName: '变色龙' },
+        { value: '51243', WeaponName: '大角突击步枪' },
+        { value: '47952', WeaponName: '定制 P416 G3' },
+        { value: '58765', WeaponName: '废王者' },
+        { value: '55004', WeaponName: '战术 MK16' },
+        { value: '45131.5', WeaponName: '护盾破坏者' },
+        { value: '50772.5', WeaponName: '机械动物' },
+        { value: '51713', WeaponName: '测试对象' },
+        { value: '44191', WeaponName: '燃烧殆尽' },
+        { value: '55004', WeaponName: '特战 MK16' },
+        { value: '47952', WeaponName: '狂野狼人' },
+        { value: '51713', WeaponName: '电容突击' },
+        { value: '44191', WeaponName: '纵火狂' },
+        { value: '47952', WeaponName: '荣耀迷惑' },
+        { value: '47952', WeaponName: '蜜獾' },
+        { value: '44191', WeaponName: '警用 M4' },
+        { value: '51243', WeaponName: '隐形之手' },
+        { value: '51713', WeaponName: '驯鹰人' },
+        { value: '60645', WeaponName: '黑市 AK-M' },
+        { value: '399602', WeaponName: 'Ekim 长棍' },
+        { value: '146677', WeaponName: 'G28' },
+        { value: '376096', WeaponName: 'M700 战术' },
+        { value: '376096', WeaponName: 'M700 碳纤维板' },
+        { value: '399602', WeaponName: 'Model 700' },
+        { value: '357291', WeaponName: 'SR-1' },
+        { value: '338956.5', WeaponName: 'SRS A1' },
+        { value: '159840.5', WeaponName: '伞兵 SVD' },
+        { value: '940240', WeaponName: '复仇女神' },
+        { value: '376096', WeaponName: '定制 M44' },
+        { value: '159840.5', WeaponName: '库存 SVD' },
+        { value: '159840.5', WeaponName: '恐惧宣告' },
+        { value: '324382.5', WeaponName: '战术 .308' },
+        { value: '324382.5', WeaponName: '手术刀' },
+        { value: '357291', WeaponName: '指定打击' },
+        { value: '338956.5', WeaponName: '潜行 SRS' },
+        { value: '143856.5', WeaponName: '特战 MK20 SSR' },
+        { value: '416056', WeaponName: '猎枪 M44' },
+        { value: '423108', WeaponName: '白色死神' },
+        { value: '159840.5', WeaponName: '突击队' },
+        { value: '423108', WeaponName: '经典 M44 卡宾枪' },
+        { value: '338956.5', WeaponName: '螳螂' },
+        { value: '338956.5', WeaponName: '针刺' },
+        { value: '357291', WeaponName: '阿德蕾斯提雅' },
+        { value: '143856.5', WeaponName: '黑暗' },
+        { value: '169240', WeaponName: 'ACS-12' },
+        { value: '594228', WeaponName: 'KSG 霰弹枪' },
+        { value: '695776', WeaponName: 'M870 高速' },
+        { value: '364812', WeaponName: 'SASG-12' },
+        { value: '451312', WeaponName: 'SIX12' },
+        { value: '646884', WeaponName: 'SPAS-12' },
+        { value: '440032', WeaponName: 'Super 90' },
+        { value: '695776', WeaponName: '军规 M870' },
+        { value: '620555', WeaponName: '双短管霰弹枪' },
+        { value: '620556', WeaponName: '双管猎枪' },
+        { value: '620556', WeaponName: '双管霰弹枪' },
+        { value: '620555', WeaponName: '后备猎枪' },
+        { value: '451312', WeaponName: '天蝎座' },
+        { value: '695776', WeaponName: '定制 M870 MCS' },
+        { value: '695776', WeaponName: '库耶列布希' },
+        { value: '364812', WeaponName: '战术 SASG-12K' },
+        { value: '440032', WeaponName: '战术 Super 90 SBS' },
+        { value: '440032', WeaponName: '打手' },
+        { value: '451312', WeaponName: '拖把' },
+        { value: '169240', WeaponName: '摇滚' },
+        { value: '646884', WeaponName: '摇篮曲' },
+        { value: '364812', WeaponName: '海啸' },
+        { value: '440032', WeaponName: '海陆 Super 90' },
+        { value: '646884', WeaponName: '美梦' },
+        { value: '594228', WeaponName: '送别' },
+        { value: '364812', WeaponName: '黑市 SASG-12 S' },
+        { value: '57824.5', WeaponName: 'AUG A3 Para XS' },
+        { value: '50302.5', WeaponName: 'CMMG Banshee	' },
+        { value: '70518', WeaponName: 'M1928' },
+        { value: '51713', WeaponName: 'MP5 ST' },
+        { value: '51713', WeaponName: 'MP5-N' },
+        { value: '51713', WeaponName: 'MP5A2' },
+        { value: '47952', WeaponName: 'MP7' },
+        { value: '48892', WeaponName: 'P90' },
+        { value: '59705', WeaponName: 'PP-19' },
+        { value: '53123.5	', WeaponName: 'SIG MPX' },
+        { value: '65816.5', WeaponName: 'UMP45' },
+        { value: '40430', WeaponName: 'Vector SBR .45 ACP' },
+        { value: '37139', WeaponName: 'Vectot SBR 9mm' },
+        { value: '47952', WeaponName: '交换链' },
+        { value: '53123.5', WeaponName: '公寓' },
+        { value: '59705', WeaponName: '冰冷关系' },
+        { value: '57824.5', WeaponName: '加强版 AUG A3P' },
+        { value: '59705', WeaponName: '加强版 PP-19' },
+        { value: '53123.5', WeaponName: '安全距离' },
+        { value: '50302.5', WeaponName: '怨恨' },
+        { value: '57824.5', WeaponName: '战术 AUG A3P' },
+        { value: '65816.5', WeaponName: '战术 UMP-45' },
+        { value: '42310.5', WeaponName: '战术 Vector SBR 9mm	' },
+        { value: '51713', WeaponName: '改装 SMG-9' },
+        { value: '49832.5', WeaponName: '改装 SMG-9 A2' },
+        { value: '40430', WeaponName: '暗冬行动' },
+        { value: '41370.5', WeaponName: '死亡女神' },
+        { value: '55474', WeaponName: '汤米' },
+        { value: '48892', WeaponName: '艾米琳的护卫' },
+        { value: '66757', WeaponName: '警用 T821' },
+        { value: '65816.5', WeaponName: '警用 UMP-45' },
+        { value: '42780.5', WeaponName: '话匣子' },
+        { value: '53123.5', WeaponName: '逆火' },
+        { value: '84621.5', WeaponName: '雪橇弑手' },
+        { value: '66757', WeaponName: '黑市 T821' },
+        { value: '39960', WeaponName: 'GR9' },
+        { value: '37609.5', WeaponName: 'IWI NEGEV' },
+        { value: '56414', WeaponName: 'M249 B' },
+        { value: '44661', WeaponName: 'MG5' },
+        { value: '59705', WeaponName: '军规 L86 LSW' },
+        { value: '61115.5', WeaponName: '军规 M60 E4' },
+        { value: '56414', WeaponName: '军规 MK46' },
+        { value: '55474', WeaponName: '军规 RPK-74 M' },
+        { value: '61115.5', WeaponName: '好时光' },
+        { value: '59705', WeaponName: '定制 L86 A2' },
+        { value: '55474', WeaponName: '崭新牢靠' },
+        { value: '56414', WeaponName: '战术 M249 Para' },
+        { value: '39960', WeaponName: '挑战' },
+        { value: '44661', WeaponName: '斯莱普尼尔' },
+        { value: '47952', WeaponName: '斯通纳轻突击机枪' },
+        { value: '47952', WeaponName: '无声怒吼' },
+        { value: '37609.5', WeaponName: '枪弹王者' },
+        { value: '47143.5', WeaponName: '步兵 MG5' },
+        { value: '37609.5', WeaponName: '残暴屠杀' },
+        { value: '56414', WeaponName: '毒刺' },
+        { value: '59705', WeaponName: '白板' },
+        { value: '63466', WeaponName: '经典 M60' },
+        { value: '55474', WeaponName: '经典 RPK-74' },
+        { value: '56414', WeaponName: '蓝屏' },
+        { value: '61115.5	', WeaponName: '黑市 M60 E6' },
+        { value: '55474', WeaponName: '黑市 RPK-74 E' },
+        { value: '56414', WeaponName: '黑色星期五' },
+        { value: '47012', WeaponName: '鼠疫' },
+        { value: '190398.5', WeaponName: '586 麦格农' },
+        { value: '32908', WeaponName: '93R' },
+        { value: '220956', WeaponName: 'D50' },
+        { value: '109067.5', WeaponName: 'KARD-45' },
+        { value: '101075.5', WeaponName: 'M1911' },
+        { value: '98725', WeaponName: 'M45A1' },
+        { value: '79920', WeaponName: 'Px4 Storm Type F' },
+        { value: '79920', WeaponName: 'Px4 Storm Type T' },
+        { value: '76629.5', WeaponName: 'X-45' },
+        { value: '76629.5', WeaponName: 'X-45 战术' },
+        { value: '109067.5', WeaponName: 'Kard 定制 TDI' },
+        { value: '79920', WeaponName: '军官的 M9 A1' },
+        { value: '81800.5', WeaponName: '军规 M9' },
+        { value: '79920', WeaponName: '定制 PF45' },
+        { value: '98725', WeaponName: '战术 M1911' },
+        { value: '98725', WeaponName: '特殊莫桑比克' },
+        { value: '169243', WeaponName: '犀牛左轮手枪' },
+        { value: '282072', WeaponName: '王子左轮手枪' },
+        { value: '170183', WeaponName: '短枪管犀牛' },
+        { value: '82741', WeaponName: '第一波 PF45' },
+        { value: '235060', WeaponName: '自由' },
+        { value: '190398.5', WeaponName: '警用 686 麦格农' },
+        { value: '190398.5', WeaponName: '轨道' },
+        { value: '79920', WeaponName: '避雷针' },
+      ]
     },
   },
   mounted() {
-    this.restaurants = this.loadAll();
+    this.restaurants = this.loadAll()
   },
-  watch: {
-    HSD () {
-      Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(this.HSD) / 100)
-    }
-  }
+  // watch: {
+  //   HSD () {
+  //     Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(this.HSD) / 100)
+  //   }
+  // }
 })
 
 const Checkbox = new Vue({
-  data () {
+  data() {
     return {
       // 面包篮层数
       BreadbasketC: 3,
@@ -329,8 +338,8 @@ const Checkbox = new Vue({
         PInsanity: false,
         Mourn: false,
         Mourns: false,
-        InSync:false,
-        PInSync:false
+        InSync: false,
+        PInSync: false,
       },
       AddWDJ: {
         Chameleon: 90,
@@ -350,8 +359,8 @@ const Checkbox = new Vue({
         PInsanity: 22,
         Mourn: 30,
         Mourns: 30,
-        InSync:30,
-        PInSync:40
+        InSync: 30,
+        PInSync: 40,
       },
 
       //爆头伤
@@ -444,7 +453,7 @@ const Checkbox = new Vue({
         StrikersBattlegear: false,
         HeartTerminator: false,
         HunterRages: false,
-        HunterRage: false
+        HunterRage: false,
       },
       AddMD: {
         Opportunistic: 1.1,
@@ -475,7 +484,7 @@ const Checkbox = new Vue({
         StrikersBattlegear: Math.pow(1.005, 100),
         HeartTerminator: 2,
         HunterRages: 1.2,
-        HunterRage: Math.pow(1.05, 5)
+        HunterRage: Math.pow(1.05, 5),
       },
 
       // 独立伤
@@ -491,7 +500,7 @@ const Checkbox = new Vue({
         VersatileRF: false,
         VersatileAR: false,
         Intimidate: false,
-        PIntimidate: false
+        PIntimidate: false,
       },
       AddAmpWd: {
         FirewallStrikerShield: 1.11,
@@ -505,13 +514,13 @@ const Checkbox = new Vue({
         VersatileRF: 1.35,
         VersatileAR: 1.1,
         Intimidate: Math.pow(1.05, 7),
-        PIntimidate: Math.pow(1.05, 8)
+        PIntimidate: Math.pow(1.05, 8),
       },
       // 技师拆解
       TechnicianDismantling: false,
       TechnicianDismantlingAdd: 1.12,
 
-      HeadHunter: false,  //猎头
+      HeadHunter: false, //猎头
       HeadHunterAdd: 12.5,
 
       // 天赋选中切换
@@ -521,7 +530,7 @@ const Checkbox = new Vue({
       QTT: { TalentTypeA: false },
       ZBZ: { TalentTypeA: false },
       JNS: { TalentTypeA: false },
-      ZCS: { TalentTypeA: false }
+      ZCS: { TalentTypeA: false },
     }
   },
   methods: {
@@ -589,346 +598,345 @@ const Checkbox = new Vue({
       this.XJT.TalentTypeA = false
     },
 
-    ChHunterRages () {
+    ChHunterRages() {
       this.MD.HunterRages = !this.MD.HunterRages
     },
-    ChHunterRage () {
+    ChHunterRage() {
       this.MD.HunterRage = !this.MD.HunterRage
     },
-    ChInSync(){
+    ChInSync() {
       this.WDJ.InSync = !this.WDJ.InSync
     },
-    ChPInSync(){
+    ChPInSync() {
       this.WDJ.PInSync = !this.WDJ.PInSync
     },
-    ChMourns () {
+    ChMourns() {
       this.WDJ.Mourns = !this.WDJ.Mourns
     },
-    ChMourn () {
+    ChMourn() {
       this.WDJ.Mourn = !this.WDJ.Mourn
     },
-    ChAchillesPulse () {
+    ChAchillesPulse() {
       this.AmpWd.AchillesPulse = !this.AmpWd.AchillesPulse
     },
-    ChVersatile () {
+    ChVersatile() {
       this.AmpWd.Versatile = !this.AmpWd.Versatile
     },
-    ChVersatileRF () {
+    ChVersatileRF() {
       this.AmpWd.VersatileRF = !this.AmpWd.VersatileRF
     },
-    ChVersatileAR () {
+    ChVersatileAR() {
       this.AmpWd.VersatileAR = !this.AmpWd.VersatileAR
     },
-    ChFeelTheSameY () {
+    ChFeelTheSameY() {
       this.TWD.FeelTheSameY = !this.TWD.FeelTheSameY
     },
-    ChConcussionKill () {
+    ChConcussionKill() {
       this.TWD.ConcussionKill = !this.TWD.ConcussionKill
     },
-    ChBoomerang () {
+    ChBoomerang() {
       this.WDJ.Boomerang = !this.WDJ.Boomerang
     },
-    ChPBoomerang () {
+    ChPBoomerang() {
       this.WDJ.PBoomerang = !this.WDJ.PBoomerang
     },
-    ChBreadbasket () {
+    ChBreadbasket() {
       this.HI.Breadbasket = !this.HI.Breadbasket
     },
-    ChPBreadbasket () {
+    ChPBreadbasket() {
       this.HI.PBreadbasket = !this.HI.PBreadbasket
     },
-    ChFightHandToHandWith () {
+    ChFightHandToHandWith() {
       this.WDJ.FightHandToHandWith = !this.WDJ.FightHandToHandWith
     },
-    ChPFightHandToHandWith () {
+    ChPFightHandToHandWith() {
       this.WDJ.PFightHandToHandWith = !this.WDJ.PFightHandToHandWith
     },
-    ChGoBlind () {
+    ChGoBlind() {
       this.MD.GoBlind = !this.MD.GoBlind
     },
-    ChPGoBlind () {
+    ChPGoBlind() {
       this.MD.PGoBlind = !this.MD.PGoBlind
     },
-    ChInsane () {
+    ChInsane() {
       this.WDJ.Insane = !this.WDJ.Insane
     },
-    ChLight () {
+    ChLight() {
       this.MD.Light = !this.MD.Light
     },
-    ChPLight () {
+    ChPLight() {
       this.MD.PLight = !this.MD.PLight
     },
-    ChPCFirst () {
+    ChPCFirst() {
       this.WDJ.PCFirst = !this.WDJ.PCFirst
     },
-    ChPPCFirst () {
+    ChPPCFirst() {
       this.WDJ.PPCFirst = !this.WDJ.PPCFirst
     },
-    ChPCLast () {
+    ChPCLast() {
       this.TWD.PCLast = !this.TWD.PCLast
     },
-    ChPPCLast () {
+    ChPPCLast() {
       this.TWD.PPCLast = !this.TWD.PPCLast
     },
-    ChNaked () {
+    ChNaked() {
       this.HI.Naked = !this.HI.Naked
     },
-    ChOS () {
+    ChOS() {
       this.WDJ.OS = !this.WDJ.OS
     },
-    ChPOS () {
+    ChPOS() {
       this.WDJ.POS = !this.WDJ.POS
     },
-    ChTTM () {
+    ChTTM() {
       this.AmpWd.TTM = !this.AmpWd.TTM
     },
-    ChPTTM () {
+    ChPTTM() {
       this.AmpWd.PTTM = !this.AmpWd.PTTM
     },
-    ChFistToMeat () {
+    ChFistToMeat() {
       this.WDJ.FistToMeat = !this.WDJ.FistToMeat
     },
-    ChFullOfEnergy () {
+    ChFullOfEnergy() {
       this.AmpWd.FullOfEnergy = !this.AmpWd.FullOfEnergy
     },
-    ChPFullOfEnergy () {
+    ChPFullOfEnergy() {
       this.AmpWd.PFullOfEnergy = !this.AmpWd.PFullOfEnergy
     },
-    ChRanger () {
+    ChRanger() {
       this.MD.Ranger = !this.MD.Ranger
     },
-    ChRifleman () {
+    ChRifleman() {
       this.WDJ.Rifleman = !this.WDJ.Rifleman
     },
-    ChPRifleman () {
+    ChPRifleman() {
       this.WDJ.PRifleman = !this.WDJ.PRifleman
     },
-    ChToAbuse () {
+    ChToAbuse() {
       this.MD.ToAbuse = !this.MD.ToAbuse
     },
-    ChPToAbuse () {
+    ChPToAbuse() {
       this.MD.PToAbuse = !this.MD.PToAbuse
     },
-    ChInsanity () {
+    ChInsanity() {
       this.WDJ.Insanity = !this.WDJ.Insanity
     },
-    ChPInsanity () {
+    ChPInsanity() {
       this.WDJ.PInsanity = !this.WDJ.PInsanity
     },
-    ChAsystole () {
+    ChAsystole() {
       this.MD.Asystole = !this.MD.Asystole
     },
-    ChPAsystole () {
+    ChPAsystole() {
       this.MD.PAsystole = !this.MD.PAsystole
     },
-    ChFeelTheSame () {
+    ChFeelTheSame() {
       this.TWD.FeelTheSame = !this.TWD.FeelTheSame
     },
-    ChAbsorbed () {
+    ChAbsorbed() {
       this.TWD.Absorbed = !this.TWD.Absorbed
     },
-    ChPAbsorbed () {
+    ChPAbsorbed() {
       this.TWD.PAbsorbed = !this.TWD.PAbsorbed
     },
-    ChGlassCannon () {
+    ChGlassCannon() {
       this.MD.GlassCannon = !this.MD.GlassCannon
     },
-    ChPGlassCannon () {
+    ChPGlassCannon() {
       this.MD.PGlassCannon = !this.MD.PGlassCannon
     },
-    ChGunslinger () {
+    ChGunslinger() {
       this.TWD.Gunslinger = !this.TWD.Gunslinger
     },
-    ChIntimidate () {
+    ChIntimidate() {
       this.AmpWd.Intimidate = !this.AmpWd.Intimidate
     },
-    ChPIntimidate () {
+    ChPIntimidate() {
       this.AmpWd.PIntimidate = !this.AmpWd.PIntimidate
     },
-    ChOF () {
+    ChOF() {
       this.TWD.OF = !this.TWD.OF
     },
-    ChShelterCover () {
+    ChShelterCover() {
       this.TWD.ShelterCover = !this.TWD.ShelterCover
     },
-    ChSpark () {
+    ChSpark() {
       this.TWD.Spark = !this.TWD.Spark
     },
-    ChHeadHunter () {
+    ChHeadHunter() {
       this.HeadHunter = !this.HeadHunter
     },
-    ChScout () {
+    ChScout() {
       this.MD.Scout = !this.MD.Scout
     },
-    ChPScout () {
+    ChPScout() {
       this.MD.PScout = !this.MD.PScout
     },
-    ChCompanion () {
+    ChCompanion() {
       this.TWD.Companion = !this.TWD.Companion
     },
-    ChComposure () {
+    ChComposure() {
       this.TWD.Composure = !this.TWD.Composure
     },
-    ChConcussion () {
+    ChConcussion() {
       this.TWD.Concussion = !this.TWD.Concussion
     },
-    ChOpportunistic () {
+    ChOpportunistic() {
       this.MD.Opportunistic = !this.MD.Opportunistic
     },
-    ChPOpportunistic () {
+    ChPOpportunistic() {
       this.MD.POpportunistic = !this.MD.POpportunistic
     },
-    ChUnstoppableForce () {
+    ChUnstoppableForce() {
       this.TWD.UnstoppableForce = !this.WDJ.UnstoppableForce
     },
-    ChVigilance () {
+    ChVigilance() {
       this.TWD.Vigilance = !this.TWD.Vigilance
     },
-    ChWicked () {
+    ChWicked() {
       this.TWD.Wicked = !this.TWD.Wicked
     },
-    ChSawyersKneepads () {
+    ChSawyersKneepads() {
       this.TWD.SawyersKneepads = !this.TWD.SawyersKneepads
     },
-    ChDodgeCityHolster () {
+    ChDodgeCityHolster() {
       this.WDJ.DodgeCityHolster = !this.WDJ.DodgeCityHolster
     },
-    ChBigHorn () {
+    ChBigHorn() {
       this.MD.BigHorn = !this.MD.BigHorn
     },
-    ChChameleon () {
+    ChChameleon() {
       this.WDJ.Chameleon = !this.WDJ.Chameleon
     },
-    ChLadyDeath () {
+    ChLadyDeath() {
       this.MD.LadyDeath = !this.MD.LadyDeath
     },
-    ChMerciless () {
+    ChMerciless() {
       this.MD.Merciless = !this.MD.Merciless
     },
-    ChScorpio () {
+    ChScorpio() {
       this.MD.Scorpio = !this.MD.Scorpio
     },
-    ChAcesEights () {
+    ChAcesEights() {
       this.MD.AcesEights = !this.MD.AcesEights
     },
-    ChOngoingDirective () {
+    ChOngoingDirective() {
       this.MD.OngoingDirective = !this.MD.OngoingDirective
     },
-    ChStrikersBattlegear () {
+    ChStrikersBattlegear() {
       this.MD.StrikersBattlegear = !this.MD.StrikersBattlegear
     },
-    ChTipOfTheSpear () {
+    ChTipOfTheSpear() {
       this.TWD.TipOfTheSpear = !this.TWD.TipOfTheSpear
     },
-    ChTruePatriot () {
+    ChTruePatriot() {
       this.MD.TruePatriot = !this.MD.TruePatriot
     },
-    ChFutureInitiative () {
+    ChFutureInitiative() {
       this.TWD.FutureInitiative = !this.TWD.FutureInitiative
     },
-    ChHeartTerminator () {
+    ChHeartTerminator() {
       this.MD.HeartTerminator = !this.MD.HeartTerminator
     },
-    ChScannerPulse () {
+    ChScannerPulse() {
       this.MD.ScannerPulse = !this.MD.ScannerPulse
     },
-    ChFirewallStrikerShield () {
+    ChFirewallStrikerShield() {
       this.AmpWd.FirewallStrikerShield = !this.AmpWd.FirewallStrikerShield
     },
-    ChDemolitionistTacticalLink () {
+    ChDemolitionistTacticalLink() {
       this.MD.DemolitionistTacticalLink = !this.MD.DemolitionistTacticalLink
     },
-    ChFirewallTacticalLink () {
+    ChFirewallTacticalLink() {
       this.AmpWd.FirewallTacticalLink = !this.AmpWd.FirewallTacticalLink
     },
-    ChSharpshooterTacticalLink () {
+    ChSharpshooterTacticalLink() {
       this.HI.SharpshooterTacticalLink = !this.HI.SharpshooterTacticalLink
     },
-    ChSurvivalistTacticalLink () {
+    ChSurvivalistTacticalLink() {
       this.MD.SurvivalistTacticalLink = !this.MD.SurvivalistTacticalLink
     },
-    ChTechnicianDismantling () {
+    ChTechnicianDismantling() {
       this.TechnicianDismantling = !this.TechnicianDismantling
-    }
+    },
   },
   watch: {
-    HunterRageC () {
+    HunterRageC() {
       this.AddMD.HunterRage = Math.pow(1.05, this.HunterRageC)
     },
-    HeartTerminatorC () {
-      this.AddMD.HeartTerminator = 1 + (1 * Number(this.HeartTerminatorC)/100)
+    HeartTerminatorC() {
+      this.AddMD.HeartTerminator = 1 + (1 * Number(this.HeartTerminatorC)) / 100
     },
-    MournC () {
+    MournC() {
       this.AddWDJ.Mourn = 1 * this.MournC
     },
-    MournsC () {
+    MournsC() {
       this.AddWDJ.Mourns = 5 * this.MournsC
     },
-    BreadbasketC () {
+    BreadbasketC() {
       this.AddHI.Breadbasket = 35 * this.BreadbasketC
     },
-    PBreadbasketC () {
+    PBreadbasketC() {
       this.AddHI.PBreadbasket = 50 * this.PBreadbasketC
     },
-    OSC () {
+    OSC() {
       this.AddWDJ.OS = 3 * this.OSC
     },
-    POSC () {
+    POSC() {
       this.AddWDJ.POS = 4 * this.POSC
     },
-    TTMC () {
-      this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC) / 100)
+    TTMC() {
+      this.AddAmpWd.TTM = 1 + (10 * Number(this.TTMC)) / 100
     },
-    PTTMC () {
-      this.AddAmpWd.PTTM = 1 + (12 * Number(this.PTTMC) / 100)
+    PTTMC() {
+      this.AddAmpWd.PTTM = 1 + (12 * Number(this.PTTMC)) / 100
     },
-    FullOfEnergyC () {
-      this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC) / 100)
+    FullOfEnergyC() {
+      this.AddAmpWd.FullOfEnergy = 1 + (1 * Number(this.FullOfEnergyC)) / 100
     },
-    PFullOfEnergyC () {
-      this.AddAmpWd.PFullOfEnergy = 1 + (5 * Number(this.PFullOfEnergyC) / 100)
+    PFullOfEnergyC() {
+      this.AddAmpWd.PFullOfEnergy = 1 + (5 * Number(this.PFullOfEnergyC)) / 100
     },
-    RangerC () {
-      this.AddMD.Ranger = 1 + (2 * Number(this.RangerC) / 100)
+    RangerC() {
+      this.AddMD.Ranger = 1 + (2 * Number(this.RangerC)) / 100
     },
-    RiflemanC () {
+    RiflemanC() {
       this.AddWDJ.Rifleman = 10 * this.RiflemanC
     },
-    PRiflemanC () {
+    PRiflemanC() {
       this.AddWDJ.PRifleman = 11 * this.PRiflemanC
     },
-    AbsorbedC () {
+    AbsorbedC() {
       this.AddTWD.Absorbed = 5 * this.AbsorbedC
     },
-    PAbsorbedC () {
+    PAbsorbedC() {
       this.AddTWD.PAbsorbed = 6 * this.PAbsorbedC
     },
-    IntimidateC () {
+    IntimidateC() {
       this.AddAmpWd.Intimidate = Math.pow(1.05, this.IntimidateC)
     },
-    PIntimidateC () {
+    PIntimidateC() {
       this.AddAmpWd.PIntimidate = Math.pow(1.05, this.PIntimidateC)
     },
-    OFC () {
+    OFC() {
       this.AddTWD.OF = 1 * this.OFC
     },
-    UnstoppableForceC () {
+    UnstoppableForceC() {
       this.AddTWD.UnstoppableForce = 5 * this.UnstoppableForceC
     },
-    SawyersKneepadsC () {
+    SawyersKneepadsC() {
       this.AddTWD.SawyersKneepads = 3 * this.SawyersKneepadsC
     },
-    DodgeCityHolsterC () {
+    DodgeCityHolsterC() {
       this.AddWDJ.DodgeCityHolster = 10 * this.DodgeCityHolsterC
     },
-    StrikersBattlegearC () {
+    StrikersBattlegearC() {
       this.AddMD.StrikersBattlegear = Math.pow(1.005, this.StrikersBattlegearC)
     },
-  }
+  },
 })
 const Calculation = new Vue({
-
-  data () {
+  data() {
     return {
       FULLWDJ: 0,
       FULLTWD: 0,
@@ -972,29 +980,29 @@ const Calculation = new Vue({
 
       // 简洁与详细切换
       concise: true,
-      detailed: false
+      detailed: false,
     }
   },
   methods: {
-    CNV () {
+    CNV() {
       this.concise = !this.concise
       this.detailed = !this.detailed
     },
-    culation () {
-      let WDJARR = [];
-      let AddWDJARR = [];
+    culation() {
+      let WDJARR = []
+      let AddWDJARR = []
 
-      let TWDARR = [];
-      let AddTWDARR = [];
+      let TWDARR = []
+      let AddTWDARR = []
 
-      let HIARR = [];
-      let AddHIARR = [];
+      let HIARR = []
+      let AddHIARR = []
 
-      let MDARR = [];
-      let AddMDARR = [];
+      let MDARR = []
+      let AddMDARR = []
 
-      let AmpWdARR = [];
-      let AddAmpWdARR = [];
+      let AmpWdARR = []
+      let AddAmpWdARR = []
 
       // 初始化
       this.Sum = 0
@@ -1018,9 +1026,7 @@ const Calculation = new Vue({
       this.FULLWDJ = 0
       this.TDL = 0
       this.TDLB = 0
-      this.TDLdq = 0,
-        this.TDLdqB = 0,
-        this.CONHSum = 0
+      ;(this.TDLdq = 0), (this.TDLdqB = 0), (this.CONHSum = 0)
       this.CONASum = 0
       this.CONHSumB = 0
       this.CONASumB = 0
@@ -1032,9 +1038,6 @@ const Calculation = new Vue({
       this.HeadHunterDs = 0
       this.TechnicianDismantlingTag = true
       this.HSUMNAME = '对生命值目标伤害'
-
-      // 计算阿基里斯
-      Checkbox.AddAmpWd.AchillesPulse = 1 + (Number(root.HSD) / 100)
 
       // 计算全部武器伤害
       Object.keys(Checkbox.WDJ).forEach((item) => {
@@ -1074,7 +1077,11 @@ const Calculation = new Vue({
           this.FULLHI = this.FULLHI + AddHIARR[i]
         }
       }
-      this.Sum = root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100))
+      // 计算阿基里斯
+      Checkbox.AddAmpWd.AchillesPulse = 1 + Number(this.FULLHI) / 100
+      this.Sum =
+        root.arms *
+        (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100))
 
       // 计算全部乘算伤害
       Object.keys(Checkbox.MD).forEach((item) => {
@@ -1090,49 +1097,135 @@ const Calculation = new Vue({
       }
       // 猎头奖励
       if (Checkbox.HeadHunter == true) {
-        this.HeadHunterDs = (root.arms * (1 + (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100)) * (1 + (this.FULLTWD / 100))) * Checkbox.HeadHunterAdd
+        this.HeadHunterDs =
+          root.arms *
+          (1 +
+            (root.RedCore / 100 + root.WeaponType / 100 + this.FULLWDJ / 100)) *
+          (1 + this.FULLTWD / 100) *
+          Checkbox.HeadHunterAdd
       }
 
       // 计算护甲与生命伤害
-      this.ASum = this.Sum * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSum = this.Sum * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASum = this.Sum * (1 + root.DTA / 100) * (1 + this.FULLTWD / 100)
+      this.HSum = this.Sum * (1 + root.DTH / 100) * (1 + this.FULLTWD / 100)
 
       // 掩体伤
-      this.ASumOC = this.Sum * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumOC = this.Sum * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumOC =
+        this.Sum *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumOC =
+        this.Sum *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 暴击伤害
-      this.ASumB = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumB = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumB =
+        this.Sum *
+        (1 + root.CHD / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumB =
+        this.Sum *
+        (1 + root.CHD / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 掩体暴击伤
-      this.ASumBOC = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumBOC = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumBOC =
+        this.Sum *
+        (1 + root.CHD / 100) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumBOC =
+        this.Sum *
+        (1 + root.CHD / 100) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 爆头伤害
-      this.ASumH = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumH = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumH =
+        this.Sum *
+        (1 + this.FULLHI / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumH =
+        this.Sum *
+        (1 + this.FULLHI / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 掩体爆头伤
-      this.ASumHOC = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumHOC = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumHOC =
+        this.Sum *
+        (1 + this.FULLHI / 100) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumHOC =
+        this.Sum *
+        (1 + this.FULLHI / 100) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 头部暴击
-      this.ASumHB = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumHB = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumHB =
+        this.Sum *
+        (1 + (root.CHD / 100 + this.FULLHI / 100)) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumHB =
+        this.Sum *
+        (1 + (root.CHD / 100 + this.FULLHI / 100)) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       //掩体头部暴击
-      this.ASumHBOC = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTA / 100)) * (1 + (this.FULLTWD / 100))
-      this.HSumHBOC = this.Sum * (1 + (root.CHD / 100 + this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (root.DTH / 100)) * (1 + (this.FULLTWD / 100))
+      this.ASumHBOC =
+        this.Sum *
+        (1 + (root.CHD / 100 + this.FULLHI / 100)) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTA / 100) *
+        (1 + this.FULLTWD / 100)
+      this.HSumHBOC =
+        this.Sum *
+        (1 + (root.CHD / 100 + this.FULLHI / 100)) *
+        (1 + root.DTOC / 100) *
+        (1 + root.DTH / 100) *
+        (1 + this.FULLTWD / 100)
 
       // 判断技师拆解是否开启
       if (Checkbox.TechnicianDismantling == true) {
         this.HSUMNAME = '对机械单位伤害'
         this.TechnicianDismantlingTag = false
-        this.TDL = this.Sum * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
-        this.TDLB = this.Sum * (1 + (root.CHD / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
-        this.TDLdq = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
-        this.TDLdqB = this.Sum * (1 + (this.FULLHI / 100)) * (1 + (root.DTOC / 100)) * (1 + (this.FULLTWD / 100)) * Checkbox.TechnicianDismantlingAdd
+        this.TDL =
+          this.Sum *
+          (1 + root.DTOC / 100) *
+          (1 + this.FULLTWD / 100) *
+          Checkbox.TechnicianDismantlingAdd
+        this.TDLB =
+          this.Sum *
+          (1 + root.CHD / 100) *
+          (1 + root.DTOC / 100) *
+          (1 + this.FULLTWD / 100) *
+          Checkbox.TechnicianDismantlingAdd
+        this.TDLdq =
+          this.Sum *
+          (1 + this.FULLHI / 100) *
+          (1 + root.DTOC / 100) *
+          (1 + this.FULLTWD / 100) *
+          Checkbox.TechnicianDismantlingAdd
+        this.TDLdqB =
+          this.Sum *
+          (1 + this.FULLHI / 100) *
+          (1 + root.DTOC / 100) *
+          (1 + this.FULLTWD / 100) *
+          Checkbox.TechnicianDismantlingAdd
       }
 
       //独立伤选取计算
@@ -1228,5 +1321,3 @@ const Calculation = new Vue({
 Calculation.$mount('#Calculation')
 Checkbox.$mount('#Checkbox')
 root.$mount('#root')
-
-

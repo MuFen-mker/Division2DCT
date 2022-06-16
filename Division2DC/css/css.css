@@ -233,7 +233,7 @@
     user-select: none;
   }
 
-  .allcompute > a{
+  .allcompute>a {
     display: block;
     width: 98.6%;
     text-align: center;
@@ -251,7 +251,7 @@
   }
 
 
-  .allcompute > a:hover {
+  .allcompute>a:hover {
     color: black;
     border-bottom: 5px solid rgb(231, 150, 0);
     background-color: rgba(255, 166, 0, 0.2);
@@ -562,7 +562,7 @@
     font-size: 18px;
   }
 
-  .allcompute > a{
+  .allcompute>a {
     display: block;
     width: 97.4%;
     text-align: center;
@@ -579,7 +579,7 @@
     user-select: none;
   }
 
-  .allcompute > a:hover {
+  .allcompute>a:hover {
     color: black;
     border-bottom: 5px solid rgb(231, 150, 0);
     background-color: rgba(255, 166, 0, 0.2);
