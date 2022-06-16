@@ -50,14 +50,6 @@ export default {
       setZoom = setZoom.toFixed(6) //四舍五入保留小数点后6位
       setZoom = parseFloat(setZoom) //去掉小数点后的0
       if (setZoom != document.body.style.zoom) {
-        console.log(
-          '系统乘浏览器的缩放比:' +
-            systemRatioNew +
-            ' 调整前zoom:' +
-            document.body.style.zoom +
-            ' 调整后zoom:' +
-            setZoom
-        )
         document.body.style.zoom = setZoom
       }
     }
@@ -94,7 +86,6 @@ export default {
 @font-face {
   font-family: 'myfont';
   src: url('./assets/方正粗圆.ttf'), url('./assets/方正粗圆.eot'),
-    url('./assets/方正粗圆.svg'), url('./assets/方正粗圆.woff'),
-    url('./assets/方正粗圆.woff2');
+    url('./assets/方正粗圆.woff'),url('./assets/方正粗圆.svg');
 }
 </style>

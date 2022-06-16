@@ -254,7 +254,6 @@ export default {
           }
         }
       }
-      console.log(this.ButtonAnit2if);
     },
 
     CNV() {
