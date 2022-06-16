@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import HeadFrame from './components/Head-Frame.vue';
-import BodyGui from './components/Body-Gui.vue';
-import BottomBar from './components/BottomBar.vue';
-import $ from 'jquery';
+import HeadFrame from './components/Head-Frame.vue'
+import BodyGui from './components/Body-Gui.vue'
+import BottomBar from './components/BottomBar.vue'
+import $ from 'jquery'
 
 export default {
   name: 'App',
   components: {
     HeadFrame,
     BodyGui,
-    BottomBar
+    BottomBar,
   },
   mounted() {
     $(function () {
@@ -36,44 +36,6 @@ export default {
     var defaultRatio = 1.0 //默认缩放比
     var fullScreenRatio = 1.0 //全屏缩放比
     var setZoom = defaultRatio / systemRatioNew //默认zoom
-
-    function toggleFullScreen(e) {
-      //全屏与取消全屏按钮事件
-
-      var el = e.srcElement || e.target //target兼容Firefox
-      if (
-        !document.fullscreenElement &&
-        !document.mozFullScreenElement &&
-        !document.webkitFullscreenElement
-      ) {
-        //进入全屏
-
-        isFullScreen = 1
-
-        if (document.documentElement.requestFullscreen) {
-          document.documentElement.requestFullscreen()
-        } else if (document.documentElement.mozRequestFullScreen) {
-          document.documentElement.mozRequestFullScreen()
-        } else if (document.documentElement.webkitRequestFullscreen) {
-          document.documentElement.webkitRequestFullscreen(
-            Element.ALLOW_KEYBOARD_INPUT
-          )
-        }
-      } else {
-        //退出全屏
-
-        isFullScreen = 0
-
-        if (document.cancelFullScreen) {
-          document.cancelFullScreen()
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen()
-        } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen()
-        }
-      }
-      autoZoom()
-    }
 
     //缩放
     function autoZoom() {
@@ -131,6 +93,8 @@ export default {
 
 @font-face {
   font-family: 'myfont';
-  src: url('assets/方正粗圆.ttf');
+  src: url('./assets/方正粗圆.ttf'), url('./assets/方正粗圆.eot'),
+    url('./assets/方正粗圆.svg'), url('./assets/方正粗圆.woff'),
+    url('./assets/方正粗圆.woff2');
 }
 </style>
