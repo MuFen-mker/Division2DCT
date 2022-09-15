@@ -5,6 +5,8 @@
 
 该计算器网站为广大全境封锁2玩家提供，方便各位玩家的配装需要，速通计算，快速算伤等需求。
 
+访问:[全境封锁2伤害计算器V2 By-MuFen](https://division2-dct.vercel.app/)
+
 ## 作者
 
 - [@MuFen-](https://github.com/MuFen-mker)
