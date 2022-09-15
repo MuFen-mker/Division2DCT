@@ -429,7 +429,7 @@
       </div>
       <div>
         <input @click="ChStrikersBattlegear" type="checkbox" />
-        <span>突袭者战斗装备</span>
+        <span>突袭者战斗装备(带包)</span>
         <input
           id="checkboxinput"
           v-show="MD.StrikersBattlegear"
@@ -726,7 +726,7 @@ export default {
         PToAbuse: 1.25,
         Asystole: 1.15,
         PAsystole: 1.2,
-        StrikersBattlegear: 2,
+        StrikersBattlegear: 3,
         HeartTerminator: 2,
         HunterRages: 1.2,
         HunterRage: Math.pow(1.05, 5),
