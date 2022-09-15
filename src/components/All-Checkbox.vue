@@ -554,7 +554,7 @@ export default {
       // 道奇层数
       DodgeCityHolsterC: 100,
       //突袭层数
-      StrikersBattlegearC: 100,
+      StrikersBattlegearC: 200,
       //芳心终结者层数
       HeartTerminatorC: 100,
       // 猎人怒火层数
@@ -726,7 +726,7 @@ export default {
         PToAbuse: 1.25,
         Asystole: 1.15,
         PAsystole: 1.2,
-        StrikersBattlegear: Math.pow(1.005, 100),
+        StrikersBattlegear: 2,
         HeartTerminator: 2,
         HunterRages: 1.2,
         HunterRage: Math.pow(1.05, 5),
@@ -1261,7 +1261,7 @@ export default {
       this.AddWDJ.DodgeCityHolster = 10 * this.DodgeCityHolsterC
     },
     StrikersBattlegearC() {
-      this.AddMD.StrikersBattlegear = Math.pow(1.005, this.StrikersBattlegearC)
+      this.AddMD.StrikersBattlegear = 1 + (1 * Number(this.StrikersBattlegearC)) / 100
     },
   },
 }
