@@ -114,7 +114,20 @@
         <input @click="ChInSync" type="checkbox" />
         <span>同步伤害(最大增益)</span>
       </div>
-
+      <div>
+        <input @click="ChInsane" type="checkbox" />
+        <span>疯狂(填写弹匣子弹数)</span>
+        <input
+          id="checkboxinput"
+          v-show="WDJ.Insane"
+          v-model="InsaneC"
+          type="text"
+        />
+      </div>
+      <div>
+        <input @click="ChConcentrateOnBreaking" type="checkbox" />
+        <span>集中击破</span>
+      </div>
       <h2>具名完美天赋</h2>
 
       <div>
@@ -201,6 +214,20 @@
           v-model="PFullOfEnergyC"
           type="text"
         />
+      </div>
+      <div>
+        <input @click="ChPInsane" type="checkbox" />
+        <span>完美疯狂(填写弹匣子弹数)</span>
+        <input
+          id="checkboxinput"
+          v-show="WDJ.PInsane"
+          v-model="PInsaneC"
+          type="text"
+        />
+      </div>
+      <div>
+        <input @click="ChPConcentrateOnBreaking" type="checkbox" />
+        <span>完美集中击破</span>
       </div>
     </div>
     <div v-show="XJT.TalentTypeA" class="secondbox">
@@ -416,6 +443,20 @@
           type="text"
         />
       </div>
+      <div>
+        <input @click="ChLittleBee" type="checkbox" />
+        <span>勤劳小蜜蜂</span>
+        <input
+          id="checkboxinput"
+          v-show="AmpWd.LittleBee"
+          v-model="LittleBeeC"
+          type="text"
+        />
+      </div>
+      <div>
+        <input @click="ChBloodyKnuckles" type="checkbox" />
+        <span>血染指节</span>
+      </div>
     </div>
     <div v-show="ZBZ.TalentTypeA" class="fifthbox">
       <!-- 装备组 -->
@@ -434,6 +475,16 @@
           id="checkboxinput"
           v-show="MD.StrikersBattlegear"
           v-model="StrikersBattlegearC"
+          type="text"
+        />
+      </div>
+      <div>
+        <input @click="ChStrikersBattlegearN" type="checkbox" />
+        <span>突袭者战斗装备(无背包)</span>
+        <input
+          id="checkboxinput"
+          v-show="MD.StrikersBattlegearN"
+          v-model="StrikersBattlegearNC"
           type="text"
         />
       </div>
@@ -486,7 +537,13 @@
       </div>
       <div>
         <input @click="ChFirewallStrikerShield" type="checkbox" />
-        <span>突袭者护盾(11%)</span>
+        <span>突袭者护盾(输入增伤值 %)</span>
+        <input
+          id="checkboxinput"
+          v-show="AmpWd.FirewallStrikerShield"
+          v-model="FirewallStrikerShieldC"
+          type="text"
+        />
       </div>
     </div>
     <div v-show="ZCS.TalentTypeA" class="seventhbox">
@@ -555,6 +612,8 @@ export default {
       DodgeCityHolsterC: 100,
       //突袭层数
       StrikersBattlegearC: 200,
+      //突袭N层数
+      StrikersBattlegearNC: 200,
       //芳心终结者层数
       HeartTerminatorC: 100,
       // 猎人怒火层数
@@ -563,6 +622,14 @@ export default {
       MournC: 30,
       // 追悼红核
       MournsC: 6,
+      //小蜜蜂层数
+      LittleBeeC: 10,
+      //疯狂层数
+      InsaneC: 10,
+      //完美疯狂层数
+      PInsaneC: 8,
+      //火墙增伤值
+      FirewallStrikerShieldC:0,
 
       // 武器伤
       WDJ: {
@@ -585,6 +652,8 @@ export default {
         Mourns: false,
         InSync: false,
         PInSync: false,
+        Insane: false,
+        PInsane: false,
       },
       AddWDJ: {
         Chameleon: 90,
@@ -606,6 +675,8 @@ export default {
         Mourns: 30,
         InSync: 30,
         PInSync: 40,
+        Insane: 3,
+        PInsane: 3,
       },
 
       //爆头伤
@@ -644,6 +715,7 @@ export default {
         FutureInitiative: false,
         PCLast: false,
         PPCLast: false,
+        BloodyKnuckles: false,
       },
       AddTWD: {
         Companion: 15,
@@ -666,6 +738,7 @@ export default {
         FutureInitiative: 25,
         PCLast: 30,
         PPCLast: 33,
+        BloodyKnuckles: 25,
       },
 
       // 乘算伤害
@@ -696,6 +769,7 @@ export default {
         Asystole: false,
         PAsystole: false,
         StrikersBattlegear: false,
+        StrikersBattlegearN: false,
         HeartTerminator: false,
         HunterRages: false,
         HunterRage: false,
@@ -727,6 +801,7 @@ export default {
         Asystole: 1.15,
         PAsystole: 1.2,
         StrikersBattlegear: 3,
+        StrikersBattlegearN: 2.3,
         HeartTerminator: 2,
         HunterRages: 1.2,
         HunterRage: Math.pow(1.05, 5),
@@ -746,9 +821,10 @@ export default {
         VersatileAR: false,
         Intimidate: false,
         PIntimidate: false,
+        LittleBee: false,
       },
       AddAmpWd: {
-        FirewallStrikerShield: 1.11,
+        FirewallStrikerShield: 1.1,
         FirewallTacticalLink: 1.1,
         TTM: 1.4,
         PTTM: 1.48,
@@ -760,10 +836,17 @@ export default {
         VersatileAR: 1.1,
         Intimidate: Math.pow(1.05, 7),
         PIntimidate: Math.pow(1.05, 8),
+        LittleBee: 3,
       },
       // 技师拆解
       TechnicianDismantling: false,
       TechnicianDismantlingAdd: 1.12,
+
+      //大小锤
+      ConcentrateOnBreaking:false,
+      ConcentrateOnBreakingAdd:1.3,
+      PConcentrateOnBreaking:false,
+      PConcentrateOnBreakingAdd:1.4,
 
       HeadHunter: false, //猎头
       HeadHunterAdd: 12.5,
@@ -902,9 +985,6 @@ export default {
     },
     ChPGoBlind() {
       this.MD.PGoBlind = !this.MD.PGoBlind
-    },
-    ChInsane() {
-      this.WDJ.Insane = !this.WDJ.Insane
     },
     ChLight() {
       this.MD.Light = !this.MD.Light
@@ -1071,6 +1151,9 @@ export default {
     ChStrikersBattlegear() {
       this.MD.StrikersBattlegear = !this.MD.StrikersBattlegear
     },
+    ChStrikersBattlegearN() {
+      this.MD.StrikersBattlegearN = !this.MD.StrikersBattlegearN
+    },
     ChTipOfTheSpear() {
       this.TWD.TipOfTheSpear = !this.TWD.TipOfTheSpear
     },
@@ -1104,12 +1187,38 @@ export default {
     ChTechnicianDismantling() {
       this.TechnicianDismantling = !this.TechnicianDismantling
     },
+    ChLittleBee() {
+      this.AmpWd.LittleBee = !this.AmpWd.LittleBee
+    },
+    ChBloodyKnuckles() {
+      this.TWD.BloodyKnuckles = !this.TWD.BloodyKnuckles
+    },
+    ChInsane() {
+      this.WDJ.Insane = !this.WDJ.Insane
+    },
+    ChPInsane() {
+      this.WDJ.PInsane = !this.WDJ.PInsane
+    },
+    ChConcentrateOnBreaking() {
+      this.ConcentrateOnBreaking = !this.ConcentrateOnBreaking
+    },
+    ChPConcentrateOnBreaking() {
+      this.PConcentrateOnBreaking = !this.PConcentrateOnBreaking
+    },
   },
   mounted() {
     // 组件挂载完成后默认发送一次值
-    PubSub.publish('takeTechnicianDismantlingAdd', this.TechnicianDismantlingAdd)
+    PubSub.publish(
+      'takeTechnicianDismantlingAdd',
+      this.TechnicianDismantlingAdd
+    )
     PubSub.publish('takeHeadHunterAdd', this.HeadHunterAdd)
+    PubSub.publish('takeConcentrateOnBreakingAdd', this.ConcentrateOnBreakingAdd)
+    PubSub.publish('takePConcentrateOnBreakingAdd', this.PConcentrateOnBreakingAdd)
     PubSub.publish('takeTechnicianDismantling', this.TechnicianDismantling)
+    PubSub.publish('takeTechnicianDismantlingAdd', this.TechnicianDismantlingAdd)
+    PubSub.publish('takeConcentrateOnBreaking', this.ConcentrateOnBreaking)
+    PubSub.publish('takePConcentrateOnBreaking', this.PConcentrateOnBreaking)
     PubSub.publish('takeHeadHunter', this.HeadHunter)
     PubSub.publish('takeAddAmpWd', this.AddAmpWd)
     PubSub.publish('takeAmpWd', this.AmpWd)
@@ -1125,6 +1234,12 @@ export default {
   watch: {
     TechnicianDismantling() {
       PubSub.publish('takeTechnicianDismantling', this.TechnicianDismantling)
+    },
+    ConcentrateOnBreaking() {
+      PubSub.publish('takeConcentrateOnBreaking', this.ConcentrateOnBreaking)
+    },
+    PConcentrateOnBreaking() {
+      PubSub.publish('takePConcentrateOnBreaking', this.PConcentrateOnBreaking)
     },
     HeadHunter() {
       PubSub.publish('takeHeadHunter', this.HeadHunter)
@@ -1261,8 +1376,22 @@ export default {
       this.AddWDJ.DodgeCityHolster = 10 * this.DodgeCityHolsterC
     },
     StrikersBattlegearC() {
-      this.AddMD.StrikersBattlegear = 1 + (1 * Number(this.StrikersBattlegearC)) / 100
+      this.AddMD.StrikersBattlegear =
+        1 + (1 * Number(this.StrikersBattlegearC)) / 100
     },
+    StrikersBattlegearNC() {
+      this.AddMD.StrikersBattlegearN =
+        1 + (0.65 * Number(this.StrikersBattlegearNC)) / 100
+    },
+    LittleBeeC() {
+      this.AmpWd.LittleBee = 1 + (20 * this.LittleBeeC) / 100
+    },
+    InsaneC() {
+      this.AddWDJ.Insane = Math.floor(this.InsaneC / 10) * 3
+    },
+    FirewallStrikerShieldC(){
+      this.AddAmpWd.FirewallStrikerShield = 1 + this.FirewallStrikerShieldC / 100
+    }
   },
 }
 </script>

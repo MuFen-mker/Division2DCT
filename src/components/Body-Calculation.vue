@@ -213,6 +213,10 @@ export default {
       acceptAddAmpWd: undefined,
       acceptTechnicianDismantling: undefined,
       acceptTechnicianDismantlingAdd: undefined,
+      acceptConcentrateOnBreaking: undefined,
+      acceptConcentrateOnBreakingAdd: undefined,
+      acceptPConcentrateOnBreaking: undefined,
+      acceptPConcentrateOnBreakingAdd: undefined,
       acceptHeadHunter: undefined,
       acceptHeadHunterAdd: undefined,
 
@@ -481,6 +485,30 @@ export default {
         (1 + this.acceptDTH / 100) *
         (1 + this.FULLTWD / 100)
 
+      //判断集中击破是否启用
+      if (this.acceptConcentrateOnBreaking == true) {
+        this.ASum = this.ASum * this.acceptConcentrateOnBreakingAdd
+        this.ASumB = this.ASumB * this.acceptConcentrateOnBreakingAdd
+        this.ASumH = this.ASumH * this.acceptConcentrateOnBreakingAdd
+        this.ASumHB = this.ASumHB * this.acceptConcentrateOnBreakingAdd
+        this.ASumOC = this.ASumOC * this.acceptConcentrateOnBreakingAdd
+        this.ASumBOC = this.ASumBOC * this.acceptConcentrateOnBreakingAdd
+        this.ASumHOC = this.ASumHOC * this.acceptConcentrateOnBreakingAdd
+        this.ASumHBOC = this.ASumHBOC * this.acceptConcentrateOnBreakingAdd
+      }
+
+      if (this.acceptPConcentrateOnBreaking == true) {
+        this.ASum = this.ASum * this.acceptPConcentrateOnBreakingAdd
+        this.ASumB = this.ASumB * this.acceptPConcentrateOnBreakingAdd
+        this.ASumH = this.ASumH * this.acceptPConcentrateOnBreakingAdd
+        this.ASumHB = this.ASumHB * this.acceptPConcentrateOnBreakingAdd
+        this.ASumOC = this.ASumOC * this.acceptPConcentrateOnBreakingAdd
+        this.ASumBOC = this.ASumBOC * this.acceptPConcentrateOnBreakingAdd
+        this.ASumHOC = this.ASumHOC * this.acceptPConcentrateOnBreakingAdd
+        this.ASumHBOC = this.ASumHBOC * this.acceptPConcentrateOnBreakingAdd
+      }
+
+
       // 判断技师拆解是否开启
       if (this.acceptTechnicianDismantling == true) {
         this.HSUMNAME = '对机械单位伤害'
@@ -496,18 +524,10 @@ export default {
           (1 + this.acceptDTOC / 100) *
           (1 + this.FULLTWD / 100) *
           this.acceptTechnicianDismantlingAdd
-        this.TDLdq =
-          this.Sum *
-          (1 + this.FULLHI / 100) *
-          (1 + this.acceptDTOC / 100) *
-          (1 + this.FULLTWD / 100) *
-          this.acceptTechnicianDismantlingAdd
-        this.TDLdqB =
-          this.Sum *
-          (1 + this.FULLHI / 100) *
-          (1 + this.acceptDTOC / 100) *
-          (1 + this.FULLTWD / 100) *
-          this.acceptTechnicianDismantlingAdd
+
+        this.HSumOC = this.TDL
+        this.HSumBOC = this.TDLB
+
       }
 
       //独立伤选取计算
@@ -613,6 +633,32 @@ export default {
       'takeTechnicianDismantlingAdd',
       (msgName, data) => {
         this.acceptTechnicianDismantlingAdd = data
+      }
+    )
+
+    this.PubTakeConcentrateOnBreaking = pubsub.subscribe(
+      'takeConcentrateOnBreaking',
+      (msgName, data) => {
+        this.acceptConcentrateOnBreaking = data
+      }
+    )
+    this.PubTakeConcentrateOnBreakingAdd = pubsub.subscribe(
+      'takeConcentrateOnBreakingAdd',
+      (msgName, data) => {
+        this.acceptConcentrateOnBreakingAdd = data
+      }
+    )
+
+    this.PubTakePConcentrateOnBreakingAdd = pubsub.subscribe(
+      'takePConcentrateOnBreakingAdd',
+      (msgName, data) => {
+        this.acceptPConcentrateOnBreakingAdd = data
+      }
+    )
+    this.PubTakePConcentrateOnBreaking = pubsub.subscribe(
+      'takePConcentrateOnBreaking',
+      (msgName, data) => {
+        this.acceptPConcentrateOnBreaking = data
       }
     )
 
